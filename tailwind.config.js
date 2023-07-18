@@ -6,6 +6,23 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    colors: {
+      'blue': '#1fb6ff',
+      'pink': '#ff49db',
+      'orange': '#ff7849',
+      'green': '#13ce66',
+      'gray-dark': '#273444',
+      'gray': '#8492a6',
+      "white":"rgb(255,255,255)",
+      'gray-light': '#d3dce6',
+      'site_blue_light':"#74B3CE",
+      "site_blue_grey":"#508991",
+      "site_blue_dark":"#172A3A",
+      "site_green_dark":"#004346",
+      "site_mint":"#09BC8A",
+      "black":"rgb(0,0,0)"
+
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
