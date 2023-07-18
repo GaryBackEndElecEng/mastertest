@@ -28,6 +28,7 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+          "gradient-footer":"linear-gradient(to bottom,var(--site-blue-light) 30%,#0020C2)",
       },
       boxShadow:{
         "big-white":"1px 1px 20px 1px white",
