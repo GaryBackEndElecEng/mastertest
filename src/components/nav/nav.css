@@ -1,0 +1,271 @@
+
+@property --angle-rotate{
+    syntax:"<angle>";
+    inherits:false;
+    initial-value:0deg;
+    }
+
+ main section ul.subNavLinks:hover >ul.prose{
+  display:flex;
+  position:absolute;
+  margin:auto;
+  top:2.5rem;
+  opacity:1;
+  width:100%;
+  background:white;
+  left:0%;
+  z-index:100;
+  transform:translateY(0%);
+  animation:dropdown 0.75s ease-in-out;
+}
+main section ul.subNavLinks> ul.prose{
+  display:none;
+  
+}
+@keyframes dropdown{
+    from {transform:translateY(-100%);opacity:0;}
+    to {transform:translateY(0%);opacity:1;}
+}
+/* --- logo regular----*/
+div.masterultils{
+    padding:1rem;
+    position:absolute;
+    top:10%;
+    left:20%;
+    
+}
+div.masterultils >h4{
+    font-size:180%;
+    color:transparent;
+    background-clip:text;
+    -webkit-background-clip:text;
+    background-image:linear-gradient(#172A3A,50%,white,#09BC8A);
+}
+/* --- logo regular----*/
+
+
+/* ------------ MEDIA SCREEN 920px-------------*/
+
+@media screen and (max-width:920px){
+/* top nav */
+nav.mainNav{
+    display:block;
+}
+/* THIS CLOSES MEMU AFTER CLICKED */
+.smallScreenClose{
+    display:none;
+}
+/* house all links */
+main.subMainNav{
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+justify-content:flex-start;
+position:relative;
+}
+main.subMainNav > section.logoContainer{
+    width:100%;
+    margin:auto;
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    
+}
+section.logoContainer > div.masterultils{
+    position:relative;
+    /* width:200%; */
+    margin:auto;
+    margin-right:22%;
+    z-index:100;
+    width:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    /* background:white; */
+    border-radius:5%;
+    border:4px solid black;
+    
+}
+main > section ul.subNavLinks{
+    display:block;
+}
+main section ul.subNavLinks:hover> ul.prose{
+    z-index:200;
+    display:block;
+    position:absolute;
+    margin:auto;
+    top:0.5rem;
+    min-width:max-content;
+    height:max-content;
+    background:white;
+    box-shadow:1px 1px 10px 2px black;
+    border-radius:5%;
+    transform:translateX(80%);
+    animation:growInHere 1s ease-in-out;
+    
+  }
+  @keyframes growInHere {
+    from {transform:translateX(0%) scale(0.5);}
+    to {transform:translateX(80%) scale(1);}
+  }
+main section ul.subNavLinks> ul.prose{
+    z-index:200;
+    display:none;
+    transform:translateX(-100%);
+    
+  }
+  main > section.mainLinkgroup ul.subNavLinks.close{
+    display:none;
+  }
+ 
+
+main.subMainNav>section.mainLinkgroup{
+    position:absolute;
+    opacity:0;
+    left:0;
+    top:90px;
+    z-index:100;
+    transform:translateX(-100%);
+    transition: all 0.75s ease-in-out;
+}
+main.subMainNav:hover >section.mainLinkgroup{
+    opacity:1;
+    transform:translateX(0%);
+    transition: all 0.75s ease-in-out;
+}
+main.subMainNav >section{
+    flex-basis:none;
+    margin:0;
+    width:30%;
+    
+}
+
+div.masterultils >h4{
+    color:blue;
+    background:white;
+    border-radius:inherit;
+}
+div.masterultils::before,div.masterultils::after{
+    display:block;
+    position:absolute;
+    content:"";
+    inset:-0.25rem;
+    z-index:-1;
+    width:inherit;
+    background: conic-gradient(
+        from 227deg,
+        #74B3CE,
+        #508991, 
+        #172A3A,
+        #004346, 
+        #09BC8A
+    );
+    border-radius:inherit;
+    animation: rotate 5s linear infinite;
+}
+@keyframes rotate {
+    from {
+        --angle-rotate:0deg;
+        background: conic-gradient(
+        from --angle-rotate,
+        #74B3CE, 0deg,
+        #508991, 10deg,
+        #172A3A, 60deg,
+        #004346, 90deg,
+        #09BC8A
+    );
+    opacity:0.5;
+    }
+    to {
+        --angle-rotate:360deg;
+        background: conic-gradient(
+        #74B3CE,
+        #508991, 200deg,
+        #172A3A, 260deg,
+        #004346, 320deg,
+        #09BC8A
+    );
+    opacity:1;
+    }
+}
+/*------ LOGO ------*/
+section.logoContainer > .image{
+    width:75px;
+    border-radius:50%;
+    opacity:0.75;
+    height:75px;
+    transition:all 0.75s ease-in-out;
+}
+main.subMainNav:hover > section.logoContainer > .image{
+    width:85px;
+     border-radius:50%;
+     opacity:1;
+    background-color:white;
+    transition:all 0.75s ease-in-out;
+}
+section.mainLinkgroup{
+    position:absolute;
+    opacity:0;
+    left:0;
+    top:90px;
+    z-index:200;
+    transform:translateX(-100%);
+    transition: all 0.75s ease-in-out;
+
+}
+div.subNavLinkgroup{
+    display:block;
+    box-shadow:1px 1px 10px 2px #508991;
+    width:fit-content;
+    
+}
+div.subNavLinkgroup >ul{
+    box-shadow:1px 1px 10px 2px #508991;
+    margin:5px auto;
+    background-color:#508991;
+}
+div.subNavLinkgroup >ul{
+    box-shadow:1px 1px 10px 2px #508991;
+    margin:5px auto;
+    background-color:#508991;
+}
+ section ul.subNavLinks >ul{
+    display:block;
+    position:relative;
+    opacity:1;
+}
+div.navLinkgroup{
+box-shadow:1px 1px 10px 2px white;
+width:100%;
+
+}
+ul.navLink,div.subNavLinkgroup ul > h3{
+    color:white;
+    width:fit-content;
+}
+
+
+}
+/* ------------ MEDIA SCREEN 920px-------------*/
+
+/* --- MEDIA SCREEN 400px----*/
+@media screen and (max-width:400px){
+    main.subMainNav > section.logoContainer{
+       
+    }
+    section.logoContainer > div.masterultils{
+       
+        
+    }
+    div.masterultils >h4{
+        position:relative;
+        left:0%;
+        text-align:center;
+        width:fit-content;
+        
+    }
+    /* div.masterultils::before,div.masterultils::after{
+        
+    } */
+}
