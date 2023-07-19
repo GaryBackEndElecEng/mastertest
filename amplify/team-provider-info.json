@@ -10,6 +10,17 @@
       "StackName": "amplify-mastertest-dev-111008",
       "StackId": "arn:aws:cloudformation:us-east-1:302619268814:stack/amplify-mastertest-dev-111008/5a4d0fb0-2646-11ee-a701-0a3dd97a6281",
       "AmplifyAppId": "d364eef91afkwz"
+    },
+    "categories": {
+      "function": {
+        "CustomerHandler": {
+          "deploymentBucketName": "amplify-mastertest-dev-111008-deployment",
+          "s3Key": "amplify-builds/CustomerHandler-4432797373776e705673-build.zip"
+        }
+      },
+      "api": {
+        "api8fcf946a": {}
+      }
     }
   }
 }
