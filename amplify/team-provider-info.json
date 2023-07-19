@@ -15,7 +15,7 @@
       "function": {
         "CustomerHandler": {
           "deploymentBucketName": "amplify-mastertest-dev-111008-deployment",
-          "s3Key": "amplify-builds/CustomerHandler-4432797373776e705673-build.zip"
+          "s3Key": "amplify-builds/CustomerHandler-6b36784d7a5638526348-build.zip"
         }
       },
       "api": {
