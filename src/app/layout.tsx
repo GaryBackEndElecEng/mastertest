@@ -6,6 +6,9 @@ import { Inter, Montserrat,Chela_One } from 'next/font/google';
 import Nav from '../components/nav/Nav';
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
+import Amplify from "aws-amplify";
+import awsExports from "../aws-exports";
+
 
 //font-family classes-Inter and montserrat Google Fonts
 const inter = Inter({ subsets: ['latin'],weight:["500"] })
