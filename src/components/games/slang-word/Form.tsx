@@ -21,7 +21,7 @@ const Form = ({setPhrase,phrase}:inputType) => {
     }
     // console.log("category in Form",category)
   return (
-    <Grid container className=" w-full mb-6 dark:bg-black dark:text-white" spacing={{xs:4,md:1}}>
+    <Grid container className=" w-full mb-6 dark:bg-black dark:text-white mt-3" spacing={{xs:4,md:1}}>
       <Grid item xs={12} md={2} className="mx-auto rounded-lg flex flex-col items-center justify-center">
         <Image src={slang} alt="www.masterconnect.ca" height={400} width={400}
         className="  inset-0 rounded-inherit"

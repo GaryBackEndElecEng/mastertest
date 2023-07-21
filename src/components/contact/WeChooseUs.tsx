@@ -84,7 +84,7 @@ const WeChooseUs = ({open}:weChooseType) => {
                 <div className="flex flex-col items-center justify-center">
                     {!(openContent.bool && openContent.index===index)  ?
                     <button onClick={(e)=>handleContent(e,index)}
-                    className="hover:shadow-site_blue_dark border border-blue bg-[whitesmoke] hover:bg-black px-6 rounded-3xl hover:text-white hover:tracking-widest transition-all px-4"
+                    className="hover:shadow-site_blue_dark border border-blue bg-[whitesmoke] hover:bg-black px-6 rounded-3xl hover:text-white hover:tracking-widest transition-all px-4 text-black"
                     
                     >
                         <KeyboardDoubleArrowUpIcon /> more

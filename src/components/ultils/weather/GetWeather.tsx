@@ -100,7 +100,7 @@ const GetWeather =  ({latLong}:{latLong:string | null}) => {
     
   return (
     <Container maxWidth="lg">
-        <div className="m-auto flex flex-col justify-center items-center">
+        <div className="m-auto flex flex-col justify-center items-center bg-[rgba(255,255,255,0.7)] text-black dark:bg-black dark:text-white">
         {results && !error ?
         <div className="lg:container lg:mx-auto flex flex-col items-center justify-center">
         <Grid container spacing={3} className="lg:container lg:mx-auto">

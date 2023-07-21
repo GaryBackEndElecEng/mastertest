@@ -26,9 +26,9 @@ const ApiDisplay = ({obj,query}:objType) => {
 
   },[]);
   return (
-    <div  className="container mx-auto" >
-        <div className={ show ? "webtoonDisplay flexCol bg-whitesmoke rounded-lg my-2 shadow-md shadow-indigo-500 flex-wrap gap-1 relative" :
-          "webtoonDisplay flexCol py-1 bg-whitesmoke rounded-lg my-2 shadow-md shadow-indigo-500 flex-wrap gap-1 relative"
+    <div  className="container mx-auto dark:bg-black dark:text-white bg-white text-black" >
+        <div className={ show ? "webtoonDisplay flexCol rounded-lg my-2 shadow-md shadow-indigo-500 flex-wrap gap-1 relative" :
+          "webtoonDisplay flexCol py-1 rounded-lg my-2 shadow-md shadow-indigo-500 flex-wrap gap-1 relative"
       }
         ref={webToonDisplayRef}
         >

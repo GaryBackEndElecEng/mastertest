@@ -41,7 +41,7 @@ const FetchApi = () => {
     return (
         
         <div  className="lg:container lg:mx-auto  lg:p-1 flex flex-col items-center justify-center dark:bg-black dark:text-white bg-white text-black ">
-            <h3 className="text-center text-xl p-1 my-2 font-bold">find a definition to a slang word</h3>
+            <h3 className="text-center text-xl p-2 my-2 font-bold">find a definition to a slang word</h3>
             <Form 
             phrase={phrase}
             setPhrase={setPhrase}

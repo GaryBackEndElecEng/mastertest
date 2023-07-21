@@ -50,6 +50,7 @@ div.masterultils >h4{
 /* top nav */
 nav.mainNav{
     display:block;
+    background:black;
 }
 /* THIS CLOSES MEMU AFTER CLICKED */
 .smallScreenClose{
@@ -89,11 +90,15 @@ section.logoContainer > div.masterultils{
 }
 main > section ul.subNavLinks{
     display:block;
+}  
+main section.mainLinkgroup ul.subNavLinks:hover> ul.prose{
+transform:none;
 }
-main section ul.subNavLinks:hover> ul.prose{
+  main section.mainLinkgroup ul.subNavLinks> ul.prose{
     z-index:200;
     display:block;
-    position:absolute;
+    /* position:absolute; */
+    position:relative;
     margin:auto;
     top:0.5rem;
     min-width:max-content;
@@ -101,8 +106,8 @@ main section ul.subNavLinks:hover> ul.prose{
     background:white;
     box-shadow:1px 1px 10px 2px black;
     border-radius:5%;
-    transform:translateX(80%);
-    animation:growInHere 1s ease-in-out;
+    transform:translateX(5%);
+    animation:none;
     
   }
   @keyframes growInHere {
@@ -218,6 +223,7 @@ div.subNavLinkgroup{
     display:block;
     box-shadow:1px 1px 10px 2px #508991;
     width:fit-content;
+    transform:translate(-20%);
     
 }
 div.subNavLinkgroup >ul{
@@ -240,6 +246,9 @@ box-shadow:1px 1px 10px 2px white;
 width:100%;
 
 }
+main section ul.subNavLinks{
+    transform:translateX(20%);  
+}
 ul.navLink,div.subNavLinkgroup ul > h3{
     color:white;
     width:fit-content;
@@ -251,18 +260,40 @@ ul.navLink,div.subNavLinkgroup ul > h3{
 
 /* --- MEDIA SCREEN 400px----*/
 @media screen and (max-width:400px){
-    main.subMainNav > section.logoContainer{
-       
+    /* main section ul.subNavLinks:hover{
+        transform:translateX(30%);  
+    } */
+    main section ul.subNavLinks{
+        transform:translateX(36%);  
     }
-    section.logoContainer > div.masterultils{
-       
+    main section.mainLinkgroup ul.subNavLinks> ul.prose{
+        z-index:200;
+        display:block;
+        /* position:absolute; */
+        position:relative;
+        margin:auto;
+        top:0.5rem;
+        min-width:max-content;
+        height:max-content;
+        background:white;
+        box-shadow:1px 1px 10px 2px black;
+        border-radius:5%;
+        transform:translateX(10%);
+        animation:none;
         
-    }
+      }
     div.masterultils >h4{
         position:relative;
         left:0%;
         text-align:center;
         width:fit-content;
+        
+    }
+    div.subNavLinkgroup{
+        display:block;
+        box-shadow:1px 1px 10px 2px #508991;
+        width:fit-content;
+        transform:translate(-35%);
         
     }
     /* div.masterultils::before,div.masterultils::after{

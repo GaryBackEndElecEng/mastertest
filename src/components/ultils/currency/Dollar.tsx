@@ -61,7 +61,7 @@ const Dollar = ({getKey,keyCmp}:mainTypes) => {
     },[getDollar]);
 
   return (
-    <div className="container mx-auto gap-2 my-2 mb-4">
+    <div className="container mx-auto gap-2 my-2 mb-4 dark:bg-black dark:text-white bg-[rgba(255,255,255,0.7)] text-black">
     <div className="card flex flex-col p-4 my-3 mx-1 justify-center items-center bg-inherit gap-3 bg-[hsla(200,95%,90%,.4)]">
         <h2 className="text-3ml text-center font-bold">$ Rates</h2> 
         <h3 className="text-3ml text-center font-bold">base $:{getKey.key.toUpperCase()}</h3> 

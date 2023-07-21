@@ -45,13 +45,13 @@ const Form = ({ contain, list, setContain, setShow }: containType) => {
     }
 
     return (
-        <div className="mx-auto container h-auto">
-            <form className="flex flex-col justify-center items-center my-8 " >
-                <FormControl className="mx-auto my-2">
+        <div className="mx-auto container h-auto bg-[rgba(255,255,255,0.7)] text-black dark:bg-black dark:text-white">
+            <form className="flex flex-col justify-center items-center my-8 bg-white text-black dark:bg-black dark:text-white my-2 p-2 rounded-lg " >
+                <FormControl className="mx-auto my-2 p-2 bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg">
                     <InputLabel shrink={true} htmlFor="list">Text to translate</InputLabel>
-                    <textarea className=" w-full  p-2" id="translate" name="text" value={text} rows={5} cols={100} onChange={(e) => setText(e.target.value)} />
+                    <textarea className=" w-full  p-2 text-black bg-white" id="translate" name="text" value={text} rows={5} cols={100} onChange={(e) => setText(e.target.value)} />
                 </FormControl>
-                <FormControl className="" sx={{margin:"4rem auto"}}>
+                <FormControl className=" p-2 text-black bg-white bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg" sx={{margin:"4rem auto"}}>
                     <InputLabel htmlFor="list">source</InputLabel>
                     <select
                         id="list"
@@ -60,6 +60,7 @@ const Form = ({ contain, list, setContain, setShow }: containType) => {
                         value={source}
                         onChange={(e) => setSource(e.target.value)}
                         placeholder="source"
+                        className="bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg"
                     >
                         {list.map((lang, index) => (
                             <option value={lang.value} key={`${lang}-${index}`}>{lang.name}</option>
@@ -67,7 +68,9 @@ const Form = ({ contain, list, setContain, setShow }: containType) => {
 
                     </select>
                 </FormControl>
-                <FormControl className="mx-auto mb-3"sx={{marginBottom:"3rem"}}>
+                <FormControl className="mx-auto mb-3 bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg" sx={{marginBottom:"3rem"}}
+                
+                >
                     <InputLabel htmlFor="list">to translate</InputLabel>
                     <select
                         id="list"
@@ -76,6 +79,7 @@ const Form = ({ contain, list, setContain, setShow }: containType) => {
                         value={target}
                         onChange={(e) => setTarget(e.target.value)}
                         placeholder="source"
+                        className="bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg"
                     >
                         {list.map((lang, index) => (
                             <option value={lang.value} key={`${lang}-${index}`}>{lang.name}</option>
@@ -83,7 +87,7 @@ const Form = ({ contain, list, setContain, setShow }: containType) => {
 
                     </select>
                 </FormControl>
-                <button className={(source && target) ? "button my-4" : "hidden"} onClick={(e) => handleSubmit(e)}>submit</button>
+                <button className={(source && target) ? "button my-4 bg-blue text-white shadow-lg shadow-blue" : "hidden"} onClick={(e) => handleSubmit(e)}>submit</button>
             </form>
         </div>
     )

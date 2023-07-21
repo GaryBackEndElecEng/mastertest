@@ -47,8 +47,8 @@ const CurrencyItem = ({obj,setPutKey,countryCode,setCurrItem}:inputType) => {
   return (
     <div 
     ref={buttonRef}
-    className={showButt ? "button flex flex-col justify-center items-center m-auto p-1 transition ease-in-out duration-600 cursor-pointer "
-    :"button-two flex flex-col justify-center items-center m-auto  "}  
+    className={showButt ? "button flex flex-col justify-center items-center m-auto p-1 transition ease-in-out duration-600 cursor-pointer bg-blue text-white "
+    :"button-two flex flex-col justify-center items-center m-auto text-white bg-black  "}  
     onClick={(e) => handleShowValue(e, obj)} 
     >
         <p className="text-center text-3ml text-teal-500">$ tag: {obj.ky}</p>

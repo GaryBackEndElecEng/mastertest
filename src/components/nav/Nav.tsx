@@ -53,7 +53,6 @@ const Nav = () => {
                     
                     <div className="masterultils absolute">
                      <h4 className=" text-lg p-1 m-auto">Masterultils</h4>
-                     
                      </div>
                 </section>
                 <section className={"mainLinkgroup basis-4/5 lg:block w-full "}>

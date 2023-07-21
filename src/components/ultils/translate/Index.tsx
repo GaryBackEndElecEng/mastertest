@@ -24,7 +24,7 @@ const Index = () => {
     const [getWidth, setGetWidth] = React.useState<number>(1400);
     const is900: boolean = getWidth < 920 ? true : false;
     const vertHorz: {} | undefined = is900 ? "" : { writingMode: "vertical-lr" };
-    const decoStyle: string = is900 ? "flex flex-col justify-center items-center" : "flex flex-row justify-center items-center";
+    const decoStyle: string = is900 ? "flex flex-col justify-center items-center" : "flex flex-row justify-center items-center gap-2";
 
     React.useEffect(() => {
         if (window.innerWidth) {
@@ -63,7 +63,7 @@ const Index = () => {
 
 
     return (
-        <Container maxWidth="lg" className=" translateContainer px-1 mt-10 flex flex-col items-center min-h-[100vh]">
+        <Container maxWidth="lg" className=" translateContainer px-1 mt-10 flex flex-col items-center min-h-[100vh] bg-white text-black dark:bg-black dark:text-white my-2 p-2 rounded-lg">
             <h1 className="text-5xl text-center mx-auto my-1 mb-2"> Translate page</h1>
             <div className="flex flex-row flex-wrap mx-auto justify-center items-center p-2 mx-3 gap-3 w-full lg:w-1/2  my-10 rounded-lg shadow-xl shadow-indigo-800">
 
@@ -77,7 +77,7 @@ const Index = () => {
             <div className="mx-auto container px-5 flex flex-col justify-center items-center my-1 min-h-[10vh] w-full">
                 {contain.loaded && <Translate phrase={contain.data.text} source={contain.data.source} target={contain.data.target} />}
             </div>
-            <Grid container spacing={{ xs: 3, sm: 2 }} className=" justify-center items-center ">
+            <Grid container spacing={{ xs: 3, sm: 2 }} className=" justify-center items-center p-2">
                 <Grid item xs={12} md={2}>
                     <div className={decoStyle}>
                         <p className="translate m-3 text-5xl" style={vertHorz}>TRANSLATE</p>

@@ -50,9 +50,9 @@ const CityButton = ({obj,setLatLong,countryCode,setCity}:setSelectLatLongType) =
   return (
     <button 
     ref={buttonCityRef}
-      className={ butt? " cursor-pointer border border-teal rounded-lg shadow-lg shadow-teal-600 px-2 shadow-lg shadow-teal-500 transition-all ease-in-out transform scale(1.1)"
+      className={ butt? " cursor-pointer border border-teal rounded-lg shadow-lg shadow-teal-600 px-2 shadow-lg shadow-teal-500 transition-all ease-in-out transform scale(1.1) bg-blue text-white"
       :
-      " cursor-pointer border border-teal rounded-md shadow-md shadow-stone-500 px-0 transform scale(1) transition-all ease-in-out"
+      " cursor-pointer border border-teal rounded-md shadow-md shadow-stone-500 px-0 transform scale(1) transition-all ease-in-out bg-blue text-white"
       } 
         onClick={(e)=>handleCitySelect(e,obj)}
       >

@@ -43,9 +43,9 @@ const MainWeather = () => {
     }
     // console.log(latLong)
     return (
-        <Container maxWidth="xl" className=" my-4">
+        <Container maxWidth="xl" className=" my-4 bg-[rgba(255,255,255,0.7)] text-black dark:bg-black dark:text-white  w-full mx-0 rounded-lg">
 
-                    <div className="mt-6 bg-whitesmoke">
+                    <div className="mt-6 bg-whitesmoke w-full ">
                         <GetCity
                             setLatLong={setLatLong}
                             setSelectedCo={setSelectedCo}
@@ -59,7 +59,7 @@ const MainWeather = () => {
 
                     <div className="flex flex-col mx-auto px-3 py-4">
                         <button
-                            className="rounded-lg border border-teal-800 px-3 py-2 text-3lg text-blue-500"
+                            className="rounded-lg border border-teal-800 px-3 py-2 text-3lg text-blue"
                             onClick={(e) => handleReset(e)}
                         >
                             reset

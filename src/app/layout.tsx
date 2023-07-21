@@ -84,7 +84,7 @@ export default function RootLayout({
 }) {
   return (
     
-    <html lang="en" className="dark:bg-black dark:text-white bg-[rgba(255,255,255,0.6)] text-black">  
+    <html lang="en" >  
       <body className={`${montserr.className} h-auto mx-0 relative bg-[rgba(255,255,255,0.7)] text-black `} style={{width:"100vw"}}>
       <Nav/>
       <Header/>

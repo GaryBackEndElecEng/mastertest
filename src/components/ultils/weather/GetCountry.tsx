@@ -43,7 +43,7 @@ const GetCountry = ({setLatLong,latLong}:getCoType) => {
     },[setGetLocation]);
 
   return (
-    <div className="container mx-auto flex flex-col justify-start items-center">
+    <div className="container mx-auto flex flex-col justify-start items-center bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg">
             
                 <InputLabel shrink={true} htmlFor={"latLonCity"}>Select City</InputLabel>
                 <select

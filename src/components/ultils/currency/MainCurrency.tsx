@@ -53,7 +53,7 @@ const MainCurrency = () => {
 // console.log("putKey",putKey,"countryCode",countryCode,"currItem",currItem)
 
     return (
-        <div className="container mx-auto my-2" style={{ minHeight: "60vh" }}>
+        <div className="container mx-auto my-2 text-black bg-white dark:bg-black dark:text-white" style={{ minHeight: "60vh" }}>
             <h2 className="text-5xl text-center mb-10">Fx rates</h2>
             <Grid container spacing={{ xs: 3, sm: 2 }} className=" " >
                 <Grid item xs={12} md={6} className="px-2 mx-auto">

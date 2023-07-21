@@ -46,9 +46,9 @@ const CountryButton = ({obj,setCountryCode,setSelectedCo,setCountryHide}:setSele
     }
   return (
     <button 
-    className={butt ? "countryList cursor-pointer border border-indigo rounded-lg shadow-md shadow-indigo-600 px-2 opacity-100 bg-blue"
+    className={butt ? "countryList cursor-pointer border border-indigo rounded-lg shadow-md shadow-indigo-600 px-2 opacity-100 bg-blue text-white"
     :
-    "cursor-pointer border border-teal rounded-lg shadow-md shadow-teal-600 px-0 opacity-50 bg-red"
+    "cursor-pointer border border-teal rounded-lg shadow-md shadow-teal-600 px-0 opacity-50 bg-red text-white"
 }
         onClick={(event:MouseEvent<HTMLButtonElement> | undefined)=>handleCoSelect(event,obj)}
         ref={buttonRef}

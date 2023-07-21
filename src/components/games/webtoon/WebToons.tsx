@@ -18,17 +18,17 @@ const WebToons = () => {
     openPage(link);
   }
   return (
-    <Container maxWidth="xl" className="my-2 lg:min-h-[100vh]">
-      <div className="flex flex-col m-auto justify-center items-center lg:my-40">
-        <Grid container spacing={{ xs: 3, sm: 2 }} className="my-2 ">
+    <Container maxWidth="xl" className="my-2  dark:text-white dark:bg-black bg-white text-black">
+      <div className="flex flex-col m-auto justify-center items-center lg:my-40 ">
+        <Grid container spacing={{ xs: 3, sm: 2 }} className="my-2  ">
           <Grid item xs={12} md={3} className="relative flexCol font-bold  overflow-hidden">
             <Image src={webtoon1} alt="www.masterconnect.ca" height={450} width={450}
-              className="absolute inset-0 z-[-1]"
+              className="absolute inset-0 aspect-video w-full "
             />
-            <div className="m-auto flex flex-col items-center justify-center bg-[rgba(255,255,255,0.6)] p-1">
+            <div className="m-auto flex flex-col items-center justify-center bg-[rgba(255,255,255,0.6)] p-1 z-20 text-black">
 
               <h3 className="text-xl text-center mx-auto my-2">WebToons</h3>
-              <div className="mx-auto text-center">
+              <div className="mx-auto text-center ">
                 <h5>WEBTOON is home to thousands of stories across 23 genres including romance, comedy, action, fantasy, and horror. Read comics, webcomics</h5>
                 <h3> for more...</h3>
                 <button onClick={(e) => handleLink(e, "https://www.webtoons.com")} className="button-one text-green font-bold text-2xl text-underline-offset-1" >link</button>
@@ -39,12 +39,12 @@ const WebToons = () => {
           <Grid item xs={12} md={6} className="relative flex flex-col justify-center items-center">
             <MainApi />
           </Grid>
-          <Grid item xs={12} md={3} className="relative flexCol  overflow-hidden">
+          <Grid item xs={12} md={3} className="relative flexCol relative  overflow-hidden">
             <Image src={webtoon2} alt="www.masterconnect.ca" height={450} width={450}
-              className="absolute inset-0 z-[-1]"
-              style={{ width: "100%" }}
+              className="absolute inset-0 aspect-video w-full"
+              
             />
-            <div className="m-auto flex flex-col items-center justify-center font-bold bg-[rgba(255,255,255,0.6)]">
+            <div className="m-auto flex flex-col items-center justify-center font-bold bg-[rgba(255,255,255,0.6)] z-20 text-black">
               <h3 className="text-xl text-center mx-auto my-2">WebToons</h3>
               <div className="mx-auto text-center">
                 <h3>Webtoons-history</h3>

@@ -9,7 +9,9 @@ import { Grid, Container } from "@mui/material";
 const index = () => {
 
     return (
-        <Container maxWidth="xl" sx={{marginBottom:"4rem"}}>
+        <Container maxWidth="xl" sx={{marginBottom:"4rem"}}
+        className="text-black bg-white dark:text-white dark:bg-black"
+        >
             <Grid container  spacing={{ sm: 1, xs: 1, md: 4 }} sx={{ minHeight: "100vh",justifyContent:"center",alignItems:"center" }}>
                 <Grid item xs={12} md={3} className="my-auto  shadow-lg shadow-blue text-white px-2 py-1 rounded-lg " sx={{ width: "100%", minHeight: "40vh", background: "black" }}>
                     <h2 className="text-2xl text-white my-2 text-center">world&#39;s currency<span className="pl-2 text-green">instructions:</span></h2>

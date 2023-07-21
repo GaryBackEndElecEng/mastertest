@@ -41,7 +41,7 @@ const Ultils = () => {
   }, [rawio,webtoon,ninja]);
 
   return (
-    <div className="lg:mx-auto lg:container">
+    <div className="lg:mx-auto lg:container bg-[rgba(255,255,255,0.8)] text-black dark:bg-black dark:text-white">
       <div className="m-auto grid grid-cols-1 grid-flow-row-dense lg:grid-cols-3 gap-2 place-items-stretch hover:place-items-center">
         {navGames?.filter(obj => (obj.name !== "games")).map((obj, index) => (
           <Link href={obj.link} className="m-auto w-full flex flex-col  min-h-[20vh] bg-cyan-500 border rounded-xl bg-site_blue_dark" key={`${index}-${obj.name}`}>

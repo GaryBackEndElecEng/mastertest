@@ -39,11 +39,14 @@ const ContentInput = ({setContent,cell,formData,sent,content}:contentType) => {
 
   return (
     <div className={styles.contentInput}>
-    <FormControl size="medium" variant="filled"  style={{margin:"0.5rem auto",}}>
+    <FormControl size="medium" variant="filled"  style={{margin:"0.5rem auto",}}
+    className="bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg"
+    >
       <InputLabel
         focused={false}
         htmlFor="content"
         sx={{ color: "white" }}
+        className="bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg"
       >
         Message
       </InputLabel>
@@ -56,8 +59,8 @@ const ContentInput = ({setContent,cell,formData,sent,content}:contentType) => {
         style={{ boxShadow: "1px 1px 3px 1px black",background:"white",minWidth:"300px",width:"100%" }}
       />
       {msg.loaded ? 
-      <FormHelperText sx={{backgroundColor:"black",color:"white"}}
-      className="text-center rounded-lg"
+      <FormHelperText 
+      className="text-center rounded-lg bg-white text-black dark:bg-black dark:text-white my-2 p-2 rounded-lg"
       >{msg.msg}
       </FormHelperText>
       :

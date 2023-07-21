@@ -55,9 +55,9 @@ const GetCity = ({setLatLong,setSelectedCo,setCountryCode,selectedCo,countryCode
     },[country,countryCode,city]);
      
   return (
-    <div className="flex flex-col gap-3 flex-wrap m-auto container mx-auto justify-center items-start" >
+    <div className="flex flex-col gap-3 flex-wrap m-auto container mx-auto justify-start items-center bg-[rgba(255,255,255,0.7)] text-black dark:bg-black dark:text-white" >
         {!(countryCode && selectedCo) ? <div className="m-auto">
-        <FormControl>
+        <FormControl className="bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg">
             <InputLabel htmlFor="searchCountry" shrink={true}>find Country</InputLabel>
             <Input
             id="searchCountry"
@@ -76,8 +76,8 @@ const GetCity = ({setLatLong,setSelectedCo,setCountryCode,selectedCo,countryCode
         { countryCode && 
 
         <div className="m-auto">
-        <FormControl>
-            <InputLabel htmlFor="searchCity" shrink={true}>find City</InputLabel>
+        <FormControl className="bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg">
+            <InputLabel htmlFor="searchCity" shrink={true} className="bg-[rgba(255,255,255,0.7)] text-black ">find City</InputLabel>
             <Input
             id="searchCity"
             name="searchCity"
@@ -108,10 +108,10 @@ const GetCity = ({setLatLong,setSelectedCo,setCountryCode,selectedCo,countryCode
             }
             </div>
        
-        <div className="flex flex-col gap-2  m-auto container mx-auto justify-center items-center px-2 py-1" style={{height:"30vh",overflowY:"scroll"}}>
+        <div className="flex flex-col gap-2  justify-center items-center px-2 py-1 " style={{height:"30vh",overflowY:"scroll",width:"100%"}}>
             {(cityList && countryCode) && 
             cityList.map((obj,index:number)=>(
-                <div key={`${obj.lat}-${index}`}> 
+                <div key={`${obj.lat}-${index}`} className="w-full m-auto"> 
                 <CityButton
                     obj={obj}
                     setLatLong={setLatLong}
