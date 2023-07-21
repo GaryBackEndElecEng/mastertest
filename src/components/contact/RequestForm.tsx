@@ -45,6 +45,14 @@ const RequestForm = () => {
 
     const handleSubmit=(e:MouseEvent)=>{
         e.preventDefault();
+        const option={
+            mode: 'cors',
+            headers: {
+              'Access-Control-Allow-Origin' : '*',
+              'Access-Control-Allow-Methods':'POST',
+            },
+            
+        }
         const sendRequest = async ():Promise<void> => {
           try {
             const res = await axios.post(postRequest,formData);

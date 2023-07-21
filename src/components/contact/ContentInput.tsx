@@ -42,14 +42,11 @@ const ContentInput = ({setContent,cell,formData,sent,content}:contentType) => {
     <FormControl size="medium" variant="filled"  style={{margin:"0.5rem auto",}}
     className="bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg"
     >
-      <InputLabel
-        focused={false}
-        htmlFor="content"
-        sx={{ color: "white" }}
-        className="bg-white text-black dark:bg-white dark:text-black my-2 p-2 rounded-lg"
+      <h3
+        className="bg-white text-blue dark:bg-white dark:text-blue font-bold my-2 p-2 rounded-lg"
       >
         Message
-      </InputLabel>
+      </h3>
       <TextareaAutosize
         aria-label="maximum height"
         minRows={4}
