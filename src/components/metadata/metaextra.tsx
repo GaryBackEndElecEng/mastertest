@@ -9,7 +9,7 @@ export const metaextra:Metadata={
     },
     description:"extra Great Tools",
     keywords:["generate graphs","generate flow charts","project tool","tools for use","bar graph","line graph","radar graph","pie graph","flow graph","process graph"],
-    colorScheme:"light",
+    // colorScheme:"light",
     alternates:{
       canonical:"/extra",
       languages:{
@@ -46,7 +46,7 @@ export const metaextra:Metadata={
     },
     description:"flow-chart for you to use. Build your flow-chart",
     keywords:["generate flow-charts","great for projects","project tool","flow-chart for use"],
-    colorScheme:"light",
+
     alternates:{
       canonical:"/directgraph",
       languages:{
@@ -84,7 +84,7 @@ export const metaextra:Metadata={
     },
     description:"Charts for you to use. Build your Chart",
     keywords:["generate charts","great for projects","project tool","chart for use"],
-    colorScheme:"light",
+    // colorScheme:"light",
     alternates:{
       canonical:"/chart",
       languages:{

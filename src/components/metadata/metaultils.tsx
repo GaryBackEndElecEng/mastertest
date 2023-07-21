@@ -10,7 +10,7 @@ export const metaultils:Metadata={
     description:"Free Ultilities for you",
     keywords:["Ultility","ultility","practical tools","find any weather","Latitude longitude","Any Currency","Currency comparator","translate languages","translate any languages"],
 
-    colorScheme:"light",
+    // colorScheme:"light",
     alternates:{
       canonical:"/ultils",
       languages:{
@@ -53,7 +53,7 @@ export const metacurency:Metadata={
     },
     description:"Find quick currencies around the world and compare.Free up-to-date currency comparators for your needs.",
     keywords:["currencies","quick currency lookup","All Currencies","Quick currency comparator"],
-    colorScheme:"light",
+    // colorScheme:"light",
     alternates:{
       canonical:"/ultils/currency",
       languages:{
@@ -96,7 +96,7 @@ export const metatranslate:Metadata={
     },
     description:"Translate any language, free to use.",
     keywords:["translate","free translation ","check out translation","Quick access translation lookup"],
-    colorScheme:"light",
+    // colorScheme:"light",
     alternates:{
       canonical:"/ultils/translate",
       languages:{
@@ -139,7 +139,7 @@ export const metaweather:Metadata={
     },
     description:"All Weather Forcast, All World Cities",
     keywords:["weather","city weather","town weather","country weather"," quick lookup weather"],
-    colorScheme:"light",
+    // colorScheme:"light",
     alternates:{
       canonical:"/ultils/weather",
       languages:{

@@ -1,5 +1,6 @@
 "use client";
 import React, { MouseEvent } from 'react';
+import {ThemeProvider} from 'next-themes';
 import Link from "next";
 import styles from './contact.module.css';
 import { Grid, Container, Typography, Stack, Fab } from '@mui/material';
@@ -50,7 +51,8 @@ const Contact = () => {
   }
 
   return (
-    <Container maxWidth="xl"  >
+    <ThemeProvider attribute="class">
+    <Container maxWidth="xl" className="dark:bg-black dark:text-white bg-white text-black" >
 
       
       <Grid container spacing={3}>
@@ -97,6 +99,7 @@ const Contact = () => {
       <div className={styles.hr_line} />
       <UploadCV/>
     </Container>
+    </ThemeProvider>
   )
 }
 

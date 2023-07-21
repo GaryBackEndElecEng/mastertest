@@ -122,11 +122,12 @@ if(dataArray){
                 name={"label"}
                 value={labelTitle}
                 onChange={(e)=>setLabelTitle(e.target.value)}
+                className="bg-white text-black dark:bg-white dark:text-black"
                 style={{color:"black"}}
                 />
-                <FormHelperText> Graph&#39;s Title</FormHelperText>
+                <FormHelperText className="bg-white text-black dark:bg-white dark:text-black"> Graph&#39;s Title</FormHelperText>
         </FormControl>
-        <FormControl className="my-2 w-full lg:w-1/2">
+        <FormControl className="my-2 w-full lg:w-1/2 dark:bg-white dark:text-black">
             <InputLabel htmlFor="borderColor" shrink={true} className="my-2"> border color
             </InputLabel>
                 <Input 
@@ -137,6 +138,7 @@ if(dataArray){
                 value={borderColor}
                 onChange={(e)=>setBorderColor(e.target.value)}
                 style={{color:"black"}}
+                className="bg-white text-black dark:bg-white dark:text-black"
                 />
         </FormControl>
         <FormControl className="my-4">
@@ -150,6 +152,7 @@ if(dataArray){
                  value={convertData}
                  onChange={(e)=>setConvertData(e.target.value)}
                  style={{color:"black"}}
+                 className="bg-white text-black dark:bg-white dark:text-black"
                 />
                 <FormHelperText>This form:[number1,number2,number3,,,]</FormHelperText>
             </FormControl>

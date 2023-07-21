@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import {ThemeProvider} from 'next-themes';
 import { navLinkExtras } from '@nav/Nav';
 import { Grid, Container } from "@mui/material";
 import Link from "next/link";
@@ -47,10 +48,11 @@ const Extras = () => {
   }, [graph,directGraph]);
 
   return (
-    <div className="lg:mx-auto lg:container ">
+    <ThemeProvider attribute="class">
+    <div className="lg:mx-auto lg:container dark:bg-black dark:text-white bg-white text-black ">
       <div className="m-auto grid grid-cols-1 grid-flow-row-dense lg:grid-cols-2 gap-2 place-items-stretch hover:place-items-center ">
         {navGames?.filter(obj => (obj.name !== "games")).map((obj, index) => (
-          <Link href={obj.link} className="m-auto w-full flex flex-col  min-h-[20vh] bg-cyan-500 border rounded-xl bg-site_blue_dark" key={`${index}-${obj.name}`}>
+          <Link href={obj.link} className="m-auto w-full flex flex-col  min-h-[20vh]  border rounded-xl bg-site_blue_dark dark:bg-black dark:text-white" key={`${index}-${obj.name}`}>
             <div className="flex flex-row flex-wrap justify-center items-center gap-x-7">
             <Image src={obj.image} width={85} height={85} alt="www.masterconnect.ca"
                 className="rounded-[50%]"
@@ -68,6 +70,7 @@ const Extras = () => {
         ))}
       </div>
     </div>
+    </ThemeProvider>
   )
 }
 

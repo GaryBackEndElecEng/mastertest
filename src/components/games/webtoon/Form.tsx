@@ -28,27 +28,28 @@ const Form = ({setLang,setQuery,list,setGetAPI}:inputType) => {
     }
   return (
     <div className="flex flex-col mx-auto justify-start items-center">
-            <form action="" className="flex flex-col mx-auto my-2 p-1 justify-center items-center">
-                <FormControl className="mx-auto my-2">
-                <InputLabel htmlFor="query" shrink={true} className="label m-auto pb-1 text-center">category</InputLabel>
+            <form action="" className="flex flex-col mx-auto my-2 p-3 justify-center items-center">
+                <FormControl className="mx-auto my-2 p-2 dark:bg-white dark:text-black">
+                <InputLabel htmlFor="query" shrink={true} className="label m-auto pb-1 text-center my-3 p-2">category</InputLabel>
                 <Input
                  id="query"
                  type="text"
                  name="query"
-                 className="mx-auto bg-stone-300"
+                 className="mx-auto bg-stone-300 dark:bg-white dark:text-black my-2"
                  value={tempQuery}
                  onChange={(e)=>setTempQuery(e.target.value)}
                  />
-                 <FormHelperText>maximum two words(ie; boy friend,,,)</FormHelperText>
+                 <FormHelperText className="dark:bg-white dark:text-black">maximum two words(ie; boy friend,,,)</FormHelperText>
                 </FormControl>
-                <FormControl className="mx-auto my-3">
-                <InputLabel htmlFor="lang" shrink={true} className="label verticalTop" >language</InputLabel>
+                <FormControl className="mx-auto my-4 p-3 dark:bg-white dark:text-black">
+                <InputLabel htmlFor="lang" shrink={true} className="label verticalTop dark:bg-white dark:text-black " >language</InputLabel>
                 <select
                  id="lang"
                  name="lang"
-                 className="mx-auto bg-stone-300"
+                 className="mx-auto bg-stone-300 dark:bg-white dark:text-black my-4 "
                  value={tempLang ? tempLang : "select"}
                  onChange={(e)=>setTempLang(e.target.value)}
+                 
                  >
                     {list && list.map((obj,index)=>(
                         <option value={obj.value} key={index}>{obj.name}</option>
@@ -56,7 +57,7 @@ const Form = ({setLang,setQuery,list,setGetAPI}:inputType) => {
                 </select>
                 </FormControl>
                 {tempLang &&
-                <button type="submit" className="p-1 rounded-lg bg-indigo-500 shadow-md shadow-stone-500" onClick={(e)=>handleSubmit(e)}>submit</button>
+                <button type="submit" className="p-1 rounded-lg bg-indigo-500 shadow-md shadow-blue dark:bg-white dark:text-black my-4" onClick={(e)=>handleSubmit(e)}>submit</button>
                 }
             </form>
             </div>

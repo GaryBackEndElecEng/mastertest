@@ -98,7 +98,7 @@ const GetApi_ = ({list,reset,setReset,setGetAPI,getAPI}:inputType) => {
 },[lang,getAPI,setGetAPI]);
 
   return (
-    <div className="container mx-auto px-2 py-1">
+    <div className="container mx-auto px-2 py-1 dark:bg-black dark:text-white">
         <div className="flex flex-col justify-start items-center">
         <Form 
         setLang={setLang}
@@ -107,7 +107,7 @@ const GetApi_ = ({list,reset,setReset,setGetAPI,getAPI}:inputType) => {
         setGetAPI={setGetAPI}
         />
             { getBodyArr ? 
-            <div className="container mx-auto px-3 py-4">
+            <div className="container mx-auto px-3 py-4 dark:bg-white dark:text-black">
             <div className="flex flex-row w-3/4 items-center justify-center m-auto flex-wrap h-[36vh] overflow-y-scroll">
             {getBodyArr.map((obj,index)=>(
                 <div className="mx-auto px-3 py-1 basis-1/4" key={`${obj.index}- ${index}`}>

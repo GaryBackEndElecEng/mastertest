@@ -1,7 +1,10 @@
+"use client";
 import React from 'react';
+import {ThemeProvider} from 'next-themes';
 import Image from "next/image";
 // import "./home.css"
 import HomeAnchor from "./HomeAnchor";
+
 
 const HomeBody = () => {
   const URL = process.env.NEXT_PUBLIC_aws;
@@ -14,7 +17,8 @@ const HomeBody = () => {
   const gridSpans:string="card grid-spans-1/3 h-[400px] w-[400px] border-4 border-indigo-500 grid place-items-center bg-indigo-500 relative ";
 
   return (
-    <main className="lg:container lg:mx-auto my-6 mt-[5rem]">
+    <ThemeProvider attribute="class">
+    <main className="lg:container lg:mx-auto my-6 mt-[5rem] dark:bg-black dark:text-white">
       <section className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center lg:gap-4 xs:gap-2 w-full">
         <div className={gridSpans} style={{boxShadow:"1px 1px 20px 1px black"}} >
           <Image src={web} width={175} height={175} alt="www.masterconnect.ca"
@@ -46,6 +50,7 @@ const HomeBody = () => {
         </div>
       </section>
     </main>
+    </ThemeProvider>
   )
 }
 

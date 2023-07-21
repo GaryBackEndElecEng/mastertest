@@ -3,7 +3,7 @@ import {Grid} from "@mui/material";
 
 const Explain = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto dark:bg-black dark:text-white">
         <Grid container spacing={{xs:2,sm:1}}>
             <Grid item xs={12} sm={6} className="mx-auto rounded-lg shadow-lg shadow-black">
             <h3 className="text-xl mx-auto my-2 font-bold text-center">Simple Steps</h3>

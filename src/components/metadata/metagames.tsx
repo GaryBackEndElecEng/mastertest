@@ -10,7 +10,7 @@ export const metagames:Metadata={
     description:"Games for your liking. Well informative games description allows you to apply the best picks on what games to buy.",
     keywords:["games","view the best games","games for your liking","games for you","Free games","all you want in games"],
 
-    colorScheme:"light",
+    
     alternates:{
       canonical:"/games",
       languages:{
@@ -48,7 +48,7 @@ export const metarawio:Metadata={
     },
     description:"This allows you to view ALL available games and allows you to purchase them at available unline stores.",
     keywords:["Video Games","All Available Games","rawio games","Quick access to view available games"],
-    colorScheme:"light",
+    // colorScheme:"light",
     alternates:{
       canonical:"/games/rawio",
       languages:{
@@ -86,7 +86,7 @@ export const metawebtoon:Metadata={
     },
     description:"This is acute game to retrieve webtoons logos",
     keywords:["webtoons","webtoons logo for you","check out webtoons","Quick access to view available games"],
-    colorScheme:"light",
+    // colorScheme:"light",
     alternates:{
       canonical:"/games/webtoon",
       languages:{
@@ -129,7 +129,7 @@ export const metaslang:Metadata={
     },
     description:"This allows you to translate english slang words with one entry. Find out funny slang-word definitions",
     keywords:["slang-words","slang for you","check out slang words","Quick access to look up slang words"],
-    colorScheme:"light",
+    // colorScheme:"light",
     alternates:{
       canonical:"/games/slang-word",
       languages:{

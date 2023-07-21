@@ -1,5 +1,6 @@
 "use client";
-import React,{MouseEvent} from 'react'
+import React,{MouseEvent} from 'react';
+import {ThemeProvider} from 'next-themes';
 import Image from "next/image";
 import DialogPopUp from './DialogPopUp';
 import getGamesAPI from './getGamesAPI';
@@ -72,7 +73,8 @@ const handleGame=(e:MouseEvent<HTMLButtonElement> | undefined,game:GameType)=>{
 
 }
     return (
-        <main className="mx-auto lg:container  my-2 ">
+        <ThemeProvider attribute="class">
+        <main className="mx-auto lg:container  my-2 dark:bg-black dark:text-white bg-white text-black ">
         <section className="m-1 relative rounded-md grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-4 m-0 grid-flow-row-dense justify-items-center justify-center">
             {games && games.map((game,index)=>(
                 <div  key={`${game.id}--${index}`}>
@@ -105,6 +107,7 @@ const handleGame=(e:MouseEvent<HTMLButtonElement> | undefined,game:GameType)=>{
         </section>
         
         </main>
+        </ThemeProvider>
     )
 }
 

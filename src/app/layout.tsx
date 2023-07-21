@@ -10,6 +10,7 @@ import Amplify from "aws-amplify";
 import awsExports from "../aws-exports";
 
 
+
 //font-family classes-Inter and montserrat Google Fonts
 const inter = Inter({ subsets: ['latin'],weight:["500"] })
 const montserr = Montserrat({ subsets: ['latin-ext'],weight:["500"] })
@@ -27,7 +28,7 @@ export const metadata = {
   referrer:"origin-when-cross-origin",
   keywords:["master ultilities","tools for you","web design info","something"],
   authors:[{name:"Gary Wallace",url:"https://www.masterconnect.ca"}],
-  colorScheme:"light",
+  // colorScheme:"light",
   creator:"Gary Wallace",
   publisher:"Gary Wallace",
   formatDetection:{
@@ -82,13 +83,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">  
-      <body className={`${montserr.className} h-auto dark:bg-black dark:text-white mx-0 relative light:bg-[whitesmoke] light:text-black `} style={{width:"100vw"}}>
+    
+    <html lang="en" className="dark:bg-black dark:text-white bg-[rgba(255,255,255,0.6)] text-black">  
+      <body className={`${montserr.className} h-auto mx-0 relative bg-[rgba(255,255,255,0.7)] text-black `} style={{width:"100vw"}}>
       <Nav/>
       <Header/>
         {children}
         <Footer/>
       </body>
     </html>
+    
   )
 }

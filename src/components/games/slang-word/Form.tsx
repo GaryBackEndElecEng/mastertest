@@ -21,7 +21,7 @@ const Form = ({setPhrase,phrase}:inputType) => {
     }
     // console.log("category in Form",category)
   return (
-    <Grid container className=" w-full mb-6" spacing={{xs:4,md:1}}>
+    <Grid container className=" w-full mb-6 dark:bg-black dark:text-white" spacing={{xs:4,md:1}}>
       <Grid item xs={12} md={2} className="mx-auto rounded-lg flex flex-col items-center justify-center">
         <Image src={slang} alt="www.masterconnect.ca" height={400} width={400}
         className="  inset-0 rounded-inherit"
@@ -29,9 +29,9 @@ const Form = ({setPhrase,phrase}:inputType) => {
 
       </Grid>
       <Grid item xs={12} md={8}>
-    <form action="" className="flex flex-col items-center justify-center ">
-    <FormControl className="flex flex-col justify-center items-center">
-        <InputLabel htmlFor="phrase" shrink={true}>enter a slang</InputLabel>
+    <form action="" className="flex flex-col items-center justify-center  ">
+    <FormControl className="flex flex-col justify-center items-center dark:bg-white dark:text-black rounded-lg">
+        <InputLabel htmlFor="phrase" shrink={true} className="my-2">enter a slang</InputLabel>
         <br/>
         <Input
         name="phrase"
@@ -39,7 +39,7 @@ const Form = ({setPhrase,phrase}:inputType) => {
         id="phrase"
         value={tempPhrase}
         onChange={(e)=>setTempPhrase(e.target.value)}
-        className="text-lg"
+        className="text-lg my-2 mx-2 px-2 rounded-lg"
         />
         <button type="submit" className="button my-2" onClick={(e)=>handleSubmit(e)}>submit</button>
     </FormControl>

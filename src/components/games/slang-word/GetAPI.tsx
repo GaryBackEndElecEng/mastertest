@@ -65,7 +65,7 @@ return(
                     getOutput.list.sort((a,b)=>(b.thumbs_up - a.thumbs_up)).map((obj, index) => (
                         <div className=" grid-spans-1 flex flex-col justify-center items-center shadow-lg rounded-lg shadow-blue p-2" key={index}>
 
-                            <p className="text-md mx-auto"><span className="font-bold text-2xl">word</span>:{obj.word}</p>
+                            <p className="text-md mx-auto text-xl underline leading-10"><span className="font-bold text-2xl">word</span>: {obj.word}</p>
                             
                             <h6 className="text-lg mx-0"><span className="font-bold my-2 w-full">definition:</span>{obj.definition}</h6>
                             <h6 className="text-lg mx-0"><span className="font-bold my-2 w-full">example:</span>{obj.example}</h6>

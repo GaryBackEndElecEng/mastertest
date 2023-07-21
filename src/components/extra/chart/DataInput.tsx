@@ -138,9 +138,10 @@ const DataInput = ({setGraphData,graphData,setSummary,summary,setName,name,setDa
 
   return (
     
-        <fieldset className="w-full mx-0 border border-white rounded-lg">
-            <legend className="text-white">create your own graph</legend>
-        <form action="" className="flex flex-col items-center justify-center m-1 p-1 w-full ">
+       
+        <form action="" className="m-auto flex flex-col items-center justify-center m-1 p-1 mt-0 w-full ">
+        <fieldset className="w-full  mx-0 border border-white rounded-lg dark:bg-black dark:text-white bg-black text-black m-2 p-3 py-[1rem] border border-green">
+            <legend className="text-white mb-5 text-xl leading-10">create your own graph</legend>
             <FormControl className="my-2 mx-auto  w-full lg:w-1/2 relative">
                 <h6  className="absolute left-[30%] top-[-6%] "
                 style={{color:"blue"}} >graph type</h6>
@@ -149,7 +150,8 @@ const DataInput = ({setGraphData,graphData,setSummary,summary,setName,name,setDa
                     id="graphType"
                     value={type }
                     onChange={(e)=>setType(e.target.value)}
-                   style={{color:"black"}}
+                   style={{color:"black",background:"white"}}
+                   className="bg-white text-black"
                 >
                     {charttypes.map((type,index)=>(
                         <option value={type.type} key={index}>{type.type}</option>
@@ -167,7 +169,7 @@ const DataInput = ({setGraphData,graphData,setSummary,summary,setName,name,setDa
                  name="summary"
                  value={summary}
                  onChange={(e)=>setSummary(e.target.value)}
-                 className="text-black"
+                 className="bg-white text-black dark:bg-white dark:text-black p-2"
                  style={{color:"black"}}
                 />
                 <FormHelperText> Graph&#39;s description</FormHelperText>
@@ -183,7 +185,7 @@ const DataInput = ({setGraphData,graphData,setSummary,summary,setName,name,setDa
                  name="labels array"
                  value={convertLabels}
                  onChange={(e)=>setConvertLabels(e.target.value)}
-                 style={{color:"black"}}
+                 className="bg-white text-black p-2"
                 />
                 <FormHelperText>This form:[label1,label2,label3,,,]</FormHelperText>
             </FormControl>
@@ -205,16 +207,17 @@ const DataInput = ({setGraphData,graphData,setSummary,summary,setName,name,setDa
                     name="name"
                     value={name}
                     onChange={(e)=>setName(e.target.value)}
-                    style={{color:"black"}}
+                    className={"bg-white text-black"}
                     />
             </FormControl>
-            <div className="my-2 container mx-auto flex flex-col items-center">
+            <div className="my-2 container mx-auto flex flex-col items-center dark:text-white text-white">
                 <button className="button my-1" type="submit" onClick={(e)=>handleSubmit(e)}>
                         submit
                 </button>
             </div>
+            </fieldset>
         </form>
-        </fieldset>
+       
     
   )
 }

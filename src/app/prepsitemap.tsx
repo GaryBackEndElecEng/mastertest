@@ -1,4 +1,4 @@
-"use server"
+
 import {navLinkGames,navLinkUltils,navLinkExtras,navLinkHome} from '../components/nav/Nav';
 
 export type navType={

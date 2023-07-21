@@ -1,13 +1,15 @@
 
-
 import NavArray from "./NavArray";
 import Image from 'next/image';
-import React from 'react';
+import React, {MouseEvent} from 'react';
+
 // import "./nav.css"
+
 type navType = {
     name: string,
     link: string
 }[]
+
 export const navLinkGames: navType = [
     { name: "games", link: "/games" },
     { name: "webtoon", link: "/games/webtoon" },
@@ -36,6 +38,7 @@ export const navLinkHome: navType = [
     
 ]
 const Nav = () => {
+    
     const URL = process.env.NEXT_PUBLIC_aws;
     const logo: string = `${URL}/logo.png`
     
@@ -50,6 +53,7 @@ const Nav = () => {
                     
                     <div className="masterultils absolute">
                      <h4 className=" text-lg p-1 m-auto">Masterultils</h4>
+                     
                      </div>
                 </section>
                 <section className={"mainLinkgroup basis-4/5 lg:block w-full "}>

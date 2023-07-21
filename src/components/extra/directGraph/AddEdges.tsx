@@ -66,10 +66,10 @@ const AddEdges = ({edgeArr,setEdgeArr,nodeArr,subGraphLabel}:mainEdgeType) => {
     }
     
   return (
-    <div className="flex flex-col items-center justify-center my-2 mx-auto w-full">
+    <div className="flex flex-col items-center justify-center my-2 mx-auto w-full dark:bg-black dark:text-white">
     <form className="flex flex-col items-center justify-center w-full">
-        <FormControl className="mx-auto w-full my-2">
-        <InputLabel htmlFor="addEdgeLabel">add edge label</InputLabel>
+        <FormControl className="mx-auto w-full my-2 dark:bg-white dark:text-black">
+        <InputLabel htmlFor="addEdgeLabel" className="my-2">add edge label</InputLabel>
         <Input
         id="addEdgeLabel"
         name="addEdgeLabel"
@@ -77,22 +77,23 @@ const AddEdges = ({edgeArr,setEdgeArr,nodeArr,subGraphLabel}:mainEdgeType) => {
         onChange={(e)=>setLabel(e.target.value)}
          />
         </FormControl >
-        <FormControl className="mx-auto w-full my-2">
-        <InputLabel htmlFor="addEdgeColor">add edge color</InputLabel>
+        <FormControl className="mx-auto w-full my-2 dark:bg-white dark:text-black">
+        <InputLabel htmlFor="addEdgeColor" className="my-2">add edge color</InputLabel>
         <Input
         id="addEdgeColor"
         name="addEdgeColor"
         value={color}
         onChange={(e)=>setColor(e.target.value)}
+        className="dark:bg-white dark:text-black"
          />
         </FormControl>
-        <FormControl className="mx-auto w-full my-2">
+        <FormControl className="mx-auto w-full my-2 dark:bg-white dark:text-black">
         <InputLabel htmlFor="addEdgeFrom" className="my-3">edge from node</InputLabel>
         <select
         name={"addEdgeFrom"}
         placeholder="enter flow direction"
         onChange={(e)=>setNodeNameFrom(e.target.value)}
-        className="my-4 w-1/4"
+        className="my-4 w-1/4 dark:bg-white dark:text-black"
         >
             <option disabled>select value</option>
         {nodeArr.length>0 && nodeArr.map((nodeObj,index)=>(
@@ -100,15 +101,15 @@ const AddEdges = ({edgeArr,setEdgeArr,nodeArr,subGraphLabel}:mainEdgeType) => {
         ))}
         
         </select>
-        <FormHelperText>select node 2 then node1 to start</FormHelperText>
+        <FormHelperText className="dark:bg-white dark:text-black">select node 2 then node1 to start</FormHelperText>
         </FormControl>
-        <FormControl className="mx-auto w-full my-2">
+        <FormControl className="mx-auto w-full my-2 dark:bg-white dark:text-black">
         <InputLabel htmlFor="addEdgeTo" className="my-3">edge To node</InputLabel>
         <select
         name={"addEdgeTo"}
         placeholder="enter flow direction"
         onChange={(e)=>setNodeNameTo(e.target.value)}
-        className="my-3 w-1/4"
+        className="my-3 w-1/4 dark:bg-white dark:text-black"
         >
             <option disabled>select value</option>
         {nodeArr.length>0 && nodeArr.map((nodeObj,index)=>(
@@ -118,7 +119,7 @@ const AddEdges = ({edgeArr,setEdgeArr,nodeArr,subGraphLabel}:mainEdgeType) => {
         <button className="button button my-4 cursor-pointer text-center"onClick={(e)=>handleAddNodeEdge(e)}>add arrow to arrows</button>
         </FormControl>
     </form>
-    <div className="m-auto flex flex-col items-center justify-start h-[15vh] overflow-y-scroll w-full border rounded-lg shadow-lg ">
+    <div className="m-auto flex flex-col items-center justify-start h-[15vh] overflow-y-scroll w-full border rounded-lg shadow-lg dark:bg-black dark:text-white">
     {edgeArr.length>0 && edgeArr.map((edge,index)=>(
         <Grid container spacing={{xs:0,sm:0}} key={index}>
             <Grid item  xs={12} sm={6} >

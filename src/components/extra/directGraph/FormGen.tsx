@@ -67,35 +67,37 @@ const FormGen = (
     
     // console.log(addEdge,edgeArr)
   return (
-    <div className="flex flex-col items-center justify-center w-full ">
-    <form className="flex flex-col items-center justify-center mx-0 my-2 w-full ">
-        <FormControl className="w-full mx-auto ">
-        <InputLabel htmlFor="subGraphLabel">Layer for:{addNodeName && addNodeName}</InputLabel>
+    <div className="flex flex-col items-center justify-center w-full dark:bg-black dark:text-white py-2">
+    <form className="flex flex-col items-center justify-center mx-0 my-2 w-full dark:bg-black dark:text-white py-1">
+        <FormControl className="w-full mx-auto dark:bg-white dark:text-black">
+        <InputLabel htmlFor="subGraphLabel" className="my-2 py-2">Layer for:{addNodeName && addNodeName}</InputLabel>
         <Input
         name={"subGraphLabel"}
         placeholder="layer name"
         value={subGraphLabel ? subGraphLabel :""}
         onChange={(e)=>setSubGraphLabel(e.target.value)}
+        className="dark:bg-white dark:text-black"
         />
         <button className="button button my-1 cursor-pointer text-center"onClick={(e)=>handleAddSubGraph(e)}>add layer</button>
 
         </FormControl>
-        <FormControl className="w-full mx-auto my-3">
+        <FormControl className="w-full mx-auto my-3 dark:bg-white dark:text-black">
         <InputLabel htmlFor="newNode">new node</InputLabel>
         <Input
         name={"newNode"}
         placeholder="add nodes"
         value={addNodeName ? addNodeName :""}
         onChange={(e)=>setAddNodeName(e.target.value)}
+        className="dark:bg-white dark:text-black"
         />
-        <FormHelperText>minimum of two nodes,[node1,node2]</FormHelperText>
+        <FormHelperText className="dark:bg-white dark:text-black">minimum of two nodes,[node1,node2]</FormHelperText>
         </FormControl>
         {/* assign node to subgraph*/}
         <FormControl className="w-full mx-auto my-2">
         <InputLabel htmlFor="nodeAssign" shrink={true}>add node to layer</InputLabel>
         <select
         id="selectSubGraph"
-        className="my-2 w-1/4"
+        className="my-2 w-1/4 dark:bg-white dark:text-black"
         name={"nodeAssign"}
         defaultValue="select another"
         onChange={(e)=>setSubGraphAssign(e.target.value)}
@@ -109,13 +111,14 @@ const FormGen = (
        
         </FormControl>
         {/*ADD NODE TO nodeArr */}
-        <FormControl className="w-full mx-auto my-2">
+        <FormControl className="w-full mx-auto my-2 dark:bg-white dark:text-black">
         <InputLabel htmlFor="nodeColor">add node color</InputLabel>
         <Input
         name={"nodeColor"}
         placeholder="add node color"
         value={addNodeColor ? addNodeColor : ""}
         onChange={(e)=>setAddNodeColor(e.target.value)}
+        className="dark:bg-white dark:text-black"
         />
         <button className="button button my-2 cursor-pointer text-center" onClick={(e)=>handleAddNodeToArray(e)}>add node to nodes</button>
         </FormControl>

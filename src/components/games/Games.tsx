@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import {ThemeProvider} from 'next-themes'
 import { navLinkGames } from '@nav/Nav';
 import { Grid, Container } from "@mui/material";
 import Link from "next/link";
@@ -41,7 +42,8 @@ const Games = () => {
   }, [webtoon,ninja,rawio]);
 
   return (
-    <div className="lg:mx-auto lg:container">
+    <ThemeProvider attribute="class">
+    <div className="lg:mx-auto lg:container dark:bg-black dark:text-white bg-white text-black">
       <div className="m-auto grid grid-cols-1 grid-flow-row-dense lg:grid-cols-3 gap-2 place-items-stretch hover:place-items-center">
         {navGames?.filter(obj => (obj.name !== "games")).map((obj, index) => (
           <Link href={obj.link} className="m-auto w-full flex flex-col  min-h-[20vh] bg-cyan-500 border rounded-xl bg-site_blue_dark" key={`${index}-${obj.name}`}>
@@ -57,6 +59,7 @@ const Games = () => {
         ))}
       </div>
     </div>
+    </ThemeProvider>
   )
 }
 
