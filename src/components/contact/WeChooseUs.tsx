@@ -1,6 +1,7 @@
 "use client";
 import React,{MouseEvent} from 'react';
 import axios,{AxiosError,isAxiosError} from "axios";
+import api from '../axios/api';
 import {Container,Grid,Fab} from '@mui/material';
 import styles from './contact.module.css';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
@@ -52,7 +53,7 @@ const WeChooseUs = ({open}:weChooseType) => {
         
         const getWhyChhoose= async()=>{
             try {
-                const res:categoryType | undefined= url ? await axios.get(`${url}/category/`): undefined;
+                const res:categoryType | undefined= url ? await api.get(`/category/`):undefined;
                 const body:whyUsObj[] | undefined=res?.data.filter((obj:dataType)=>(obj.name.toLowerCase().includes("why choose us")))[0].categories;
                 setWhyUs({loaded:true,data:body})
                 

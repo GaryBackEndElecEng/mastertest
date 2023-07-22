@@ -7,6 +7,7 @@ import EmailInput from "./EmailInput";
 import ContentInput from "./ContentInput";
 import CellInput from './CellInput';
 import axios, { AxiosError } from 'axios';
+import api from '../axios/api';
 import ChatWithUs from  './ChatWithUs';
 
 type formType={
@@ -28,7 +29,7 @@ const RequestForm = () => {
     const [cell,setCell]=React.useState<string | undefined>("");
     const [content,setContent]=React.useState<string | null>(null);
     const [sent,setSent]=React.useState<boolean>(false);
-    const postRequest = `${process.env.NEXT_PUBLIC_serverApi}/postRequest/`;
+    const postRequest = `/postRequest/`;
     const [contactMsg,setContactMsg]=React.useState<contactMsgType>({loaded:false,data:{email:"",fullName:"",content:"",cell:""},msg:""});
 
     React.useMemo(()=>{
@@ -45,17 +46,10 @@ const RequestForm = () => {
 
     const handleSubmit=(e:MouseEvent)=>{
         e.preventDefault();
-        const option={
-            mode: 'cors',
-            headers: {
-              'Access-Control-Allow-Origin' : '*',
-              'Access-Control-Allow-Methods':'POST',
-            },
-            
-        }
+        
         const sendRequest = async ():Promise<void> => {
           try {
-            const res = await axios.post(postRequest,formData);
+            const res = await api.post(postRequest,formData);
             const body= res.data;
             // console.log(body);
             setContactMsg({loaded:true,msg:"We will contact you ASAP by email: ",data:{fullName:body.fullName,email:body.email,content:body.content,cell:cell}});
