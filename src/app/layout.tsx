@@ -11,6 +11,7 @@ import awsExports from "../aws-exports";
 
 
 
+
 //font-family classes-Inter and montserrat Google Fonts
 const inter = Inter({ subsets: ['latin'],weight:["500"] })
 const montserr = Montserrat({ subsets: ['latin-ext'],weight:["500"] })

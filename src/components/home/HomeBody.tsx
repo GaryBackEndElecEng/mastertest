@@ -4,6 +4,7 @@ import { ThemeProvider } from 'next-themes';
 import Image from "next/image";
 // import "./home.css"
 import HomeAnchor from "./HomeAnchor";
+import {GeneralContextProvider} from "@context/GeneralContext";
 
 
 const HomeBody = () => {
@@ -17,6 +18,7 @@ const HomeBody = () => {
   const gridSpans: string = "card grid-spans-1/3 h-[400px] w-[400px] border-4 border-indigo-500 grid place-items-center bg-indigo-500 relative ";
 
   return (
+    <GeneralContextProvider>
     <ThemeProvider attribute="class">
       <main className="lg:container lg:mx-auto my-6 mt-[5rem] dark:bg-black dark:text-white text-black bg-[rgba(255,255,255,0.6)]">
         <section className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center lg:gap-4 xs:gap-2 w-full">
@@ -51,6 +53,7 @@ const HomeBody = () => {
         </section>
       </main>
     </ThemeProvider>
+    </GeneralContextProvider>
   )
 }
 

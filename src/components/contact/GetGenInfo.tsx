@@ -1,35 +1,23 @@
 "use client";
 import React from 'react'
-import generalInfo from './generalInfo';
 import { Grid, Container,} from '@mui/material';
 import styles from "./contact.module.css";
+import {CategoryContext} from "@context/GeneralContext";
+// import {categoryGeneralInfo} from "@context/Types";
 
-type generalInfoType = {
-    id: number,
-    name: string,
-    address: string,
-    cell: string,
-    country: string,
-    provState: string,
-    city: string,
-    postal: string,
-    extra: string,
-    siteArray: string[]
-  }
   type mediaLinkType={
     name:string,
     link:string
   }
 const GetGenInfo = () => {
-    const [getGenInfo, setGetGenInfo] = React.useState<generalInfoType | null>(null);
+    const {generalInfo}=React.useContext(CategoryContext);
   const [mediaLink,setMediaLink]=React.useState<mediaLinkType[]>([]);
 
-  React.useMemo(async (): Promise<void> => {
-    const getInfo: generalInfoType | null = await generalInfo();
-    setGetGenInfo(getInfo);
-    if(getInfo){
+  React.useMemo(() => {
+    
+    if(generalInfo){
       let arr:mediaLinkType[]=[];
-      getInfo.siteArray.forEach((media,index)=>{
+      generalInfo.siteArray.forEach((media,index)=>{
         switch(media.split("::")[0]){
           case "fb":
             arr.push({name:"FB",link:media.split("::")[1].trim()});
@@ -53,11 +41,11 @@ const GetGenInfo = () => {
       });
       setMediaLink(arr);
     }
-  }, []);
+  }, [generalInfo]);
 
   return (
     <Container maxWidth="md">
-        {getGenInfo &&
+        {generalInfo ?
           <div className="mx-0 my-auto flex flex-col justify-start shadow-xl shadow-blue p-3 rounded-lg">
 
             <div className="grid place-items-center grid-cols-1 lg:grid-cols-2 gap-4">
@@ -69,10 +57,10 @@ const GetGenInfo = () => {
                 </h4>
               <div className=" flex flex-row flex-wrap gap-1 justify-center items-center ">
                 
-                <h6>{getGenInfo.address}</h6>
-                <h6>,{getGenInfo.city}</h6>
-                <h6>,{getGenInfo.country}</h6>
-                <h6>,PO:{getGenInfo.postal}</h6>
+                <h6>{generalInfo.address}</h6>
+                <h6>,{generalInfo.city}</h6>
+                <h6>,{generalInfo.country}</h6>
+                <h6>,PO:{generalInfo.postal}</h6>
                 </div>
               </div>
               <ul className="cols-spans-1 flex flex-col justify-center items-center shadow-md w-full">
@@ -87,7 +75,11 @@ const GetGenInfo = () => {
 
             </div>
           </div>
-        }
+      :
+      <div className="mx-0 my-auto flex flex-col justify-start shadow-xl shadow-blue p-3 rounded-lg">
+        <h3 className="text-center">Loading.....</h3>
+        </div>
+      }
     </Container>
   )
 }

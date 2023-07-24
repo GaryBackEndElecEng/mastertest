@@ -1,6 +1,7 @@
 "use client";
 import React, { MouseEvent } from 'react';
 import {ThemeProvider} from 'next-themes';
+import {GeneralContextProvider} from "@context/GeneralContext";
 import Link from "next";
 import styles from './contact.module.css';
 import { Grid, Container, Typography, Stack, Fab } from '@mui/material';
@@ -51,6 +52,7 @@ const Contact = () => {
   }
 
   return (
+    <GeneralContextProvider>
     <ThemeProvider attribute="class">
     <Container maxWidth="xl" className="dark:bg-black dark:text-white bg-white text-black" >
 
@@ -100,6 +102,7 @@ const Contact = () => {
       <UploadCV/>
     </Container>
     </ThemeProvider>
+    </GeneralContextProvider>
   )
 }
 

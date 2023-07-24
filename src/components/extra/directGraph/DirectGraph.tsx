@@ -48,7 +48,7 @@ const handleonMouseOut=(e:MouseEvent<HTMLDivElement> | undefined)=>{
     <ThemeProvider attribute="class">
     <Container maxWidth="xl" className="bg-white text-black dark:bg-black dark:text-white">
       <h3 className="text-center text-5xl mx-auto container my-3">make your own flow chart</h3>
-        <Grid container spacing={{xs:2,md:3}} className="lg:min-h-[60vh]">
+        <Grid container spacing={{xs:2,sm:0,md:3}} className="lg:min-h-[60vh]">
             <Grid item xs={12} md={4} className="w-full ">
             <FormGen
             subGraphLabelArr={subGraphLabelArr}
@@ -64,7 +64,7 @@ const handleonMouseOut=(e:MouseEvent<HTMLDivElement> | undefined)=>{
                 <GenGraph dot={toThisDot} nodeArr={nodeArr} edgeArr={edgeArr}/>
             </Grid>
             :
-            <Grid item xs={12} md={6} className="w-full relative cursor-pointer h-[50vh] lg:h-auto  " onMouseOver={(e)=>handleonMouseOver(e)} onMouseOut={(e)=>handleonMouseOut(e)}>
+            <Grid item xs={12} md={6} className="w-full relative cursor-pointer h-[50vh] lg:h-auto flex flex-col items-center justify-center " onMouseOver={(e)=>handleonMouseOver(e)} onMouseOut={(e)=>handleonMouseOut(e)}>
               {!addExplain && <h3 className="text-xl text-center font-bold my-2">hover/touch below for instructions <ArrowDownwardIcon sx={{ml:1}}/></h3>}
               <Image src={directGraph} alt="www.masterconnect.ca"
               width={700} height={700}

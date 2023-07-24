@@ -34,6 +34,7 @@ export const navLinkHome: navType = [
     { name: "home", link: "/" },
     { name: "contact", link: "/contact" },
     { name: "masterconnect", link: "https://www.masterconnect.ca" },
+    { name: "articles", link: "/articles" },
     
     
 ]
