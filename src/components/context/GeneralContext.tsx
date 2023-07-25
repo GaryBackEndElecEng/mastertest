@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useRef, useEffect } from 'react'
 import api from '../axios/api';
 import {navLinkUltils,navLinkExtras,navLinkGames,navLinkHome} from "@nav/Nav";
@@ -7,7 +8,9 @@ import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import {AxiosError,isAxiosError} from "axios";
 import HomeIcon from "@mui/icons-material/Home";
 import ExploreIcon from '@mui/icons-material/Explore';
-import {allCategoryType,catWordSnippet,categoryType,categoryGeneralInfo,imageCategory,whyChoosUsType,articleType,articlesType} from "@context/Types";
+import {allCategoryType,catWordSnippet,categoryType,categoryGeneralInfo,imageCategory,whyChoosUsType,articleType,articlesType,countryType} from "@context/Types";
+import countriesArr from "@context/country.json";
+
 
 type navType = {
     name: string,
@@ -31,7 +34,10 @@ export type generalContextType={
 export type articlesContextType={
     articles:articlesType[] 
 }
-
+export type ultilType={
+    getCountries:countryType[] | null
+}
+export const UltilsContext=React.createContext<ultilType>({} as ultilType)
 export const CategoryContext = React.createContext<generalContextType>({} as generalContextType);
 export const ArticleContext = React.createContext<articlesContextType>({} as articlesContextType);
 export const NavContext = React.createContext<navContextType>({} as navContextType);
@@ -138,5 +144,18 @@ export const ArticalContextProvider = (props:any) => {
             {props.children}
         </ArticleContext.Provider>
 
+    )
+}
+
+export const UltilsContextProvider=(props:any)=>{
+    const [getCountries,setGetCountries]=React.useState<countryType[] | null>(null);
+    React.useMemo(() => {
+        let allCountries: countryType[] | null = countriesArr;
+        setGetCountries(allCountries);
+}, []);
+    return(
+        <UltilsContext.Provider value={{getCountries}}>
+            {props.children}
+        </UltilsContext.Provider>
     )
 }

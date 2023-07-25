@@ -4,7 +4,8 @@ import axios, { AxiosError } from 'axios';
 import Dollar from "./Dollar";
 import CurrencyItem from './CurrencyItem';
 import { Grid } from "@mui/material";
-import Countries from './Countries'
+import Countries from './Countries';
+
 
 
 type typeCurrType = { ky: string, val: string }
@@ -119,6 +120,7 @@ const MainCurrency = () => {
                 </Grid>
 
             </Grid>
+            
 
         </div>
     )

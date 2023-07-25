@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import axios, { AxiosError,isAxiosError } from 'axios';
+import api from "../../axios/api";
 
 type currType={
     date:string,
@@ -32,8 +33,11 @@ const Dollar = ({getKey,keyCmp}:mainTypes) => {
     React.useEffect(()=>{
         const date="2022-01-10"
         const url=`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies`
-        const curr:string=`${url}/${keyCmp}/${getKey.key}.json`
+        const curr:string=`${url}/${keyCmp}/${getKey.key}.json`;
+        console.log(curr)
         async function getRate(){
+            axios.defaults.xsrfHeaderName = 'Access-Control-Allow-Origin';
+            axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
             try {
                 const res=await axios.get(curr)
                 const body=res.data;

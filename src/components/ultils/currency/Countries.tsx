@@ -41,7 +41,7 @@ const Countries = ({selectCurrency,countryCode,setCountryCode,currItem}:inputTyp
         
     },[selectCurrency,setCountryCode,currItem,getWords.first,getWords.second]);
 
-
+console.log(countryCode)
   return (
     <div className="flex flex-col justify-center items-center p-1">
 

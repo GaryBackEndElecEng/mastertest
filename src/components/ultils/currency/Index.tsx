@@ -4,11 +4,15 @@ import MainCurrency from './MainCurrency';
 import axios, { AxiosError } from 'axios';
 import Dollar from "./Dollar";
 import { Grid, Container } from "@mui/material";
+import COCurrency from './COCurrency';
+import {UltilsContextProvider} from "@context/GeneralContext"
 
 
-const index = () => {
+const Index = () => {
+    
 
     return (
+        <UltilsContextProvider>
         <Container maxWidth="xl" sx={{marginBottom:"4rem"}}
         className="text-black bg-white dark:text-white dark:bg-black"
         >
@@ -38,8 +42,10 @@ const index = () => {
                 </Grid>
 
             </Grid>
+            <COCurrency />
         </Container>
+        </UltilsContextProvider>
     )
 }
 
-export default index
+export default Index

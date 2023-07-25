@@ -89,3 +89,16 @@ export type articlesType={
     title:string
 
 }
+export type countryType = {
+    countryCode: string,
+    countryName: string,
+    currencyCode: string,
+    population: string,
+    capital: string,
+    continentName: string
+}
+export type codeCoNameType = {
+    id: number,
+    code: string,
+    name: string
+}
