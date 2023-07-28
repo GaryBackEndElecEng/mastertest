@@ -14,6 +14,12 @@ const MasterCountry = () => {
     const [countries, setCountries] = React.useState<Countries | null>(null);
     const [search,setSearch]=React.useState<string >("");
 
+    React.useEffect(()=>{
+        if(window.scrollY){
+            window.scroll(0,0);
+        }
+    },[]);
+    
     React.useEffect(() => {
         if (!countries) {
             setCountries(classNames);
