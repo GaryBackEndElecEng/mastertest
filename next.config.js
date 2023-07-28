@@ -24,6 +24,17 @@ const nextConfig = {
                   { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
               ]
           },
+          {
+            // matching all API routes
+            source: "/static/masterultils/:path*",
+            headers: [
+                { key: "Access-Control-Allow-Credentials", value: "false" },
+                { key: "Access-Control-Allow-Origin", value: "new-master.s3.ca-central-1.amazonaws.com" },
+                
+                { key: "Access-Control-Allow-Methods", value: "GET" },
+                { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+            ]
+        },
       ]
     },
     images: {

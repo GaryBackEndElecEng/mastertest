@@ -22,6 +22,7 @@ export const navLinkUltils: navType = [
     { name: "weather", link: "/ultils/weather" },
     { name: "translate", link: "/ultils/translate" },
     { name: "currency", link: "/ultils/currency" },
+    { name: "countries", link: "/ultils/countries" },
     
 ]
 export const navLinkExtras: navType = [

@@ -178,3 +178,100 @@ export const metaweather:Metadata={
     }
    
   }
+export const metacountries:Metadata={
+  
+    title:{
+      default:"countries",
+      template:`%s |countries`,
+  
+    },
+    description:"World's countries",
+    keywords:["countries","world countries","country","countries world"," quick lookup on countries"," quick info on a country"],
+    // colorScheme:"light",
+    alternates:{
+      canonical:"/ultils/countries",
+      languages:{
+        "en-US":"/en-US",
+        "fr-CA":"/fr-CA"
+      }
+    },
+    openGraph:{
+      title:"World Countries",
+      description: 'World countries look-up, All World Countries',
+      url:"/ultils/countries",
+      images:[
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/ultils.png",
+          width:400,
+          height:300
+      },
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/book.png",
+          width:400,
+          height:300
+      },
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/summer.png",
+          width:400,
+          height:300
+      },
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/logoLarge.png",
+          width:600,
+          height:300
+      },
+        
+    ],
+  
+    }
+   
+  }
+  
+export const metacountry:Metadata={
+  
+    title:{
+      default:"country detail",
+      template:`%s |detail`,
+  
+    },
+    description:"Country detail",
+    keywords:["countries","world countries","country","countries world"," quick lookup on countries"," quick info on a country"],
+    // colorScheme:"light",
+    alternates:{
+      canonical:"/ultils/countries/detail",
+      languages:{
+        "en-US":"/en-US",
+        "fr-CA":"/fr-CA"
+      }
+    },
+    openGraph:{
+      title:"Country detail",
+      description: 'Country description',
+      url:"/ultils/countries/detail",
+      images:[
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/ultils.png",
+          width:400,
+          height:300
+      },
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/book.png",
+          width:400,
+          height:300
+      },
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/summer.png",
+          width:400,
+          height:300
+      },
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/logoLarge.png",
+          width:600,
+          height:300
+      },
+        
+    ],
+  
+    }
+   
+  }

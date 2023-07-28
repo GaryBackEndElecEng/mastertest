@@ -37,6 +37,20 @@ export type articlesContextType={
 export type ultilType={
     getCountries:countryType[] | null
 }
+type mainCountryContext = {
+    show:boolean,
+    setShow: React.Dispatch<React.SetStateAction<boolean>>,
+    showNative:boolean,
+    setShowNative: React.Dispatch<React.SetStateAction<boolean>>,
+    showLang:boolean,
+    setShowLang: React.Dispatch<React.SetStateAction<boolean>>,
+    showCurr:boolean,
+    setShowCurr: React.Dispatch<React.SetStateAction<boolean>>,
+    showDenom:boolean,
+    setShowDenom: React.Dispatch<React.SetStateAction<boolean>>,
+    }
+export const GeneralContext= React.createContext<mainCountryContext>({} as mainCountryContext);
+export const CountryContext= React.createContext<mainCountryContext>({} as mainCountryContext);
 export const UltilsContext=React.createContext<ultilType>({} as ultilType)
 export const CategoryContext = React.createContext<generalContextType>({} as generalContextType);
 export const ArticleContext = React.createContext<articlesContextType>({} as articlesContextType);
@@ -158,4 +172,17 @@ export const UltilsContextProvider=(props:any)=>{
             {props.children}
         </UltilsContext.Provider>
     )
+}
+//-----COUNRY CONTEXT----------//
+export const CountryContextProvider = (props:any) => {
+    const [show,setShow]=React.useState<boolean>(false);
+    const [showNative, setShowNative] = React.useState<boolean>(false);
+  const [showLang, setShowLang] = React.useState<boolean>(false);
+  const [showCurr, setShowCurr] = React.useState<boolean>(false);
+  const [showDenom, setShowDenom] = React.useState<boolean>(false);
+  return (
+    <CountryContext.Provider value={{show,setShow,showNative, setShowNative,showLang, setShowLang,showCurr, setShowCurr,showDenom, setShowDenom}}>
+        {props.children}
+    </CountryContext.Provider>
+  )
 }

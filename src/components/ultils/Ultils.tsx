@@ -18,9 +18,11 @@ type imageType = {
 }
 const Ultils = () => {
   const URL =process.env.NEXT_PUBLIC_aws
+  const staticImage=process.env.NEXT_PUBLIC_aws_static
   const webtoon = `${URL}/summer.png`;
   const ninja = `${URL}/webtoon2.png`;
   const rawio = `${URL}/games.png`;
+  const countries = `${staticImage}/book.png`;
   const [navGames, setNavGames] = React.useState<navGamesType[] | []>([]);
 
   React.useEffect(() => {
@@ -28,6 +30,7 @@ const Ultils = () => {
       { name: "currency", image: rawio ,desc:" This displays all the world's currencies. In addition, it provides ratios to base currencies. the currencies are daily updated to give the most current currency status."},
      { name: "weather", image: webtoon ,desc:" This provides the viewer free access to view all world-cities daily weather forcast.This ultility also provides easy citie search by countries."},
      { name: "translate", image: ninja ,desc:"This provides a 40-line line translation to any desired language." },
+     { name: "countries", image: countries ,desc:"This provides all world country's general information from populations to telephone prefixes." },
   ]
     let arr: navGamesType[] = [];
     navLinkUltils.forEach((nav, index) => {
