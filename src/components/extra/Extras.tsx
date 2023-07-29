@@ -29,6 +29,12 @@ const Extras = () => {
   const directGraph = `${staticImage}/directGraph3.png`;
   const graph = `${staticImage}/graph.png`;
   const [navGames, setNavGames] = React.useState<navGamesType[] | []>([]);
+  
+  React.useEffect(()=>{
+    if(window.scrollY){
+      window.scroll(0,0);
+    }
+  },[]);
 
   React.useEffect(() => {
     const images: imageType[] = [

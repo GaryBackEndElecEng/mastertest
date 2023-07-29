@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react'
 import api from '../axios/api';
-import {navLinkUltils,navLinkExtras,navLinkGames,navLinkHome} from "@nav/Nav";
+import {navLinkUltils,navLinkExtras,navLinkGames,navLinkHome} from "@/components/context/ExportNavLinks";
 import {icons,iconType} from "./Icons";
 import InfoIcon from "@mui/icons-material/Info";
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
@@ -10,6 +10,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import ExploreIcon from '@mui/icons-material/Explore';
 import {allCategoryType,catWordSnippet,categoryType,categoryGeneralInfo,imageCategory,whyChoosUsType,articleType,articlesType,countryType} from "@context/Types";
 import countriesArr from "@context/country.json";
+
 
 
 type navType = {
@@ -29,7 +30,9 @@ export type generalContextType={
     generalInfo:categoryGeneralInfo | null,
     whyChooseUs:whyChoosUsType[] | null,
     extraImages:imageCategory[] | null,
-    termsOfService:catWordSnippet | null
+    termsOfService:catWordSnippet | null,
+    setClose: React.Dispatch<React.SetStateAction<boolean>>,
+    close:boolean
 }
 export type articlesContextType={
     articles:articlesType[] 
@@ -49,14 +52,18 @@ type mainCountryContext = {
     showDenom:boolean,
     setShowDenom: React.Dispatch<React.SetStateAction<boolean>>,
     }
+
+    //====CREATE CONTEXT=======//
 export const GeneralContext= React.createContext<mainCountryContext>({} as mainCountryContext);
 export const CountryContext= React.createContext<mainCountryContext>({} as mainCountryContext);
 export const UltilsContext=React.createContext<ultilType>({} as ultilType)
 export const CategoryContext = React.createContext<generalContextType>({} as generalContextType);
 export const ArticleContext = React.createContext<articlesContextType>({} as articlesContextType);
 export const NavContext = React.createContext<navContextType>({} as navContextType);
+//===========CREATE CONTEXT===============//
 
 export const GeneralContextProvider = (props:any) => {
+    const [close,setClose]=React.useState<boolean>(false);
     const [navs,setNavs]=React.useState<navListType[]>([]);
     const [allCategory,setAllCategory]=React.useState<allCategoryType[]>([]);
     const [generalInfo,setGeneralInfo]=React.useState<categoryGeneralInfo | null>(null);
@@ -129,7 +136,7 @@ export const GeneralContextProvider = (props:any) => {
   }, [convertWhyChooseUs]);
 
   return (
-    <CategoryContext.Provider value={{allCategory,generalInfo,whyChooseUs,extraImages,termsOfService}}>
+    <CategoryContext.Provider value={{allCategory,generalInfo,whyChooseUs,extraImages,termsOfService,close,setClose}}>
     <NavContext.Provider value={{navs}}>
         {props.children}
       </NavContext.Provider>

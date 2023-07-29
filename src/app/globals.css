@@ -34,8 +34,18 @@
   from{transform:translateY(50%);opacity:0.5}
   to{transform:translateY(0%);opacity:1}
 }
+.homeHeader{
+  margin-top:0px;
+}
+.homeHeader > p.free{
+  background-image:var(--background-image-2);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+  
+}
   .card {
-    background-color:var(--site-blue-dark);
+    background-color:var(--site-green-dark);
     border-radius: theme('borderRadius.lg');
     padding: theme('spacing.6');
     box-shadow:theme("boxShadow.big-white");

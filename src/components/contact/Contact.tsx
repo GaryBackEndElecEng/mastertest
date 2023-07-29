@@ -39,6 +39,11 @@ const Contact = () => {
     backgroundSize:"100% 100%",
     backgroundPosition:"50% 50%"
   }
+  React.useEffect(()=>{
+    if(window.scrollY){
+      window.scroll(0,0);
+    }
+  },[]);
 
 
   const handleProject = (e: MouseEvent<HTMLButtonElement>) => {

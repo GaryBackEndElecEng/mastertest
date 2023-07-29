@@ -6,6 +6,6 @@ div.card >p.webDesign{
     transition: all 0.75s ease-in-out;
 }
 div.card:hover >p.webDesign{
-    font-size:260%;
+    font-size:226%;
     transition: all 0.75s ease-in-out;
 }

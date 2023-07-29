@@ -1,5 +1,5 @@
 
-import {navLinkGames,navLinkUltils,navLinkExtras,navLinkHome} from '../components/nav/Nav';
+import {navLinkGames,navLinkUltils,navLinkExtras,navLinkHome} from '@/components/context/ExportNavLinks';
 
 export type navType={
     name:string,

@@ -24,6 +24,12 @@ const Games = () => {
   const rawio = `${URL}/games.png`;
   const [navGames, setNavGames] = React.useState<navGamesType[] | []>([]);
 
+  React.useEffect(()=>{
+    if(window.scrollY){
+      window.scroll(0,0);
+    }
+  },[]);
+
   React.useEffect(() => {
     const images: imageType[] = [
       { name: "rawio", image: rawio ,desc:" This displays all video games. It allows the viewer to take an inside look of the game. In addition, it has store links for quick purchases"},
