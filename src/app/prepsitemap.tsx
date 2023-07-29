@@ -1,5 +1,6 @@
 
 import {navLinkGames,navLinkUltils,navLinkExtras,navLinkHome} from '@/components/context/ExportNavLinks';
+import ChangeEvent from 'react';
 
 export type navType={
     name:string,
@@ -7,22 +8,26 @@ export type navType={
 }
 export type promiseType={
     url:string,
-    lastModified:Date
+    lastModified:Date,
+    changefreq:string,
+    priority:number
 }
 export async function genArr():Promise<promiseType[]>{
     const site=(process.env.NODE_ENV==='production') ? process.env.NEXT_PUBLIC_masterultils :"http://localhost:3000";
     let arr:promiseType[]=[];
     navLinkGames.forEach((obj)=>{
-        arr.push({url:`${site}${obj.link}`,lastModified: new Date()})
+        arr.push({url:`${site}${obj.link}`,lastModified: new Date(),changefreq:"daily",priority:1});
     });
     navLinkUltils.forEach((obj)=>{
-        arr.push({url:`${site}${obj.link}`,lastModified: new Date()})
+        arr.push({url:`${site}${obj.link}`,lastModified: new Date(),changefreq:"daily",priority:1})
     });
     navLinkExtras.forEach((obj)=>{
-        arr.push({url:`${site}${obj.link}`,lastModified: new Date()})
+        arr.push({url:`${site}${obj.link}`,lastModified: new Date(),changefreq:"daily",priority:1})
     });
     navLinkHome.forEach((obj)=>{
-        arr.push({url:`${site}${obj.link}`,lastModified: new Date()})
+        if(!obj.link.startsWith("https")){
+        arr.push({url:`${site}${obj.link}`,lastModified: new Date(),changefreq:"daily",priority:1})
+        }
     });
    
    return arr
