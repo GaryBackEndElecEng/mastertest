@@ -5,7 +5,7 @@ export const metadata:Metadata=metaultils;
 
 const page = () => {
   return (
-    <div className="lg:mx-auto lg:container">
+    <div className="lg:mx-auto lg:container mt-2">
       <Ultils/>
     </div>
   )

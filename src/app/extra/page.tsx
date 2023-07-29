@@ -9,7 +9,7 @@ export const metadata =metaextra;
 //extra
 const page = () => {
   return (
-    <div className="lg:mx-auto lg:container ">
+    <div className="lg:mx-auto lg:container mt-2  " >
       <Extras/>
     </div>
   )
