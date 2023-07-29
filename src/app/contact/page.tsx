@@ -9,7 +9,7 @@ export const metadata:Metadata=metacontact;
 
 const contact = () => {
   return (
-    <div className="bg-[whitesmoke] w-full">
+    <div className="bg-[whitesmoke] w-full m-0">
         <Contact/>
     </div>
   )

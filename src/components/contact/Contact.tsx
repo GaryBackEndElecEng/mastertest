@@ -59,10 +59,10 @@ const Contact = () => {
   return (
     <GeneralContextProvider>
     <ThemeProvider attribute="class">
-    <Container maxWidth="xl" className="dark:bg-black dark:text-white bg-white text-black" >
+    <Container maxWidth="xl" className="mx-0 dark:bg-black dark:text-white bg-white text-black mt-1 lg:mx-auto lg:container" >
 
       
-      <Grid container spacing={3}>
+      <Grid container spacing={{md:3,sm:0}}>
         <Grid
           item xs={12} sm={6} md={6}
           className={styles.childGrid}

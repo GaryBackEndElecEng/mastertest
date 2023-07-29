@@ -8,16 +8,8 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Amplify from "aws-amplify";
 import awsExports from "../aws-exports";
-import Head from 'next/head';
+// import Head from 'next/head';
 
- export function Google() {
-  return (
-      <Head>
-        <meta name="google-site-verification" content="googlecc372f98e6bf9e30" key="google-site-verification" />
-      </Head>
-
-  );
-}
 
 
 //font-family classes-Inter and montserrat Google Fonts
@@ -134,8 +126,8 @@ export default function RootLayout({
   return (
     
     <html lang="en" > 
-      <body className={`${montserr.className} h-auto mx-0 relative bg-[rgba(255,255,255,0.7)] text-black `} style={{width:"100vw"}}>
-      <Google/>
+      <body className={`${montserr.className} h-auto m-0 relative bg-[rgba(255,255,255,0.7)] text-black `} style={{width:"100vw"}}>
+     
       <Nav/>
       <Header/>
         {children}

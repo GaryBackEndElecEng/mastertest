@@ -51,6 +51,8 @@ const Nav = () => {
     const games=navLinkGames?.find(obj=>(obj.name==="games")) || undefined;
     const ultils=navLinkUltils?.find(obj=>(obj.name==="ultils")) || undefined;
     const extra=navLinkExtras?.find(obj=>(obj.name==="extra")) || undefined;
+    const articles=navLinkHome?.find(obj=>(obj.name==="articles")) || undefined;
+    const contact=navLinkHome?.find(obj=>(obj.name==="contact")) || undefined;
     
     
     const handleLink=(e:MouseEvent,link:string | undefined)=>{
@@ -78,6 +80,15 @@ const Nav = () => {
                             <a  className="visible lg:hidden" onClick={(e)=>handleLink(e,home?.link)}>
                             <h3 className="text-white font-bold">home</h3>
                             </a>
+                            <div className="h-2 bg-grey visible lg:hidden border border-blue"/>
+                            <a  className="visible lg:hidden" onClick={(e)=>handleLink(e,articles?.link)}>
+                            <h3 className="text-white font-bold">articles</h3>
+                            </a>
+                            <div className="h-2 bg-grey visible lg:hidden border border-blue"/>
+                            <a  className="visible lg:hidden" onClick={(e)=>handleLink(e,contact?.link)}>
+                            <h3 className="text-white font-bold">contact</h3>
+                            </a>
+                            <div className="h-2 bg-grey visible lg:hidden border border-blue"/>
                             <h3 className="largeName text-site-green-dark visible ">home</h3>
                             <ul className="prose w-full p-2 absolute">
                                 <NavArray navArr={navLinkHome}/>

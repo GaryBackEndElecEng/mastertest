@@ -1,14 +1,16 @@
 "use client";
-import React from 'react';
+import React,{MouseEvent} from 'react';
 import { ThemeProvider } from 'next-themes';
 import Image from "next/image";
 // import "./home.css"
 import HomeAnchor from "./HomeAnchor";
+import ViewArticCont from './ViewArticCont';
 import { GeneralContextProvider } from "@context/GeneralContext";
 import HomeHeader from './HomeHeader';
 
 
 const HomeBody = () => {
+  
   const URL = process.env.NEXT_PUBLIC_aws;
   const web = `${URL}/webService.png`;
   const games = `${URL}/games.png`;
@@ -28,7 +30,8 @@ const HomeBody = () => {
     <GeneralContextProvider>
       <ThemeProvider attribute="class">
       <HomeHeader/>
-        <main className="lg:container lg:mx-auto my-6 mt-[5rem] dark:bg-black dark:text-white text-black bg-[rgba(255,255,255,0.6)]">
+      <ViewArticCont/>
+        <main className="lg:container lg:mx-auto my-1 dark:bg-black dark:text-white text-black bg-[rgba(255,255,255,0.6)]">
           <section className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center lg:gap-4 xs:gap-2 w-full">
             <div className={gridSpans} style={{ boxShadow: "1px 1px 20px 1px black", background:"var(--site-blue-dark)" }} >
               <Image src={web} width={175} height={175} alt="www.masterconnect.ca"
