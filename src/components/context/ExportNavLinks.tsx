@@ -22,6 +22,8 @@ export const navLinkExtras: navType = [
     { name: "extra", link: "/extra" },
     { name: "charts", link: "/extra/chart" },
     { name: "directgraph", link: "/extra/directgraph" },
+    { name: "richChart", link: "/extra/richChart" },
+    { name: "miscgraph", link: "/extra/countrygraph" },
     
 ]
 export const navLinkHome: navType = [

@@ -30,6 +30,8 @@ export const navLinkExtras: navType = [
     { name: "extra", link: "/extra" },
     { name: "charts", link: "/extra/chart" },
     { name: "directgraph", link: "/extra/directgraph" },
+    { name: "richChart", link: "/extra/richChart" },
+    { name: "miscgraph", link: "/extra/countrygraph" },
     
 ]
 export const navLinkHome: navType = [
@@ -37,6 +39,7 @@ export const navLinkHome: navType = [
     { name: "contact", link: "/contact" },
     { name: "masterconnect", link: "https://www.masterconnect.ca" },
     { name: "articles", link: "/articles" },
+    
     
     
 ]

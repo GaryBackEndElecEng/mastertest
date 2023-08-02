@@ -108,6 +108,72 @@ export const metaextra:Metadata={
     }
    
   }
+  export const metarichchart:Metadata={
+  
+    title:{
+      default:"Rich-chart",
+      template:`%s |Rich-chart`,
+  
+    },
+    description:"Rich Chart for you to use. Build your Chart",
+    keywords:["generate charts","great for projects","project tool","chart for use"],
+    // colorScheme:"light",
+    alternates:{
+      canonical:"/extra/richChart",
+      languages:{
+        "en-US":"/en-US",
+        "fr-CA":"/fr-CA"
+      }
+    },
+    openGraph:{
+      title:"masterultils Rich-chart",
+      description: 'Charts for you to use. Build your Chart',
+      url:"/extra/richChart",
+      images:[
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/directGraph.png",
+          width:600,
+          height:300
+      },
+        
+    ],
+  
+    }
+   
+  }
+  export const metaworld:Metadata={
+  
+    title:{
+      default:"world-population",
+      template:`%s |world-population`,
+  
+    },
+    description:"World population - Visual comparison",
+    keywords:["population","continent population","continent","Visual world comparison"],
+    // colorScheme:"light",
+    alternates:{
+      canonical:"/extra/countrygraph",
+      languages:{
+        "en-US":"/en-US",
+        "fr-CA":"/fr-CA"
+      }
+    },
+    openGraph:{
+      title:"world-population comparison",
+      description: 'World population - Visual comparison',
+      url:"/extra/countrygraph",
+      images:[
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/directGraph.png",
+          width:600,
+          height:300
+      },
+        
+    ],
+  
+    }
+   
+  }
 
 
 

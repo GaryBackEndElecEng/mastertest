@@ -39,7 +39,9 @@ const Extras = () => {
   React.useEffect(() => {
     const images: imageType[] = [
       { name: "charts", image: graph ,desc:[{para:" This allows you to generate your custom graphs for a project. The display graph is an image so you can copy the image from the template, once completed and simply paste it into your project."},{para:" You have an option of a bar, pie, donut, radar, or line graph."},{para:" The graph comes with multiple input, as well as a summary and legend for easy customization."}]},
-     { name: "directgraph", image: directGraph ,desc:[{para:" This allows you to generate a flow chart as is easily transferrable to your project from a simple copy and paste method."},{para:" The system allows you to visually build your flow-chart, one node/(process and arrow) at a time."}]},
+     { name: "directgraph", image: directGraph ,desc:[{para:" This allows you to generate a flow chart for your project. This is easily transferrable to your project from a simple copy and paste method from the generated chart."},{para:" The system allows you to visually build your flow-chart, one node/(process and arrow) at a time."}],},
+     { name: "richChart", image: graph ,desc:[{para:" This allows you to generate either a line or  bar dynamic graphs for your presentation - just click on the home icon to download your graph."},{para:" The system allows you to visually see and analyze data."}],},
+     { name: "miscgraph", image: graph ,desc:[{para:" This allows you to view world's and continent's populations."},{para:" It provides a visual snap-shot of population density."}],},
      
   ]
     let arr: navGamesType[] = [];
