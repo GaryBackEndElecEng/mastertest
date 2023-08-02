@@ -41,6 +41,10 @@ const Article = ({ id }: { id: string | null }) => {
                         <h3 className="text-center text-3xl my-2 mx-auto font-bold">{article.section}</h3>
                         <Image src={article.imageSection} height={900} width={900} alt="www.masterconnect.ca" className="aspect-video m-auto"/>
                         </div>
+                        <h4 className="text-center text-xl my-2 mx-auto font-bold">{article.section}</h4>
+                        <div className="text-md indent-4 my-1"
+                            dangerouslySetInnerHTML={createMarkup(article.summary)}
+                        />
                         <h4 className="text-center text-xl my-2 mx-auto font-bold">{article.subSection}</h4>
                         <div className="text-md indent-4 my-1"
                             dangerouslySetInnerHTML={createMarkup(article.content)}
