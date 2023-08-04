@@ -45,21 +45,21 @@ const GetClientDomainInfo = () => {
         
             <div className="flex flex-col items-center justify-center my-2 p-2">
                 <div className=" m-auto flex flex-row items-center justify-center my-2 gap-2">
-                    <FormControl className="m-auto px-2 p-2 m-2 border-2 border-blue shadow-md shadow-blue dark:bg-white text-blue">
-                        <h3 className="text-center text-md">Enter domain</h3>
+                    <FormControl className="m-auto px-2 p-2 m-2 border-2 border-blue shadow-md shadow-blue bg-white dark:bg-white text-blue">
+                        <h3 className="text-center text-md bg-white text-black">Enter domain</h3>
                         <Input
                             name="getEmail"
                             value={tempDomain ? tempDomain : ""}
                             onChange={(e: React.ChangeEvent< HTMLInputElement>) => setTempDomain(e.target.value)}
                         />
-                        {!msg ? <FormHelperText className="m-auto p-2 px-3 bg-white text-green">example.com</FormHelperText>
+                        {!msg ? <FormHelperText className="m-auto p-2 px-3 bg-white text-green" style={{color:"black"}}>example.com</FormHelperText>
                         :
-                        <FormHelperText className="m-auto p-2 px-3 bg-black text-white">{msg}</FormHelperText>}
+                        <FormHelperText className="m-auto p-2 px-3 bg-black text-white" style={{color:"white"}}>{msg}</FormHelperText>}
                     </FormControl>
                     
                     <div className="flex flex-col justify-center items-center">
-                        <button className="text-center text-md p-2 px-4 rounded-lg border border-black shadow-lg shadow-blue hover:bg-blue hover:tracking-wide hover:shadow-xl" onClick={(e) => handleSubmit(e)}>Submit</button>
-                        {domain && <button className="text-center mt-2 text-md p-2 px-4 rounded-lg border border-black shadow-lg shadow-blue hover:bg-blue hover:tracking-wide hover:shadow-xl" onClick={(e) => handleReset(e)}>reset</button>}
+                        <button className="text-center text-md p-2 px-4 rounded-lg border border-black shadow-lg shadow-blue hover:bg-blue hover:tracking-wide hover:shadow-xl bg-site_blue_dark text-white" onClick={(e) => handleSubmit(e)}>Submit</button>
+                        {domain && <button className="text-center mt-2 text-md p-2 px-4 rounded-lg border border-black shadow-lg shadow-blue hover:bg-blue bg-site_blue_dark text-whitehover:tracking-wide hover:shadow-xl" onClick={(e) => handleReset(e)}>reset</button>}
                     </div>
                 </div>
                 {(getResults_.loaded) && <DomainDetail getResults={getResults_.data} />}

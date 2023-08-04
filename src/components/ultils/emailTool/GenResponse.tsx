@@ -46,19 +46,19 @@ const GenResponse = () => {
   return (
     <div className="lg:mx-auto lg:container flex flex-col items-center justify-center my-2 p-2 ">
       <div className="flex flex-row items-center justify-center my-2 px-2">
-        <FormControl className="m-auto px-2 p-2 m-2 border-2 border-blue shadow-md shadow-blue">
-          <h3 className="text-center text-md">Email</h3>
+        <FormControl className="m-auto px-2 p-2 m-2 border-2 border-blue shadow-md shadow-blue bg-white">
+          <h3 className="text-center text-md"> verify an Email</h3>
           <Input
             name="getEmail"
             value={tempEmail? tempEmail:""}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => setTempEmail(e.target.value)}
           />
-          {!msg ? <FormHelperText className="m-auto p-2 px-3 bg-white text-black">example@email.com</FormHelperText>
+          {!msg ? <FormHelperText className="m-auto p-2 px-3 bg-white text-black" style={{color:"black"}}>example@email.com</FormHelperText>
           :
-          <FormHelperText className="m-auto p-2 px-3 bg-black text-white">{msg}</FormHelperText>}
+          <FormHelperText className="m-auto p-2 px-3 bg-black text-white" style={{color:"white"}}>{msg}</FormHelperText>}
         </FormControl>
         <div className="flex flex-col justify-center items-center my-2  pl-3">
-          <button className="text-center text-md p-2 px-4 rounded-lg border border-black shadow-lg shadow-blue hover:bg-blue hover:tracking-wide hover:shadow-xl" onClick={(e) => handleGetEmail(e)}>Submit</button>
+          <button className="text-center text-md p-2 px-4 rounded-lg border border-black shadow-lg shadow-blue hover:bg-blue hover:tracking-wide hover:shadow-xl bg-site_blue_dark text-white" onClick={(e) => handleGetEmail(e)}>Submit</button>
         </div>
       </div>
       {verify &&

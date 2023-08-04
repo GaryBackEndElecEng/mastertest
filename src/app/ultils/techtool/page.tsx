@@ -12,7 +12,7 @@ const emailPage = () => {
     const URL = process.env.NEXT_PUBLIC_aws;
     const happy = `${URL}/happy.png`;
     return (
-        <div className="flex flex-col items-center lg:mx-auto lg:container">
+        <div className="flex flex-col items-center lg:mx-auto lg:container bg-[whitesmoke] dark:bg-black text-black dark:text-white">
             <div className="flex flex-row justify-center items-center gap-1 my-4 mt-10 lg:mt-4 lg:mx-auto">
                 <Image src={happy} width={75} height={75} alt="www.masterconnect.ca"
                 className="rounded-[50%] p-2 shadow-lg shadow-blue bg-black"
