@@ -275,3 +275,46 @@ export const metacountry:Metadata={
     }
    
   }
+export const metatechtool:Metadata={
+  
+    title:{
+      default:"techtool",
+      template:`%s |techtool`,
+  
+    },
+    description:"Tech tools for the average",
+    keywords:["email lookup","domain look up","domain detail","DNS lookup","phone look up"," quick info on email validation"],
+    // colorScheme:"light",
+    alternates:{
+      canonical:"/ultils/techtool",
+      languages:{
+        "en-US":"/en-US",
+        "fr-CA":"/fr-CA"
+      }
+    },
+    openGraph:{
+      title:"Tech tools for you",
+      description: 'Tech tools for the average',
+      url:"/ultils/countries/detail",
+      images:[
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/ultils.png",
+          width:400,
+          height:300
+      },
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/summer.png",
+          width:400,
+          height:300
+      },
+        {
+          url:"https://new-master.s3.ca-central-1.amazonaws.com/static/masterultils/logoLarge.png",
+          width:600,
+          height:300
+      },
+        
+    ],
+  
+    }
+   
+  }

@@ -31,6 +31,7 @@ const Ultils = () => {
      { name: "weather", image: webtoon ,desc:" This provides the viewer free access to view all world-cities daily weather forcast.This ultility also provides easy citie search by countries."},
      { name: "translate", image: ninja ,desc:"This provides a 40-line line translation to any desired language." },
      { name: "countries", image: countries ,desc:"This provides all world country's general information from populations to telephone prefixes." },
+     { name: "techtool", image: webtoon ,desc:"This allows you to verify emails,DNS lookups and domain verification." },
   ]
     let arr: navGamesType[] = [];
     navLinkUltils.forEach((nav, index) => {
@@ -41,7 +42,7 @@ const Ultils = () => {
     });
     setNavGames(arr)
 
-  }, [rawio,webtoon,ninja]);
+  }, [rawio,webtoon,ninja,countries]);
 
   return (
     <div className="lg:mx-auto lg:container bg-[rgba(255,255,255,0.8)] text-black dark:bg-black dark:text-white">
