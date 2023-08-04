@@ -1,46 +1,105 @@
 "use client";
 import React from 'react';
-import {ownerType,adminType} from "@/components/ultils/whoisthis/getDomainInfo";
+import {ownerType,contactType} from "@/components/ultils/whoisthis/getDomainInfo";
 
 type mainOwnerType={
-contact?:{
-  owner:ownerType[],
-  admin:adminType[],
-  tech:adminType[]
+contact?:contactType
 }
-}
+
+
 const DomainOwnerAdmin = ({contact}:mainOwnerType) => {
-    const [getOwner,setOwner]=React.useState<ownerType[] | undefined>();
+    const [getOwner,setOwner]=React.useState<contactType | undefined>([]);
     const [getOwnerObj,setGetOwnerObj]=React.useState<string | undefined>();
-    const isArray=(contact && contact.owner)? true : false;
+    const isArray=(contact && contact.length>0)? true : false;
+    
     React.useEffect(()=>{
+      
         if(isArray){
-            setOwner(contact && contact.owner);
+            setOwner(contact && contact);
+            
         }else{
-            setGetOwnerObj(contact && JSON.stringify(contact))
+          let testThis=contact ? JSON.stringify(contact):undefined;
+          
+            setGetOwnerObj(testThis)
         }
     },[isArray,setOwner,setGetOwnerObj,contact]);
 
   return (
     <div>
-        {getOwner ?
-            getOwner.map((owner:any, index) => (
-                <small className="flex flex-row flex-wrap gap-2" key={index}>
-                  {owner.handle && <small className="text-xs m-auto">handle:{owner.handle}</small>}
-                  {owner.type && <small className="text-xs m-auto">type:{owner.type}</small>}
-                  {owner.name && <small className="text-xs m-auto">name:{owner.name}</small>}
-                  {owner.organization && <small className="text-xs m-auto">org:{owner.organization}</small>}
-                  {owner.email && <small className="text-xs m-auto">email:{owner.email}</small>}
-                  {owner.address && <small className="text-xs m-auto">add:{owner.address}</small>}
-                  {owner.city && <small className="text-xs m-auto">city:{owner.city}</small>}
-                  {owner.fax && <small className="text-xs m-auto">fax:{owner.fax}</small>}
-                  {owner.country && <small className="text-xs m-auto">country:{owner.country}</small>}
-                  {owner.phone && <small className="text-xs m-auto">phone:{owner.phone}</small>}
-                  {owner.created && <small className="text-xs m-auto">created:{owner.created}</small>}
+        {(getOwner && getOwner.length>0) ?
+            getOwner.map((owner, index) => (
+                <small className="flex flex-col flex-wrap gap-2" key={index}>
+                  {owner.handle &&
+                   <small className="text-xs m-auto">
+                    <div className="font-bold my-2">handle</div>
+                    <div>{owner.handle}</div>
+                   </small>
+                  }
+                  {owner.type && 
+                  <small className="text-xs m-auto">
+                    <div className="font-bold my-2">type</div>
+                    <div>{owner.type}</div>
+                  </small>
+                  }
+                  {owner.name && 
+                  <small className="text-xs m-auto">
+                    <div className="font-bold my-2">name</div>
+                    <div>{owner.name}</div>
+                  </small>
+                  }
+                  {owner.organization &&
+                   <small className="text-xs m-auto">
+                    <div className="font-bold my-2">org</div>
+                    <div>{owner.organization}</div>
+                   </small>
+                  }
+                  {owner.email &&
+                   <small className="text-xs m-auto">
+                    <div className="font-bold my-2">email</div>
+                    <div>{owner.email.split(" ")[0]}</div>
+                    <div>{owner.email.split(" ")[1]}</div>
+                   </small>
+                  }
+                  {owner.address &&
+                   <small className="text-xs m-auto">
+                    <div className="font-bold my-2">add:</div>
+                    <div>{owner.address}</div>
+                   </small>
+                  }
+                  {owner.city &&
+                   <small className="text-xs m-auto">
+                    <div className="font-bold my-2">city</div>
+                    <div>{owner.city}</div>
+                   </small>
+                  }
+                  {owner.fax &&
+                   <small className="text-xs m-auto">
+                    <div className="font-bold my-2">fax</div>
+                    <div>{owner.fax}</div>
+                   </small>
+                  }
+                  {owner.country && 
+                  <small className="text-xs m-auto">
+                    <div className="font-bold my-2">country</div>
+                    <div>{owner.country}</div>
+                  </small>
+                  }
+                  {owner.phone &&
+                   <small className="text-xs m-auto">
+                    <div className="font-bold my-2">phone</div>
+                    <div>{owner.phone}</div>
+                   </small>
+                  }
+                  {owner.created &&
+                   <small className="text-xs m-auto">
+                    <div className="font-bold my-2">created</div>
+                    <div>{owner.created}</div>
+                   </small>
+                  }
                 </small>
               ))
               :
-              <small className="flex flex-row flex-wrap gap-2">
+              <small className="flex flex-col w-3/4 flex-wrap gap-2 whitespace-break-spaces">
                 {getOwnerObj}
               </small>
         }

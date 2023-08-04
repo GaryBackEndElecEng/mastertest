@@ -59,7 +59,7 @@ const GetClientDomainInfo = () => {
                     
                     <div className="flex flex-col justify-center items-center">
                         <button className="text-center text-md p-2 px-4 rounded-lg border border-black shadow-lg shadow-blue hover:bg-blue hover:tracking-wide hover:shadow-xl bg-site_blue_dark text-white" onClick={(e) => handleSubmit(e)}>Submit</button>
-                        {domain && <button className="text-center mt-2 text-md p-2 px-4 rounded-lg border border-black shadow-lg shadow-blue hover:bg-blue bg-site_blue_dark text-whitehover:tracking-wide hover:shadow-xl" onClick={(e) => handleReset(e)}>reset</button>}
+                        {domain && <button className="text-center mt-2 text-md p-2 px-4 rounded-lg border border-black shadow-lg shadow-blue hover:bg-blue bg-site_blue_dark text-white hover:tracking-wide hover:shadow-xl" onClick={(e) => handleReset(e)}>reset</button>}
                     </div>
                 </div>
                 {(getResults_.loaded) && <DomainDetail getResults={getResults_.data} />}

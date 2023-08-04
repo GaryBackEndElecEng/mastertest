@@ -17,7 +17,7 @@ export type ownerType={
   created?:string ,
   changed?:string 
 } 
-export type adminType={
+export type contactType={
   handle?:string | null,
   type?:string | null,
   name?:string | null,
@@ -32,7 +32,7 @@ export type adminType={
   fax:string | null,
   created?:string | null,
   changed?:string | null
-} 
+}[] 
 type registrarType={
   id?: string,
   name?: string,
@@ -45,7 +45,7 @@ export type whoDomainType={
   server?:string,
   name:string |null,
   idnName:string | null,
-  status?:string,
+  status?:string[],
   nameserver?:string[],
   ips?:string[] | null | string,
   created?:string,
@@ -53,11 +53,7 @@ export type whoDomainType={
   expires?:string | null,
   registered?:boolean,
   dnssec?:boolean,
-  contacts?:{
-    owner:ownerType[] | any,
-    admin:adminType[] | any,
-    tech:adminType[] | any
-   } ,
+  contacts?:contactType ,
    whoisserver?:string,
   registrar?:registrarType,
   rawdata?:string[],
@@ -81,7 +77,7 @@ const getDomainInfo = async(domain:string):Promise<whoDomainType | undefined> =>
         const response = await fetch(url, options);
         const result = await response.text();
         const body:whoDomainType = JSON.parse(result)
-        console.log(body);
+        // console.log(body);
         return body
     } catch (error) {
       if(error){
