@@ -8,6 +8,17 @@ type mainResultsType={
     getResults:whoDomainType | undefined | null,
 }
 const DomainDetail = ({getResults}:mainResultsType) => {
+  const [status,setStatus]=React.useState<string[]|null>(null);
+  const [statusStr,setStatusStr]=React.useState<string|null>(null);
+  React.useEffect(()=>{
+    if(getResults?.status?.length && typeof(getResults.status)!=="string"){
+      setStatus(getResults.status);
+      console.log(getResults.status);
+    }else if(getResults?.status){
+      console.log(getResults.status);
+      setStatusStr(JSON.stringify(getResults?.status))
+    }
+  },[getResults]);
  
   return (
     <div className="flex flex-col lg:mx-auto mx-2 justify-center items-center flex-wrap my-2 shadow-lg shadow-blue rounded-lg p-2">
@@ -65,9 +76,9 @@ const DomainDetail = ({getResults}:mainResultsType) => {
             <small className="text-xs mx-0">
                 <div className="font-bold">servers status:</div>
               {
-              (getResults.status && getResults.status.length>0)
+              (status)
                ? 
-                ( getResults.status.map((status,index)=>(
+                ( status.map((status,index)=>(
                   <small className="text-xs m-auto" key={`${index}-${status}`}>
                     <div>{status.split(" ")[0]}</div>
                     <div>{status.split(" ")[1]}</div>
@@ -77,7 +88,7 @@ const DomainDetail = ({getResults}:mainResultsType) => {
                 :
                 <small >
                   <small className="text-xs m-auto">
-                    {getResults.status && JSON.stringify( getResults.status[0])}
+                    {statusStr && statusStr}
                   </small>
                 </small>
               
