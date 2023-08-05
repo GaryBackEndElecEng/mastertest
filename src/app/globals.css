@@ -16,6 +16,9 @@
   --background-image-2:linear-gradient(to left, blue, rgb(188, 243, 116) 50%,rgb(236, 28, 13));
   --background-contact:linear-gradient(to left, blue, rgb(188, 243, 116) 50%,rgb(236, 28, 13));
 }
+.clamp-width{
+  width:clamp(300px,50%,800px);
+}
 .firstLet::first-letter{
   -webkit-initial-letter: 1.5;
   initial-letter: 1.5;

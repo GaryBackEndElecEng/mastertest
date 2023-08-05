@@ -45,7 +45,7 @@ const GetClientScraped = () => {
     return (
         
             <div className="flex flex-col items-center justify-center my-2 p-2">
-                <div className=" m-auto flex flex-row flex-wrap items-center justify-center my-2 gap-2">
+                <div className=" m-auto flex sm:flex-col lg:flex-row flex-wrap items-center justify-center my-2 gap-2">
                     <FormControl className="m-auto px-2 p-2 m-2 border-2 border-blue shadow-md shadow-blue bg-white dark:bg-white text-blue">
                         <h3 className="text-center text-md">Enter domain</h3>
                         <Input

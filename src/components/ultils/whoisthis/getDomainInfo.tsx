@@ -1,38 +1,46 @@
 import React from 'react';
 
 
+
 export type ownerType={
   handle?:string ,
-  type?:string ,
+  type?:string |null ,
   name?:string ,
   organization?:string ,
-  email?:string,
+  email?: string,
+  address?:string[] | string ,
+  zipcode?:string ,
+  city?:string ,
+  state?:string ,
+  country?:string ,
+  phone?:string ,
+  fax?:string ,
+  created?:string |null ,
+  changed?:string |null 
+}
+
+export type contactType={
+  handle?:string ,
+  type?:string | null ,
+  name?:string ,
+  organization?:string ,
+  email?: string,
   address?:string ,
   zipcode?:string ,
   city?:string ,
   state?:string ,
-  country?:string,
+  country?:string ,
   phone?:string ,
   fax?:string ,
   created?:string ,
-  changed?:string 
-} 
-export type contactType={
-  handle?:string | null,
-  type?:string | null,
-  name?:string | null,
-  organization?:string | null,
-  email?: string,
-  address?:string | null,
-  zipcode?:string | null,
-  city?:string | null,
-  state?:string | null,
-  country?:string | null,
-  phone?:string | null,
-  fax:string | null,
-  created?:string | null,
-  changed?:string | null
+  changed?:string,
+  
 }[] 
+export type contactType2={
+  owner:ownerType[],
+  admin:ownerType[],
+  tech:ownerType[],
+} 
 type registrarType={
   id?: string,
   name?: string,
@@ -43,6 +51,28 @@ type registrarType={
 
 export type whoDomainType={
   server?:string,
+  type?:string |null,
+  name?:string |null,
+  idnName?:string | null,
+  status?:any,
+  nameserver?:string[],
+  ips?:string[] | null | string,
+  created?:string,
+  changed?:string,
+  expires?:string | null,
+  registered?:boolean,
+  dnssec?:string | boolean,
+  contacts?:contactType ,
+   whoisserver?:string,
+  registrar?:registrarType,
+  rawdata?:string[],
+  network?:string | null,
+  exception?:string | null,
+  parsedContacts?:boolean,
+  ask_whois?: string
+}
+export type whoDomainType2={
+  server?:string,
   name:string |null,
   idnName:string | null,
   status?:string[],
@@ -52,17 +82,18 @@ export type whoDomainType={
   changed?:string,
   expires?:string | null,
   registered?:boolean,
-  dnssec?:boolean,
-  contacts?:contactType ,
+  dnssec?:string | boolean,
+  contacts?:contactType2 ,
    whoisserver?:string,
   registrar?:registrarType,
   rawdata?:string[],
   network?:string | null,
   exception?:string | null,
   parsedContacts?:boolean,
+  ask_whois?: string
 }
 
-const getDomainInfo = async(domain:string):Promise<whoDomainType | undefined> => {
+const getDomainInfo = async(domain:string):Promise<any | undefined> => {
 
     const url = `https://zozor54-whois-lookup-v1.p.rapidapi.com/?domain=${domain}&format=json&_forceRefresh=0`;
     const options = {
@@ -77,8 +108,14 @@ const getDomainInfo = async(domain:string):Promise<whoDomainType | undefined> =>
         const response = await fetch(url, options);
         const result = await response.text();
         const body:whoDomainType = JSON.parse(result)
-        // console.log(body);
-        return body
+        const body2:whoDomainType2 = JSON.parse(result)
+        // console.log("body",body)
+        if(body?.contacts && body?.contacts.length>0){
+          return body
+        }else{
+          return body2
+        }
+        
     } catch (error) {
       if(error){
         console.error(error);

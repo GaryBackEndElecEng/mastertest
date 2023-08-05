@@ -1,6 +1,6 @@
 "use client";
 import React,{MouseEvent} from 'react';
-import getDomainInfo, { whoDomainType } from './getDomainInfo';
+import getDomainInfo, { whoDomainType,whoDomainType2 } from './getDomainInfo';
 import { FormControl,FormHelperText,Input } from '@mui/material';
 import DomainDetail from "./DomainDetail";
 type whoDomType={
