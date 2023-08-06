@@ -37,6 +37,6 @@
 @media screen and (max-width:400px){
     .masterHeader{
         margin-bottom:-6.5rem;
-        transform:translateY(-20%);
+        transform:translateY(-26%);
     }
 }
