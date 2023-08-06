@@ -7,12 +7,14 @@ import Link from "next/link";
 import Image from 'next/image';
 
 type navGamesType = {
+  id:number,
   name: string,
   link: string,
   image: string,
   desc:string
 }
 type imageType = {
+  id:number,
   image: string,
   name: string,
   desc:string
@@ -32,18 +34,18 @@ const Games = () => {
 
   React.useEffect(() => {
     const images: imageType[] = [
-      { name: "rawio", image: rawio ,desc:" This displays all video games. It allows the viewer to take an inside look of the game. In addition, it has store links for quick purchases"},
-     { name: "webtoon", image: webtoon ,desc:" This gives the viewer a short insight on webtoons and shows the webtoon types."},
-     { name: "slang-word", image: ninja,desc:"This interfaces with a universal definition of slang words.It gives you the best definition of known english saying, voted by the public." },
+      {id:1, name: "rawio", image: rawio ,desc:" This displays all video games. It allows the viewer to take an inside look of the game. In addition, it has store links for quick purchases"},
+     {id:2, name: "webtoon", image: webtoon ,desc:" This gives the viewer a short insight on webtoons and shows the webtoon types."},
+     {id:3, name: "slang-word", image: ninja,desc:"This interfaces with a universal definition of slang words.It gives you the best definition of known english saying, voted by the public." },
   ]
     let arr: navGamesType[] = [];
     navLinkGames.forEach((nav, index) => {
       if (nav.name !== "games") {
         const image = images.filter(obj => (obj.name === nav.name))[0]
-        arr.push({ name: nav.name, link: nav.link, image: image.image,desc:image.desc })
+        arr.push({id:nav.id, name: nav.name, link: nav.link, image: image.image,desc:image.desc })
       }
     });
-    setNavGames(arr)
+    setNavGames(arr.sort((a,b)=>a.id - b.id))
 
   }, [webtoon,ninja,rawio]);
 
@@ -52,7 +54,7 @@ const Games = () => {
     <div className="lg:mx-auto lg:container dark:bg-black dark:text-white bg-white text-black">
       <div className="m-auto grid grid-cols-1 grid-flow-row-dense lg:grid-cols-3 gap-2 place-items-stretch hover:place-items-center">
         {navGames?.filter(obj => (obj.name !== "games")).map((obj, index) => (
-          <Link href={obj.link} className="m-auto w-full flex flex-col  min-h-[20vh] bg-cyan-500 border rounded-xl bg-site_blue_dark" key={`${index}-${obj.name}`}>
+          <Link href={obj.link} className="m-auto w-full flex flex-col  min-h-[20vh] bg-cyan-500 border rounded-xl bg-slate_blue" key={`${index}-${obj.name}`}>
             <div className="flex flex-row flex-wrap justify-center items-center gap-x-7">
             <Image src={obj.image} width={75} height={75} alt="www.masterconnect.ca"
                 className="rounded-[50%]"

@@ -21,7 +21,11 @@ module.exports = {
       "site_blue_dark":"#172A3A",
       "site_green_dark":"#004346",
       "site_mint":"#09BC8A",
-      "black":"rgb(0,0,0)",
+      "black":"#2B2118",
+      "slate_blue":"#355691",
+      "light_marron":"#DB324D",
+      "lime_green":"#8AE9C1",
+      "sky_blue":"#91A6FF",
       "medium-black":"rgba(0,0,0,0.5)"
 
     },

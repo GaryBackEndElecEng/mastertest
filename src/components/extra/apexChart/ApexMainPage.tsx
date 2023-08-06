@@ -74,11 +74,11 @@ const ApexMainPage = () => {
 
 
   return (
-    <div className="flex flex-col items-center justify-start my-1 mx-0 lg:mx-auto lg:container gap-2 w-full bg-black " >
+    <div className="flex flex-col items-center justify-start my-1 mx-0 lg:mx-auto lg:container gap-2 w-full bg-black text-white " >
       <div className="grid grid-cols-1 lg:grid-cols-4 place-items-center mx-0 lg:mx-auto lg:gap-2 gap-y-1 border-2 w-full ">
         <div className="col-span-3 m-auto shadow-lg shadow-blue w-full">
           {!show ?
-            <h3 className="text-center text-black dark:text-white text-2xl">pending display</h3>
+            <h3 className="text-center text-white dark:text-white text-2xl dar:text-white">pending display</h3>
             :
             <h3 className="text-center text-blue dark:text-blue text-2xl">Displayed</h3>
           }

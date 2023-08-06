@@ -132,7 +132,7 @@ const BarAttrib = ({ type }: MainBarAttribType) => {
                             <input
                                 name="border-radius"
                                 value={borderRad}
-                                className="text-center"
+                                className="text-center w-1/2"
                                 onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLInputElement>) => setBorderRad(e.target.value)}
                             />
                             <FormHelperText className="dark:text-white text-black mt-2">number:one-to-50</FormHelperText>

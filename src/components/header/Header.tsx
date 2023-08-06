@@ -6,7 +6,8 @@ import ColorBtn from './ColorBtn';
 
 const Header = () => {
   const URL = process.env.NEXT_PUBLIC_aws;
-    const headerImage:string=`${URL}/header.png`;
+    // const headerImage:string=`${URL}/header.png`;
+    const headerImage:string=`${URL}/bg_navada.png`;
     
   return (
     <ThemeProvider attribute="class">

@@ -7,39 +7,40 @@ import {useRouter} from "next/navigation";
 
 
 type navType = {
+    id:number,
     name: string,
     link: string
 }[]
 
 export const navLinkGames: navType = [
-    { name: "games", link: "/games" },
-    { name: "webtoon", link: "/games/webtoon" },
-    { name: "rawio", link: "/games/rawio" },
-    { name: "slang-word", link: "/games/slang-word" },
+    {id:1, name: "games", link: "/games" },
+    {id:2, name: "webtoon", link: "/games/webtoon" },
+    {id:3, name: "rawio", link: "/games/rawio" },
+    {id:4, name: "slang-word", link: "/games/slang-word" },
     
 ]
 export const navLinkUltils: navType = [
-    { name: "ultils", link: "/ultils" },
-    { name: "weather", link: "/ultils/weather" },
-    { name: "translate", link: "/ultils/translate" },
-    { name: "currency", link: "/ultils/currency" },
-    { name: "countries", link: "/ultils/countries" },
-    { name: "techtool", link: "/ultils/techtool" },
+    {id:1, name: "ultils", link: "/ultils" },
+    {id:2, name: "weather", link: "/ultils/weather" },
+    {id:3, name: "translate", link: "/ultils/translate" },
+    {id:4, name: "currency", link: "/ultils/currency" },
+    {id:5, name: "countries", link: "/ultils/countries" },
+    {id:6, name: "techtool", link: "/ultils/techtool" },
     
 ]
 export const navLinkExtras: navType = [
-    { name: "extra", link: "/extra" },
-    { name: "charts", link: "/extra/chart" },
-    { name: "directgraph", link: "/extra/directgraph" },
-    { name: "richChart", link: "/extra/richChart" },
-    { name: "miscgraph", link: "/extra/countrygraph" },
+    {id:1, name: "extra", link: "/extra" },
+    {id:2, name: "charts", link: "/extra/chart" },
+    {id:3, name: "directgraph", link: "/extra/directgraph" },
+    {id:4, name: "richChart", link: "/extra/richChart" },
+    {id:5, name: "miscgraph", link: "/extra/countrygraph" },
     
 ]
 export const navLinkHome: navType = [
-    { name: "home", link: "/" },
-    { name: "contact", link: "/contact" },
-    { name: "masterconnect", link: "https://www.masterconnect.ca" },
-    { name: "articles", link: "/articles" },
+    {id:1, name: "home", link: "/" },
+    {id:2, name: "contact", link: "/contact" },
+    {id:3, name: "masterconnect", link: "https://www.masterconnect.ca" },
+    {id:4, name: "articles", link: "/articles" },
     
     
     

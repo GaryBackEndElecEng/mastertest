@@ -13,6 +13,7 @@ type paraType={
 }
 
 type navGamesType = {
+  id:number,
   name: string,
   link: string,
   image: string,
@@ -20,6 +21,7 @@ type navGamesType = {
 }
 
 type imageType = {
+  id:number,
   image: string,
   name: string,
   desc:paraType[]
@@ -38,20 +40,20 @@ const Extras = () => {
 
   React.useEffect(() => {
     const images: imageType[] = [
-      { name: "charts", image: graph ,desc:[{para:" This allows you to generate your custom graphs for a project. The display graph is an image so you can copy the image from the template, once completed and simply paste it into your project."},{para:" You have an option of a bar, pie, donut, radar, or line graph."},{para:" The graph comes with multiple input, as well as a summary and legend for easy customization."}]},
-     { name: "directgraph", image: directGraph ,desc:[{para:" This allows you to generate a flow chart for your project. This is easily transferrable to your project from a simple copy and paste method from the generated chart."},{para:" The system allows you to visually build your flow-chart, one node/(process and arrow) at a time."}],},
-     { name: "richChart", image: graph ,desc:[{para:" This allows you to generate either a line or  bar dynamic graphs for your presentation - just click on the home icon to download your graph."},{para:" The system allows you to visually see and analyze data."}],},
-     { name: "miscgraph", image: graph ,desc:[{para:" This allows you to view world's and continent's populations."},{para:" It provides a visual snap-shot of population density."}],},
+      {id:1, name: "charts", image: graph ,desc:[{para:" This allows you to generate your custom graphs for a project. The display graph is an image so you can copy the image from the template, once completed and simply paste it into your project."},{para:" You have an option of a bar, pie, donut, radar, or line graph."},{para:" The graph comes with multiple input, as well as a summary and legend for easy customization."}]},
+     {id:2, name: "directgraph", image: directGraph ,desc:[{para:" This allows you to generate a flow chart for your project. This is easily transferrable to your project from a simple copy and paste method from the generated chart."},{para:" The system allows you to visually build your flow-chart, one node/(process and arrow) at a time."}],},
+     {id:3, name: "richChart", image: graph ,desc:[{para:" This allows you to generate either a line or  bar dynamic graphs for your presentation - just click on the home icon to download your graph."},{para:" The system allows you to visually see and analyze data."}],},
+     {id:4, name: "miscgraph", image: graph ,desc:[{para:" This allows you to view world's and continent's populations."},{para:" It provides a visual snap-shot of population density."}],},
      
   ]
     let arr: navGamesType[] = [];
     navLinkExtras.forEach((nav, index) => {
       if (nav.name !== "extra") {
         const image = images.filter(obj => (obj.name === nav.name))[0]
-        arr.push({ name: nav.name, link: nav.link, image:image.image,desc:image.desc })
+        arr.push({id:nav.id, name: nav.name, link: nav.link, image:image.image,desc:image.desc })
       }
     });
-    setNavGames(arr)
+    setNavGames(arr.sort((a,b)=>b.id - a.id))
 
   }, [graph,directGraph]);
 
@@ -60,7 +62,7 @@ const Extras = () => {
     <div className="lg:mx-auto lg:container dark:bg-black dark:text-white bg-white text-black ">
       <div className="m-auto grid grid-cols-1 grid-flow-row-dense lg:grid-cols-2 gap-2 place-items-stretch hover:place-items-center ">
         {navGames?.filter(obj => (obj.name !== "games")).map((obj, index) => (
-          <Link href={obj.link} className="m-auto w-full flex flex-col  min-h-[20vh]  border rounded-xl bg-site_blue_dark dark:bg-black dark:text-white" key={`${index}-${obj.name}`}>
+          <Link href={obj.link} className="m-auto w-full flex flex-col  min-h-[20vh]  border rounded-xl bg-slate_blue dark:bg-black dark:text-white" key={`${index}-${obj.name}`}>
             <div className="flex flex-row flex-wrap justify-center items-center gap-x-7">
             <Image src={obj.image} width={85} height={85} alt="www.masterconnect.ca"
                 className="rounded-[50%]"

@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   async headers() {
       return [
@@ -37,7 +38,7 @@ const nextConfig = {
         },
       ]
     },
-    images: {
+  images: {
         unoptimized:true,
         remotePatterns: [
           {
@@ -83,7 +84,21 @@ const nextConfig = {
             // pathname: '/account123/**',
           },
         ],
-      },
+    },
+  
+    
+   
 }
-
 module.exports = nextConfig
+
+// module.exports = withPWA({
+//   pwa: {
+//     dest: "public",
+//     register: true,
+//     skipWaiting: true,
+//   },
+// });
+
+
+
+
