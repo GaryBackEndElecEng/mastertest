@@ -3,11 +3,13 @@ import  {useParams} from 'next/navigation';
 import MainArticle from "../../../components/articles/MainArticle";
 
 const PageArticle = () => {
-    const router=useParams();
+    const router:any =useParams();
     const {id}=router;
+    const getId:string=id
+
 
   return (
-    <MainArticle id={id}/>
+    <MainArticle id={getId && getId}/>
     
   )
 }

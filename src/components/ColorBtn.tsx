@@ -18,7 +18,7 @@ const ColorBtn = () => {
 
 
   return (
-    <div className="flex flex-col items-center absolute right-2 top-0 lg:right-10 lg:top-3 shadow shadow-blue rounded-lg">
+    <div className="flex flex-col items-center absolute    "  >
         <Switch checked={bool} onChange={(e)=>setBool(e.target.checked)}
         className={"bg-white dark:bg-black rounded-lg"}
         style={{color:"blue"}}

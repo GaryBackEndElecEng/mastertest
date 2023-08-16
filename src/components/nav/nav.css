@@ -1,3 +1,9 @@
+/*
+    nav.mainNav => 
+    main.subMainNav =>
+    mainLinkgroup => 
+    subNavLinkgroup > div ( elements ) 
+    */
 
 @property --angle-rotate{
     syntax:"<angle>";
@@ -5,36 +11,14 @@
     initial-value:0deg;
     }
 
- main section ul.subNavLinks:hover >ul.prose{
-  display:flex;
-  position:absolute;
-  margin:auto;
-  top:2.5rem;
-  opacity:1;
-  width:100%;
-  background:white;
-  left:0%;
-  z-index:100;
-  transform:translateY(0%);
-  animation:dropdown 0.75s ease-in-out;
-}
-main section ul.subNavLinks> ul.prose{
-  display:none;
-  
-}
-@keyframes dropdown{
-    from {transform:translateY(-100%);opacity:0;}
-    to {transform:translateY(0%);opacity:1;}
-}
-/* --- logo regular----*/
 
-/* --- logo regular----*/
 
 
 /* ------------ MEDIA SCREEN 920px-------------*/
 
 @media screen and (max-width:920px){
 /* top nav */
+
 nav.mainNav{
     /* display:block; */
     background:transparent;
@@ -42,15 +26,9 @@ nav.mainNav{
     z-index:200;
     /* background:hsla(137, 91%, 50%, 0.3) */
 }
-/* hides the labels when small */
-.largeName{
-    display:none;
-}
-/* THIS CLOSES MEMU AFTER CLICKED */
-.smallScreenClose{
-    display:none;
-}
+
 /* house all links */
+
 main.subMainNav{
 display:flex;
 flex-direction:column;
@@ -68,42 +46,6 @@ main.subMainNav > section.logoContainer{
     
 }
 
-main > section ul.subNavLinks{
-    display:block;
-} 
- 
-main section.mainLinkgroup ul.subNavLinks:hover> ul.prose{
-transform:none;
-}
-  main section.mainLinkgroup ul.subNavLinks> ul.prose{
-    z-index:200;
-    display:none;
-    /* position:relative;
-    margin:auto;
-    top:0.5rem;
-    min-width:max-content;
-    height:max-content;
-    background:white;
-    box-shadow:1px 1px 10px 2px black;
-    border-radius:5%;
-    transform:translateX(5%);
-    animation:none; */
-    
-  }
-  @keyframes growInHere {
-    from {transform:translateX(0%) scale(0.5);}
-    to {transform:translateX(80%) scale(1);}
-  }
-main section ul.subNavLinks> ul.prose{
-    z-index:200;
-    display:none;
-    transform:translateX(-100%);
-    
-  }
-  main > section.mainLinkgroup ul.subNavLinks.close{
-    display:none;
-  }
- 
 
 main.subMainNav>section.mainLinkgroup{
     position:absolute;
@@ -116,7 +58,7 @@ main.subMainNav>section.mainLinkgroup{
 }
 main.subMainNav:hover >section.mainLinkgroup{
     opacity:1;
-    transform:translateX(0%);
+    transform:translateX(20%);
     transition: all 0.75s ease-in-out;
 }
 main.subMainNav >section{
@@ -217,17 +159,10 @@ ul.navLink,div.subNavLinkgroup ul > h3{
 
 /* --- MEDIA SCREEN 400px----*/
 @media screen and (max-width:400px){
-    /* main section ul.subNavLinks:hover{
-        transform:translateX(30%);  
-    } */
-    main section ul.subNavLinks{
-        transform:translateX(36%);  
+    nav.mainNav{
+        max-height:100px;
+        z-index:1;
     }
-    main section.mainLinkgroup ul.subNavLinks> ul.prose{
-        z-index:200;
-        display:none;
-        
-      }
     
     div.subNavLinkgroup{
         display:block;

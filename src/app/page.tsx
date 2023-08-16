@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import HomeBody from '@home/HomeBody';
+import HomeBodyNew from '@home/HomeBodyNew';
 
 
 
@@ -10,7 +10,7 @@ export default function Home() {
   const logo = `${URL}/logoLarge.png`;
   return (
     <div className="lg:container lg:mx-auto">
-      <HomeBody />
+      <HomeBodyNew />
     </div>
 
   )

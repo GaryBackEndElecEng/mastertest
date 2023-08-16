@@ -8,10 +8,12 @@ import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import {AxiosError,isAxiosError} from "axios";
 import HomeIcon from "@mui/icons-material/Home";
 import ExploreIcon from '@mui/icons-material/Explore';
-import {allCategoryType,catWordSnippet,categoryType,categoryGeneralInfo,imageCategory,whyChoosUsType,articleType,articlesType,countryType} from "@context/Types";
+import {allCategoryType,catWordSnippet,categoryType,categoryGeneralInfo,imageCategory,whyChoosUsType,articleType,articlesType,countryType,navAllType,navImageLinkType} from "@context/Types";
+import {allNavLinks} from "./navList";
 import countriesArr from "@context/country.json";
 import { seriesType, barType, xaxisType, lineStrokeType, graphType_type, legendType,barDataLabelType,BarLabelTotalType } from '@/components/extra/apexChart/types';
-
+const staticImage=process.env.NEXT_PUBLIC_static;
+const masterImage=process.env.NEXT_PUBLIC_aws;
 
 
 type navType = {
@@ -21,10 +23,11 @@ type navType = {
 type navListType={
     name:string,
     link:string,
+    desc:string,
     icon: React.ReactElement<any, any>
 }
 export type navContextType={
-    navs:navListType[],
+    navs:navImageLinkType[],
 }
 export type generalContextType={
     allCategory:allCategoryType[],
@@ -65,7 +68,7 @@ export const NavContext = React.createContext<navContextType>({} as navContextTy
 
 export const GeneralContextProvider = (props:any) => {
     const [close,setClose]=React.useState<boolean>(false);
-    const [navs,setNavs]=React.useState<navListType[]>([]);
+    const [navs,setNavs]=React.useState<navImageLinkType[] >([]);
     const [allCategory,setAllCategory]=React.useState<allCategoryType[]>([]);
     const [generalInfo,setGeneralInfo]=React.useState<categoryGeneralInfo | null>(null);
     const [whyChooseUs,setWhyChooseUs]=React.useState<whyChoosUsType[] | null>(null);
@@ -74,20 +77,8 @@ export const GeneralContextProvider = (props:any) => {
     
 
   React.useEffect(()=>{
-    let arr:navListType[]=[]
-    navLinkUltils.forEach((nav,index)=>{
-        arr.push({name:nav.name,link:nav.link,icon:<InfoIcon sx={{m:1,color:"blue"}}/>})
-    });
-    navLinkGames.forEach((nav,index)=>{
-        arr.push({name:nav.name,link:nav.link,icon:<SportsEsportsIcon sx={{m:1,color:"green"}}/>})
-    });
-    navLinkHome.forEach((nav,index)=>{
-        arr.push({name:nav.name,link:nav.link,icon:<HomeIcon sx={{m:1,color:"red"}}/>})
-    });
-    navLinkExtras.forEach((nav,index)=>{
-        arr.push({name:nav.name,link:nav.link,icon:<ExploreIcon sx={{m:1,color:"red"}}/>})
-    });
-    setNavs(arr);
+    
+    setNavs(allNavLinks);
   },[]);
 
     const convertWhyChooseUs=React.useCallback((whyUs:categoryType[])=>{

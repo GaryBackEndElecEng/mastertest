@@ -14,17 +14,7 @@ const nextConfig = {
                   { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
               ]
           },
-          // {
-          //     // matching all API routes
-          //     source: "/currency-api@1/:path*",
-          //     headers: [
-          //         { key: "Access-Control-Allow-Credentials", value: "false" },
-          //         { key: "Access-Control-Allow-Origin", value: "cdn.jsdelivr.net" },
-                  
-          //         { key: "Access-Control-Allow-Methods", value: "GET" },
-          //         { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
-          //     ]
-          // },
+          
           {
             // matching all API routes
             source: "/static/masterultils/:path*",

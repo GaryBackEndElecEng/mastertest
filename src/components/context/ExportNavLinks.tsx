@@ -1,3 +1,4 @@
+
 type navType = {
     name: string,
     link: string
@@ -17,6 +18,7 @@ export const navLinkUltils: navType = [
     { name: "currency", link: "/ultils/currency" },
     { name: "countries", link: "/ultils/countries" },
     { name: "techtool", link: "/ultils/techtool" },
+    { name: "scraper", link: "/ultils/scraper" },
     
 ]
 export const navLinkExtras: navType = [

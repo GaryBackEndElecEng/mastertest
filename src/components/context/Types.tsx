@@ -1,5 +1,31 @@
+import React from 'react';
 
-
+export type paraType={
+    para:string
+}
+export type navImageLinkType = {
+    id:number,
+    image: string,
+    link:string,
+    icon:React.ReactElement<any, any>,
+    name: string,
+    desc:paraType[]
+  }
+export type navGamesType = {
+    id:number,
+    name: string,
+    link: string,
+    image: string,
+    desc:string[]
+  }
+export type navAllType = {
+    id:number,
+    name: string,
+    link: string,
+    image: string,
+    icon:React.ReactElement<any, any>,
+    desc:string[]
+  }
 export type whyChoosUsType={
     id: number,
     title: string,
