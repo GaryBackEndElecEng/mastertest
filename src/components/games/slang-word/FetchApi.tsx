@@ -4,6 +4,7 @@ import axios from 'axios';
 import {Fab,Container} from '@mui/material';
 import Form from './Form';
 import GetAPI from './GetAPI';
+import type {msgType} from "@component/context/type";
 
 
 type arrayType={
@@ -32,6 +33,7 @@ type inputType={
 
 const FetchApi = () => {
     const [phrase,setPhrase]=React.useState<string | null>(null);
+    const [msg,setMsg]=React.useState<msgType>({loaded:false,msg:" enter a slang word"});
 
     const handleReset=(e:MouseEvent<HTMLButtonElement | undefined>)=>{
         e?.preventDefault();
@@ -45,8 +47,10 @@ const FetchApi = () => {
             <Form 
             phrase={phrase}
             setPhrase={setPhrase}
+            setMsg={setMsg}
+            msg={msg}
             />
-            <GetAPI phrase={phrase}/>
+            <GetAPI phrase={phrase} setMsg={setMsg}/>
             <div className="mx-auto my-3">
                 <Fab variant="extended" color="primary"  onClick={(e)=>handleReset(e)}
                 className="px-5 bg-black text-white hover:text-black hover:bg-blue hover:tracking-wider"

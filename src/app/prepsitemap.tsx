@@ -1,5 +1,5 @@
 
-import {navLinkGames,navLinkUltils,navLinkExtras,navLinkHome} from '@/components/context/ExportNavLinks';
+import {navLinkGames,navLinkUltils,navLinkExtras,navLinkHome} from '@component/context/ExportNavLinks';
 import ChangeEvent from 'react';
 
 export type navType={
@@ -13,7 +13,7 @@ export type promiseType={
     priority:number
 }
 export async function genArr():Promise<promiseType[]>{
-    const site=(process.env.NODE_ENV==='production') ? process.env.NEXT_PUBLIC_masterultils :"http://localhost:3000";
+    const site=(process.env.NODE_ENV==='production') ? process.env.NEXT_PUBLIC_site :"http://localhost:3000";
     let arr:promiseType[]=[];
     navLinkGames.forEach((obj)=>{
         arr.push({url:`${site}${obj.link}`,lastModified: new Date(),changefreq:"daily",priority:1});

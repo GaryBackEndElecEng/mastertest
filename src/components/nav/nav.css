@@ -10,8 +10,14 @@
     inherits:false;
     initial-value:0deg;
     }
-
-
+main.subMainNav{
+    margin-inline:5px;
+    margin-right:20px;
+}
+    section.combineButtons_hidelarge{
+        display:none;
+    }  
+  
 
 
 /* ------------ MEDIA SCREEN 920px-------------*/
@@ -35,6 +41,8 @@ flex-direction:column;
 align-items:flex-start;
 justify-content:flex-start;
 position:relative;
+margin-inline:auto;
+margin-right:auto;
 }
 main.subMainNav > section.logoContainer{
     width:100%;
@@ -45,7 +53,15 @@ main.subMainNav > section.logoContainer{
     align-items:center;
     
 }
-
+section.combineButtons{
+    display:none;
+}
+section.combineButtons_hidelarge{
+    display:block;
+    position:absolute;
+    top:5px;
+    right:5px;
+}
 
 main.subMainNav>section.mainLinkgroup{
     position:absolute;
@@ -66,6 +82,14 @@ main.subMainNav >section{
     margin:0;
     width:30%;
     
+}
+div.hideCombosmall{
+    display:none;
+}
+div.combineButtons{
+position:absolute;
+right:5px;
+top:15px;
 }
 
 @keyframes rotate {

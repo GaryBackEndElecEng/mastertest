@@ -1,6 +1,6 @@
 "use client";
 import React, { MouseEvent } from 'react';
-import { CategoryContext } from "@context/GeneralContext";
+import { GeneralContextNoAcc } from "@context/GeneralContext";
 import axios, { AxiosError, isAxiosError } from "axios";
 import api from '../axios/api';
 import { Container, Grid, Fab } from '@mui/material';
@@ -20,7 +20,7 @@ type openContentType = {
     index: number | null
 }
 const WeChooseUs = ({ open }: weChooseType) => {
-    const { whyChooseUs } = React.useContext(CategoryContext);
+    const { whyChooseUs } = React.useContext(GeneralContextNoAcc);
     const url: string | undefined = process.env.NEXT_PUBLIC_serverApi;
     const [openContent, setOpenContent] = React.useState<openContentType>({ bool: false, index: null });
 

@@ -128,3 +128,59 @@ export type codeCoNameType = {
     code: string,
     name: string
 }
+export type userType={
+    id:number,
+    name?:string,
+    email:string,
+    password:string
+}
+export type DataType ={
+    id: number;
+    title: string ;
+    content: string ;
+    published?: boolean;
+    userId: number;
+    
+    
+  }[]
+export type PostDataType ={
+    id: number;
+    title: string ;
+    content: string;
+    published?: boolean;
+    userId: number;
+    
+  }
+export type loginType={
+    email:string,
+    password:string
+}
+export type adminType={
+    email:string,
+    name?:string
+}
+export type loginTypedata={
+    data:{email:string,
+    password:string
+    }
+}
+export type userTypeData={
+    data:{
+    name:string,
+    email:string,
+    password:string
+    }
+}
+export type msgType={
+    loaded:boolean,
+    msg:string | null
+}
+export type userAccountType={
+    loaded:boolean,
+    data:{
+      id:number,
+    name:string | undefined,
+    email:string | undefined,
+    status: "loading" | "authenticated" | "unauthenticated"
+    } | null
+  }

@@ -3,6 +3,7 @@ import React,{MouseEvent} from 'react';
 import axios,{AxiosError,isAxiosError} from 'axios';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import type { msgType} from "@component/context/type";
 
 type arrayType={
     definition:string,
@@ -22,10 +23,10 @@ type outputType={
 }
 type inputType={
     phrase:string | null,
-    // setGetOutput:React.Dispatch<React.SetStateAction<outputType | null>>
+    setMsg:React.Dispatch<React.SetStateAction<msgType>>
 }
 
-const GetAPI = ({phrase}:inputType) => {
+const GetAPI = ({phrase,setMsg}:inputType) => {
     const [getOutput,setGetOutput]=React.useState<outputType | null>(null);
     const apiKey: string | undefined = process.env.NEXT_PUBLIC_rapidAip;
     const options = {
@@ -45,12 +46,12 @@ const GetAPI = ({phrase}:inputType) => {
             const res = await axios.request(options);
             const body = res.data;
             setGetOutput(body);
-            
+            setMsg({loaded:true,msg:" the answers are below"})
            
         } catch (error) {
             if(axios.isAxiosError(error)){
-                console.log(error.status)
                 console.error(error.response)
+                setMsg({loaded:false,msg:"sorry something went wrong. try again later"})
             }else{
                 console.error(error)
             }

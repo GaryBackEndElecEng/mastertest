@@ -8,6 +8,8 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Amplify from "aws-amplify";
 import awsExports from "../aws-exports";
+import GeneralContextProvider from "@component/context/GeneralContextProvider";
+import Providers from "./Providers";
 // import Head from 'next/head';
 
 
@@ -127,12 +129,16 @@ export default function RootLayout({
 
     <html lang="en" >
       <body className={`${montserr.className} h-auto m-0 relative bg-[rgba(255,255,255,0.7)] text-black `} style={{ width: "100vw" }}>
-
+      
+        <Providers>
+        <GeneralContextProvider>
         <NewNav />
         <Header />
         {children}
+        </GeneralContextProvider>
+        </Providers>
         <Footer />
-
+     
       </body>
 
     </html>

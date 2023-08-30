@@ -4,6 +4,7 @@ import styles from "./header.module.css";
 import {ThemeProvider} from 'next-themes';
 import ColorBtn from './ColorBtn';
 
+
 const Header = () => {
   const URL = process.env.NEXT_PUBLIC_aws;
     // const headerImage:string=`${URL}/header.png`;
@@ -19,10 +20,13 @@ const Header = () => {
       <ColorBtn/>
       </div>
      
-      <div className="grid  place-items-center absolute top-[65%] left-[0%] md:top-[45%] lg:top-2  md:left-[25%] lg:left-[5%] z-[0] border">
+      <div className="grid  place-items-center absolute top-[45%] left-[10%] md:top-[45%] lg:top-13  md:left-[15%] lg:left-[10%] z-[0] w-3/4">
         <div>
        <h2 className={`text-center text-white m-auto text-xl md:text-3xl  `}>Thank you for visiting Us!</h2>
        <h3 className="animate-pulse text-xl lg:text-xl text-white mt-1 lg:mt-10 p-2 bg-[rgba(0,0,0,0.6)]">masterconnect.ca @ masterultils.ca</h3>
+       </div>
+       <div className="flex flex-col text-center text-2xl sm:text-5xl text-white my-2">
+        Free Tools For You
        </div>
        </div>
        

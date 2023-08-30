@@ -74,9 +74,7 @@ const Index = () => {
             </div>
 
 
-            <div className="mx-auto container px-5 flex flex-col justify-center items-center my-1 min-h-[10vh] w-full">
-                {contain.loaded && <Translate phrase={contain.data.text} source={contain.data.source} target={contain.data.target} />}
-            </div>
+            
             <Grid container spacing={{ xs: 3, sm: 2 }} className=" justify-center items-center p-2">
                 <Grid item xs={12} md={2}>
                     <div className={decoStyle}>
@@ -101,6 +99,9 @@ const Index = () => {
                     </div>
                 </Grid>
             </Grid>
+            <div className="mx-auto container px-5 flex flex-col justify-center items-center my-1 min-h-[10vh] w-full">
+                {contain.loaded && <Translate phrase={contain.data.text} source={contain.data.source} target={contain.data.target} />}
+            </div>
         </Container>
     )
 }

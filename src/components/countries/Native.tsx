@@ -23,7 +23,7 @@ const Native = ({native,showNative}:mainNativeTYpe) => {
             arr.push({key:key,official:value.official,common:value.common});
         }
         setGetNative(arr);
-    },[]);
+    },[native]);
 
   return (
     <div className="flex flex-col items-center justify-start  bg-white p-2 rounded-lg shadow-lg shadow-blue dark:bg-black dark:text-white dark:shadow-white w-full">

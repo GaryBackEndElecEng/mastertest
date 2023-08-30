@@ -139,7 +139,7 @@ const DataInput = ({setGraphData,graphData,setSummary,summary,setName,name,setDa
   return (
     
        
-        <form action="" className="m-auto flex flex-col items-center justify-center m-1 p-1 mt-0 w-full ">
+        <form action="" className="m-auto flex flex-col dark:bg-black dark:text-white items-center justify-center m-1 p-1 py-5 mt-0 w-full ">
         <fieldset className="w-full  mx-auto border border-white rounded-lg dark:bg-black dark:text-white bg-black text-black m-2 p-3 py-[1rem] border border-green flex flex-col items-center justify-center">
             <legend className="text-white mb-5 text-xl leading-10">create your own graph</legend>
             <FormControl className="my-2 mx-auto  w-full lg:w-1/2 relative">

@@ -8,10 +8,11 @@ import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import {AxiosError,isAxiosError} from "axios";
 import HomeIcon from "@mui/icons-material/Home";
 import ExploreIcon from '@mui/icons-material/Explore';
-import {allCategoryType,catWordSnippet,categoryType,categoryGeneralInfo,imageCategory,whyChoosUsType,articleType,articlesType,countryType,navAllType,navImageLinkType} from "@context/Types";
+import type {allCategoryType,catWordSnippet,categoryType,categoryGeneralInfo,imageCategory,whyChoosUsType,articleType,articlesType,countryType,navImageLinkType} from "@context/Types";
 import {allNavLinks} from "./navList";
 import countriesArr from "@context/country.json";
 import { seriesType, barType, xaxisType, lineStrokeType, graphType_type, legendType,barDataLabelType,BarLabelTotalType } from '@/components/extra/apexChart/types';
+
 const staticImage=process.env.NEXT_PUBLIC_static;
 const masterImage=process.env.NEXT_PUBLIC_aws;
 
@@ -36,7 +37,12 @@ export type generalContextType={
     extraImages:imageCategory[] | null,
     termsOfService:catWordSnippet | null,
     setClose: React.Dispatch<React.SetStateAction<boolean>>,
-    close:boolean
+    close:boolean,
+    
+    setSignin: React.Dispatch<React.SetStateAction<boolean>>,
+    signin:boolean,
+    isSignin:boolean,
+    setIsSignin: React.Dispatch<React.SetStateAction<boolean>>,
 }
 export type articlesContextType={
     articles:articlesType[] 
@@ -58,15 +64,15 @@ type mainCountryContext = {
     }
 
     //====CREATE CONTEXT=======//
-export const GeneralContext= React.createContext<mainCountryContext>({} as mainCountryContext);
+export const GeneralContextNoAcc= React.createContext<generalContextType>({} as generalContextType);
 export const CountryContext= React.createContext<mainCountryContext>({} as mainCountryContext);
 export const UltilsContext=React.createContext<ultilType>({} as ultilType)
-export const CategoryContext = React.createContext<generalContextType>({} as generalContextType);
+
 export const ArticleContext = React.createContext<articlesContextType>({} as articlesContextType);
 export const NavContext = React.createContext<navContextType>({} as navContextType);
 //===========CREATE CONTEXT===============//
 
-export const GeneralContextProvider = (props:any) => {
+export const GeneralProviderNoAccount = (props:any) => {
     const [close,setClose]=React.useState<boolean>(false);
     const [navs,setNavs]=React.useState<navImageLinkType[] >([]);
     const [allCategory,setAllCategory]=React.useState<allCategoryType[]>([]);
@@ -74,6 +80,8 @@ export const GeneralContextProvider = (props:any) => {
     const [whyChooseUs,setWhyChooseUs]=React.useState<whyChoosUsType[] | null>(null);
     const [extraImages,setExtraImages]=React.useState<imageCategory[] | null>(null);
     const [termsOfService,setTermsOfService]=React.useState<catWordSnippet | null>(null);
+    const [signin, setSignin] = React.useState<boolean>(false);
+    const [isSignin, setIsSignin] = React.useState<boolean>(false);
     
 
   React.useEffect(()=>{
@@ -111,7 +119,9 @@ export const GeneralContextProvider = (props:any) => {
                 setWhyChooseUs(convertWhyChooseUs(whyChooseUseTemp));
             }
             let extraImagesTemp:imageCategory[] | null= body.filter((obj)=>(obj.name==="extraImages"))[0].imageCategory;
+            
             if(extraImagesTemp){
+              
                 setExtraImages(extraImagesTemp);
             }
             let tempTermsOfsvc:catWordSnippet | null=body.filter((obj)=>(obj.section==="policy"))[0].catWordSnippet[0]
@@ -127,12 +137,13 @@ export const GeneralContextProvider = (props:any) => {
     getAllcategory();
   }, [convertWhyChooseUs]);
 
+
   return (
-    <CategoryContext.Provider value={{allCategory,generalInfo,whyChooseUs,extraImages,termsOfService,close,setClose}}>
+    <GeneralContextNoAcc.Provider value={{allCategory,generalInfo,whyChooseUs,extraImages,termsOfService,close,setClose,signin, setSignin,isSignin,setIsSignin}}>
     <NavContext.Provider value={{navs}}>
         {props.children}
       </NavContext.Provider>
-    </CategoryContext.Provider>
+    </GeneralContextNoAcc.Provider>
   )
 }
 export const ArticalContextProvider = (props:any) => {

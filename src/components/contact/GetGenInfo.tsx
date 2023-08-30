@@ -2,7 +2,7 @@
 import React from 'react'
 import { Grid, Container,} from '@mui/material';
 import styles from "./contact.module.css";
-import {CategoryContext} from "@context/GeneralContext";
+import {GeneralContextNoAcc} from "@context/GeneralContext";
 // import {categoryGeneralInfo} from "@context/Types";
 
   type mediaLinkType={
@@ -10,7 +10,7 @@ import {CategoryContext} from "@context/GeneralContext";
     link:string
   }
 const GetGenInfo = () => {
-    const {generalInfo}=React.useContext(CategoryContext);
+    const {generalInfo}=React.useContext(GeneralContextNoAcc);
   const [mediaLink,setMediaLink]=React.useState<mediaLinkType[]>([]);
 
   React.useMemo(() => {

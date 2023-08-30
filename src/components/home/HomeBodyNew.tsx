@@ -5,7 +5,7 @@ import Image from "next/image";
 // import "./home.css"
 import HomeAnchor from "./HomeAnchor";
 import ViewArticCont from './ViewArticCont';
-import { GeneralContextProvider } from "@context/GeneralContext";
+import { GeneralProviderNoAccount } from "@context/GeneralContext";
 import AllNavFeed from './AllNavFeed';
 import HomeHeader from './HomeHeader';
 
@@ -20,7 +20,7 @@ const HomeBodyNew = () => {
 
     return (
         <div>
-            <GeneralContextProvider>
+            <GeneralProviderNoAccount>
                 <ThemeProvider attribute="class">
                     <HomeHeader />
                     <ViewArticCont />
@@ -29,7 +29,7 @@ const HomeBodyNew = () => {
                     </main>
                     
                 </ThemeProvider>
-            </GeneralContextProvider>
+            </GeneralProviderNoAccount>
         </div>
     )
 }

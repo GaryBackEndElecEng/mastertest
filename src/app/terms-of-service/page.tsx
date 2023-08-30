@@ -1,5 +1,6 @@
-// "use client";
-// import React from 'react';
+import type {Metadata} from 'next';
+import {metaservicepage} from "@component/metadata/metaservicepage";
+export const metadata:Metadata=metaservicepage;
 import axios from "axios";
 type policyType={
         id: number,
@@ -22,7 +23,7 @@ async function getTerms():Promise<policyType | undefined>{
         console.error(new Error("did not connect"))
     }
 }
-const page = async() => {
+const Service = async() => {
 const policy:policyType | undefined= await getTerms();
 
   return (
@@ -46,4 +47,4 @@ const policy:policyType | undefined= await getTerms();
   )
 }
 
-export default page
+export default Service

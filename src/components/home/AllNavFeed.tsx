@@ -13,7 +13,7 @@ const AllNavFeed = () => {
                 <div className="span-col-1 mx-auto flex flex-col items-center justify-center shadow shadow-blue rounded-md" key={`${index}-${nav.id}`}>
                     <Link href={nav.link}>
                     <div className="text-center text-2xl my-2">{nav.icon}{nav.name}</div>
-                    <Image src={nav.image} width={400} height={300} alt="www.masterconnect.ca" className="aspect-video"/>
+                    <Image src={nav.image} width={400} height={300} alt="www.masterconnect.ca" className="aspect-video rounded-lg shadow-md shadow-blue dark:shadow-white"/>
                     </Link>
                     <div className="my-2 px-2 mx-auto">
                         {

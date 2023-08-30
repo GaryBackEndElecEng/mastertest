@@ -16,21 +16,11 @@ const getSVG=async(name:string | null)=>{
 
     const src: string = `${url}/${name?.toLowerCase()}.svg`;
     // const src: string = `http://localhost:3000/svg/${name?.toLowerCase()}.svg`;
-    const option={
-        method:"GET",
-        mode:"cors",//no-cors,*cors,same-origin
-        // cache:"default",
-        // credentials:"omit",
-        // referrerPolicy:"no-referrer",
-        // headers:{
-        //     // "Content-Type":"*",
-
-        // }
-    }
+  
     try {
         const res=await fetch(src);
         const body= await res.blob();
-        console.log(JSON.stringify(body),name?.toLowerCase())
+        // console.log(JSON.stringify(body),name?.toLowerCase())
         return URL.createObjectURL(body)
         
     } catch (error) {
@@ -69,7 +59,7 @@ export const SVGImage= ({name,title}:SVGType)=>{
         if(getThis){
             setGetBlob(getThis)
         }
-    },[]);
+    },[name]);
 
     const src: string = getBlob;
 

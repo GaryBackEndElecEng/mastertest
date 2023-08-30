@@ -1,5 +1,6 @@
 // "use client";
 import React from 'react';
+import { start } from 'repl';
 
 type officialCommonType={
     [key:string]:{official:string,common:string}
@@ -24,7 +25,7 @@ const Languages = ({lang,showLang}:mainlangTYpe) => {
             arr.push({key:key,official:value.official,common:value.common});
         }
         setGetlang(arr);
-    },[]);
+    },[lang]);
 
   return (
     <div className="flex flex-col items-center justify-start  bg-white p-2 rounded-lg shadow-lg shadow-blue dark:bg-black dark:text-white dark:shadow-white w-full">
