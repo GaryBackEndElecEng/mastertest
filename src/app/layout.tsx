@@ -6,8 +6,6 @@ import { Inter, Montserrat, Chela_One } from 'next/font/google';
 import NewNav from '../components/nav/NewNav';
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
-import Amplify from "aws-amplify";
-import awsExports from "../aws-exports";
 import GeneralContextProvider from "@component/context/GeneralContextProvider";
 import Providers from "./Providers";
 // import Head from 'next/head';
