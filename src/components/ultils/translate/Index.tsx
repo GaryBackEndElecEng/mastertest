@@ -22,9 +22,9 @@ type listType = {
 const Index = () => {
     const [show, setShow] = React.useState<boolean>(false);
     const [getWidth, setGetWidth] = React.useState<number>(1400);
-    const is900: boolean = getWidth < 920 ? true : false;
-    const vertHorz: {} | undefined = is900 ? "" : { writingMode: "vertical-lr" };
-    const decoStyle: string = is900 ? "flex flex-col justify-center items-center" : "flex flex-row justify-center items-center gap-2";
+    const is_900: boolean = getWidth < 920 ? true : false;
+    const vertHorz: {} | undefined = is_900 ? { writingMode: "" } : { writingMode: "vertical-lr" };
+    const decoStyle: string = is_900 ? "flex flex-col justify-center items-center" : "flex flex-row justify-center items-center gap-2";
 
     React.useEffect(() => {
         if (window.innerWidth) {

@@ -15,7 +15,7 @@ type mainDisplayType = {
     userId: number | null
 }
 const DisplayPage = ({ usersPosts, setUsersPosts, userId }: mainDisplayType) => {
-    const { account } = React.useContext(GeneralContext);
+    const { account,setAllPosts,allPosts } = React.useContext(GeneralContext);
 
     // const [getData, setGetData] = React.useState<DataType>([]);
     const [postData, setPostData] = React.useState<PostDataType | null>(null);
@@ -25,7 +25,13 @@ const DisplayPage = ({ usersPosts, setUsersPosts, userId }: mainDisplayType) => 
     const [msg, setMsg] = React.useState<{ loaded: boolean, msg: string | null }>({ loaded: false, msg: null });
     const [toUpdate, setToUpdate] = React.useState<boolean>(false);
 
-
+    const updatePosts=React.useCallback((post_:PostDataType)=>{
+        const remPosts=allPosts.filter(post=>(post.id !==post_.id));
+        setAllPosts([...remPosts,post_]);
+        const remUserPosts=usersPosts.filter(post=>(post.id !==post_.id));
+        
+        setUsersPosts([...remUserPosts,post_]);
+    },[]);
 
     const handleSubmit = (e: React.MouseEvent) => {
         e.preventDefault()
@@ -53,6 +59,7 @@ const DisplayPage = ({ usersPosts, setUsersPosts, userId }: mainDisplayType) => 
             setTitle(null);
             setContent(null);
             setPublish(false);
+            setAllPosts([...allPosts,body])
         }
         if (title && content && userId) {
             postContent();
@@ -77,6 +84,7 @@ const DisplayPage = ({ usersPosts, setUsersPosts, userId }: mainDisplayType) => 
                     setUsersPosts(
                         usersPosts.filter(obj => (obj.id !== id))
                     )
+                    setAllPosts(allPosts.filter(post=>(post.id !==id)))
                 }
             } catch (error) {
                 setMsg({ loaded: false, msg: " item not deleted- something went wrong" });
@@ -118,18 +126,18 @@ const DisplayPage = ({ usersPosts, setUsersPosts, userId }: mainDisplayType) => 
                 },
                 body: JSON.stringify(obj)
             }
-            const res = await fetch(`/api/posts/posts`, options);
+            const res = await fetch(`/api/posts/update`, options);
             if (!res.ok) {
                 setMsg({ loaded: false, msg: "sorry it did not update" })
                 throw new Error(" did not edit message")
             }
-            const body: DataType = await res.json()
+            const body: PostDataType = await res.json()
             setMsg({ loaded: true, msg: "record updated" })
-            setUsersPosts(body);
             setToUpdate(false);
             setContent(null);
             setTitle(null);
             setPublish(false);
+            updatePosts(body as PostDataType);
 
         }
         if (obj && userId) {

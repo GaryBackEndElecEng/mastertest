@@ -1,8 +1,10 @@
 import {NextApiRequest,NextApiResponse} from "next";
-import type {userType} from "@component/context/type";
+import type {userType,userAccountType} from "@component/context/type";
 import prisma from "@_prisma/client";
+// import {csrf} from "@/csrf";
 
-export default async function handle(
+
+ async function handle(
     req:NextApiRequest,
     res:NextApiResponse
     )
@@ -22,28 +24,26 @@ export default async function handle(
             });
             if(!user){
                 res.status(400).json({message:`there is no user of type email:${email}`})
+            }else if(user && user.name){
+            const userAccount:userAccountType={
+                loaded:true,
+                data:{
+                    id:user.id,
+                    name:user?.name,
+                    email:user.email,
+                    image:user?.image as string,
+                    status:"authenticated"
+                }
             }
-            res.status(200).json(user)
+            res.status(200).json(userAccount)
+            }
+            
             prisma.$disconnect();
         } catch (error) {
             res.status(500).json({message:"server error- try later"})
         }
      }
-     else if(req.method==="GET")
-     {
-
-        try {
-            const users= await prisma.user.findMany({
-                include:{
-                    posts:true,
-                    answers:true
-    
-                },
-            });
-            res.status(200).json(users);
-        } catch (error) {
-            res.status(500).json({message:" server issues pulling records"})
-        }
-     }
+     
 
 }
+export default handle

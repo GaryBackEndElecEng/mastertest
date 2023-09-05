@@ -1,11 +1,10 @@
 "use client";
 import React, { MouseEvent } from 'react';
-import {ThemeProvider} from 'next-themes';
+// import {ThemeProvider} from 'next-themes';
 import {GeneralProviderNoAccount} from "@context/GeneralContext";
 import Link from "next";
 import styles from './contact.module.css';
 import { Grid, Container, Typography, Stack, Fab } from '@mui/material';
-import styled from "styled-components";
 import RequestForm from './RequestForm';
 import GetGenInfo from './GetGenInfo';
 import UploadCV from './UploadCV';
@@ -58,7 +57,7 @@ const Contact = () => {
 
   return (
     <GeneralProviderNoAccount>
-    <ThemeProvider attribute="class">
+    {/* <ThemeProvider attribute="class"> */}
     <Container maxWidth="xl" className="mx-0 dark:bg-black dark:text-white bg-white text-black mt-1 lg:mx-auto lg:container" >
 
       
@@ -106,7 +105,7 @@ const Contact = () => {
       <div className={styles.hr_line} />
       <UploadCV/>
     </Container>
-    </ThemeProvider>
+    {/* </ThemeProvider> */}
     </GeneralProviderNoAccount>
   )
 }

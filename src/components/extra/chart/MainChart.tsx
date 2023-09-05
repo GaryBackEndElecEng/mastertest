@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import {ThemeProvider} from 'next-themes'
+// import {ThemeProvider} from 'next-themes'
 import axios from 'axios';
 import DataInput from './DataInput';
 import GenerateChart from './GenerateChart';
@@ -56,7 +56,7 @@ const MainChart = () => {
     const [labels,setLabels]=React.useState<string[] | []>([]);
     // console.log("UPPER dataset",dataset,"datasetArr",datasetArr,"graphData",graphData)
   return (
-    <ThemeProvider attribute="class">
+    // <ThemeProvider attribute="class">
     <div className="mx-0 my-2 w-full lg:mx-auto lg:container dark:bg-black dark:text-white bg-white text-black "
     >
     <div className={graphData ? `grid grid-cols-1 auto-cols-auto grid-flow-row-dense justify-items-center justify-center lg:grid-cols-3 gap-2`:"flex flex-col justify-center items-center  w-full"}>
@@ -83,7 +83,7 @@ const MainChart = () => {
     }
     </div>
     </div>
-    </ThemeProvider>
+    // </ThemeProvider>
   )
 }
 

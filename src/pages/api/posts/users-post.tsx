@@ -2,13 +2,14 @@ import type {NextApiRequest,NextApiResponse} from 'next';
 import prisma from "@_prisma/client";
 import {DataType,userType} from "@component/context/type";
 import {convert} from "./posts";
+// import {csrf} from "@/csrf";
 
 
 const usersposts =async (req:NextApiRequest,res:NextApiResponse) => {
   const {userId}=req.query
   const getUserId=convert(userId);
   
-  if(getUserId)
+  if(getUserId )
   {
     try {
         const posts = await prisma.post.findMany({
@@ -26,8 +27,6 @@ const usersposts =async (req:NextApiRequest,res:NextApiResponse) => {
         res.status(500).json({message:"server error"})
     }
   }
-  
-
 
 }
 

@@ -1,20 +1,20 @@
 
 import React, {MouseEvent} from 'react';
-import {useTheme} from 'next-themes';
+// import {useTheme} from 'next-themes';
 import {Switch} from '@mui/material';
 
 const ColorBtn = () => {
-    const {theme,setTheme}=useTheme();
+    // const {theme,setTheme}=useTheme();
     const [bool,setBool]=React.useState<boolean>(false);
     
-    React.useEffect(()=>{
-        if(bool){
-            setTheme("dark");
-        }else{
-            setTheme("light");
-        }
+    // React.useEffect(()=>{
+    //     if(bool){
+    //         setTheme("dark");
+    //     }else{
+    //         setTheme("light");
+    //     }
         
-    },[bool,setTheme]);
+    // },[bool,setTheme]);
 
 
   return (

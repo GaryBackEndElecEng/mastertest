@@ -26,7 +26,7 @@ export const navLinkUltils: navType = [
     { id: 4, name: "currency", link: "/ultils/currency" },
     { id: 5, name: "countries", link: "/ultils/countries" },
     { id: 6, name: "techtool", link: "/ultils/techtool" },
-    { id: 6, name: "scraper", link: "/ultils/scraper" },
+    
 
 ]
 export const navLinkExtras: navType = [

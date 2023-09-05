@@ -8,10 +8,21 @@ import { Prisma,PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import type {userAccountType} from "@component/context/type";
 const logo=`${process.env.NEXT_PUBLIC_aws}/logo.png`
+import httpUrl from "@component/context/httpUrl";
 
 
-const prisma= new PrismaClient();
-const getUrl=process.env.NEXT_PUBLIC_url
+let prisma: PrismaClient
+
+if(process.env.NODE_ENV==='production'){
+  prisma= new PrismaClient({
+    datasourceUrl:process.env.DATABASE_URL_heroku
+  });
+}else{
+  prisma= new PrismaClient({
+    datasourceUrl:process.env.DATABASE_URL_local
+  });
+}
+// const baseurl=httpUrl();
 
 export async function hashKey(pswd:string){
     let salt=bcrypt.genSaltSync(8);
@@ -44,15 +55,16 @@ let count=0;
                       image:profile.image
                   }
                 });
-               if(user && user.name){
+               if(user){
                   return true
               }
-                
-                prisma.$disconnect()
               }
               
             } catch (error) {
+              console.error(error)
               
+            }finally{
+             await prisma.$disconnect()
             }
         }else if(credentials){
           return true
@@ -147,17 +159,18 @@ strategy:"jwt"
           });
         //   console.log(user)// worked
           if(!user){
-            prisma.$disconnect();
+           await prisma.$disconnect();
             return null
           }
           const check=await hashComp(cred?.password,user?.password) ? true:false;
           if(!check){
-            prisma.$disconnect();
+           await  prisma.$disconnect();
             return null
           }
           return{id:user.id + "",email:user.email, name:user.name,randomKey:"This is cool"}
 
         }
+        
       }),
     // ...add more providers here
   ],

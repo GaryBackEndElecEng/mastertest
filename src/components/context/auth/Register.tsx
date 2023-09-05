@@ -4,18 +4,35 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import type { userType, msgType,userAccountType,registerType } from "@/components/context/type";
 import {GeneralContext} from "@component/context/GeneralContextProvider";
-
-
-
+import httpUrl from '@component/context/httpUrl';
 
 
 const Register = () => {
+    const url=httpUrl();
     const {setAccount,session,status}=React.useContext(GeneralContext);
     const staticImage=process.env.NEXT_PUBLIC_aws;
     const logo=`${staticImage}/logo.png`;
     const router = useRouter();
     const [data, setData] = React.useState<registerType>({id:0, name: "", email: "", password: "" });
     const [msg, setMsg] = React.useState<msgType | null>(null);
+    const [showPass,setShowPass]=React.useState<boolean>(false);
+
+    const changePasswd=()=>{
+        setShowPass(true);
+        setTimeout(()=>{setShowPass(false)},2000);
+    }
+
+    // React.useMemo(async()=>{
+            
+    //     const res= await fetch(`${url}/api/posts/gencsrf`);
+    //     if(!res.ok){
+    //         const body:{message:string}= await res.json();
+    //         setMsg({loaded:false,msg:body.message})
+    //     }
+    //     const body:{message:string}= await res.json()
+    //     setMsg({loaded:true,msg:body.message})
+   
+    // },[]);
 
     const registerUser = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -23,7 +40,7 @@ const Register = () => {
             const options = {
                 method: "POST",
                 headers: {
-                    "Accept": "application/json",
+                    "Accept": "application/json,XSRF-TOKEN",
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(data)
@@ -47,6 +64,7 @@ const Register = () => {
                     id:body.id,
                     name:body.name,
                     email:body.email,
+                    image:body.image,
                     status:"authenticated"
                 }
             }
@@ -54,16 +72,14 @@ const Register = () => {
             localStorage.setItem("account",JSON.stringify(temp))
             setMsg({loaded:true,msg:`${body.name} have been registered`});
             setData({id:0,name:"",email:"",password:""})
-            sendToSignIn();
+            router.push("/api/auth/signin");
         }
         if (data.name && data.email && data.password) {
             sendRegister();
             
         }
     }
-    const sendToSignIn=()=>{
-        router.push("/api/auth/signin");
-    }
+   
 
     return (
         <div>
@@ -108,13 +124,15 @@ const Register = () => {
                             </div>
                             <label htmlFor="name" className="block text-sm font-medium leading-6">password</label>
                             <div className="mt-2 mt-2   my-2 rounded-lg flex flex-col justify-center">
-                                <input type="text" className="mt-2 shadow shadow-blue bg-white text-black"
+                                <input className="mt-2 shadow shadow-blue bg-white text-black"
                                     name="password"
+                                    type={showPass? "text":"password"}
                                     value={data ? data.password : ""}
                                     required
                                     onChange={(e) => setData({ ...data, password: e.target.value })}
                                     
                                 />
+                                <button className="text-center text-white bg-blue shadow-md shadow-blue rounded-md hover:text-leading-3" onClick={changePasswd}>show password</button>
                             </div>
                         </div>
                         <div className="flex flex-col items-center">

@@ -1,17 +1,22 @@
 import {getServerSession} from "next-auth";
 import authOptions from "@context/options";
-import AllPosts from "@component/posts/AllPosts";
+import All_Posts from "@/components/posts/All_Posts";
 import type {Metadata} from 'next';
 import {metaposts} from "@component/metadata/metaposts";
-
+import {isAdmin,getAccount,getImg,getAllposts} from "@component/context/ultils";
 export const metadata:Metadata=metaposts;
+const logo = `${process.env.NEXT_PUBLIC_aws_static}/logo.png`
+import type {PostDataType} from "@component/context/type";
 
 export default async function Posts() {
-  const session=await getServerSession(authOptions)
-  const imgSrc=(session && session.user && session.user.image) ? session.user.image :null;
-  const adminemail=process.env.NEXT_PUBLIC_adminemail
-  const adminuser=process.env.NEXT_PUBLIC_adminuser
-  const check=(session?.user?.email===adminemail && session?.user?.name===adminuser) ? true : false
+  const check= await isAdmin();
+  const imgSrc= await getImg();
+  const getAllPosts:PostDataType[]|null= await getAllposts();
+  // const allposts=await getAllposts();
+  // const isCSRF= await setCSRF();
+  const account = await getAccount();
+  
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center mt-12 ">
 
@@ -27,7 +32,10 @@ export default async function Posts() {
       </a>}
     </div>
    </div>
-   <AllPosts imgSrc={imgSrc}/>
+   <All_Posts 
+   getAccount={account}
+   imgSrc={imgSrc }
+   />
     </main>
   )
 }

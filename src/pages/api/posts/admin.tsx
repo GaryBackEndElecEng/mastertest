@@ -26,9 +26,10 @@ export default async function handle(
                     }
                 });
                 res.status(200).json(getAccounts);
-                prisma.$disconnect()
             } catch (error) {
                 res.status(500).json({message:"server error on findMany"})
+            }finally{
+                await prisma.$disconnect()
             }
         }
         else if(postId && userId && deleteThis)
@@ -40,14 +41,15 @@ export default async function handle(
                     }
                 });
                 res.status(200).json(getDeleted);
-                prisma.$disconnect()
             } catch (error) {
                 res.status(500).json({message:"server error on delete"})
+            }finally{
+                await prisma.$disconnect();
             }
         }
         else if(postId && userId && !deleteThis)
         {
-            console.log("here")
+            
             try {
                 const getUpdate= await prisma.post.update({
                     where:{
@@ -59,9 +61,11 @@ export default async function handle(
                 
                 });
                 res.status(200).json(getUpdate);
-                prisma.$disconnect()
+                
             } catch (error) {
                 res.status(500).json({message:"server error on update"})
+            }finally{
+                await prisma.$disconnect();
             }
         }
         

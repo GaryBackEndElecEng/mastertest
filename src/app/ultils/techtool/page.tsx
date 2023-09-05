@@ -1,6 +1,5 @@
 import React from 'react';
 import MainIndexEmail from "@/components/ultils/emailTool/MainIndexEmail";
-import IndexWebsiteScrap from "@/components/ultils/websiteScraper/IndexWebsiteScrap";
 import IndexClientDetail from "@/components/ultils/whoisthis/IndexClientDetail";
 import IndexClient_Lookup from "@/components/ultils/whoisthis/IndexClient_Lookup";
 import Image from "next/image";
@@ -21,7 +20,6 @@ const emailPage = () => {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center my-3">
                 <MainIndexEmail />
-                <IndexWebsiteScrap />
             </div>
             <IndexClientDetail />
             <IndexClient_Lookup />

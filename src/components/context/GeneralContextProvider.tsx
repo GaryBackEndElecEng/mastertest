@@ -1,13 +1,14 @@
 "use client"
 import React from 'react';
-import type {userAccountType,DataType,msgType,userType} from "./type";
+import type {userAccountType,DataType,msgType,userType,answerType,userInfoType,PostDataType} from "./type";
 import {useSession} from "next-auth/react";
 import type {Session} from "next-auth";
 const base_url=process.env.NEXT_PUBLIC_baseurl;
 
+
 type generalContextType={
- setAccount:React.Dispatch<React.SetStateAction<userAccountType>>,
- account: userAccountType,
+ setAccount:React.Dispatch<React.SetStateAction<userAccountType | null>>,
+ account: userAccountType | null,
  allPosts: DataType,
  setAllPosts: React.Dispatch<React.SetStateAction<DataType>>,
  setSignin: React.Dispatch<React.SetStateAction<boolean>>,
@@ -21,67 +22,61 @@ type generalContextType={
  setUsers: React.Dispatch<React.SetStateAction<userType[]>>,
  users:userType[],
 allUsers:userType[],
+setGenMsg: React.Dispatch<React.SetStateAction<msgType>>
+setAllUsers: React.Dispatch<React.SetStateAction<userType[]>>,
+setUserInfos: React.Dispatch<React.SetStateAction<userInfoType[] | null>>,
+userInfos:userInfoType[] | null,
 genMsg: msgType,
+setUserId: React.Dispatch<React.SetStateAction<number | null>>,
+userId: number | null,
+setAllAnswers: React.Dispatch<React.SetStateAction<answerType[]>>,
+allAnswers:answerType[]
 }
 export const GeneralContext = React.createContext<generalContextType>({} as generalContextType);
 
 const GeneralContextProvider = (props:any) => {
   const {data:session,status}=useSession();
-    const [account,setAccount]=React.useState<userAccountType>({loaded:false,data:null});
+    const [account,setAccount]=React.useState<userAccountType | null>(null);
     const [allPosts,setAllPosts]=React.useState<DataType>([]);
+    const [allAnswers,setAllAnswers]=React.useState<answerType[]>([]);
     const [signin, setSignin] = React.useState<boolean>(false);
     const [isSignin, setIsSignin] = React.useState<boolean>(false);
     const [msg,setMsg]=React.useState<msgType>({loaded:false,msg:null})
     const [users,setUsers]=React.useState<userType[]>([]);
     const [allUsers,setAllUsers]=React.useState<userType[]>([]);
-    const [genMsg,setGenMsg]=React.useState<msgType>({loaded:false,msg:null})
+    const [genMsg,setGenMsg]=React.useState<msgType>({loaded:false,msg:""})
+    const [userId,setUserId]=React.useState<number | null>(null);
+    const [isCsrf,setIsCsrf]=React.useState<boolean>(false);
+    const [userInfos,setUserInfos]=React.useState<userInfoType[] | null>(null);
 
-    React.useEffect(()=>{
-      const getAllPosts=async()=>{
-        const options={
-          method:"GET",
-        headers:{
-          "Accept":"application/json",
-          "Content-Type":"application/json",
+    React.useMemo(async()=>{
+      try {
+        const res=await fetch(`/api/posts/posts`);
+        if(res.ok){
+          const body:PostDataType[]=await res.json()
+          setAllPosts(body);
+          
         }
-      }
-        const res=await fetch(`/api/posts/posts`,options);
-        if(!res.ok){
-          throw new Error("did not get posts")
-        }
-        const body:DataType= await res.json();
-        setAllPosts(body.filter(obj=>obj.published ===true));
+      } catch (error) {
         
       }
-      getAllPosts();
     },[]);
 
-    React.useEffect(()=>{
-      const getAllUsers=async()=>{
-        const options={
-          method:"GET",
-        headers:{
-          "Accept":"application/json",
-          "Content-Type":"application/json",
+    React.useMemo(async()=>{
+      try {
+        const res=await fetch(`/api/posts/usersinfo`);
+        if(res.ok){
+          const body:userInfoType[]=await res.json()
+         
+          setUserInfos(body);
         }
+      } catch (error) {
+        
       }
-        const res=await fetch(`/api/posts/users`,options);
-        if(!res.ok){
-          if(res.status>=400 && res.status < 500){
-            const body:any=await res.json()
-            setGenMsg({loaded:false,msg:`${res.status} error - no records-${JSON.stringify(body)}`})
-          }
-          throw new Error("did not get posts");
-        }
-        const body:userType[]= await res.json();
-        setAllUsers(body);
-        setGenMsg({loaded:true,msg:" all is well"})
-      }
-      getAllUsers();
     },[]);
-
+    
   return (
-    <GeneralContext.Provider value={{account,setAccount,allPosts,setAllPosts,signin, setSignin,isSignin,setIsSignin,session,status,msg,setMsg,users,setUsers,allUsers,genMsg}}>
+    <GeneralContext.Provider value={{account,setAccount,allPosts,setAllPosts,signin, setSignin,isSignin,setIsSignin,session,status,msg,setMsg,users,setUsers,allUsers,setAllUsers,genMsg,setGenMsg,userId,setUserId,allAnswers,setAllAnswers,userInfos,setUserInfos}}>
       {props.children}
     </GeneralContext.Provider>
   )
@@ -89,4 +84,3 @@ const GeneralContextProvider = (props:any) => {
 
 export default GeneralContextProvider
 
-// console.log(GeneralContext)

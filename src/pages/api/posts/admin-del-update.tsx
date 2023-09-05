@@ -15,10 +15,10 @@ export default async function handle(
     const check:boolean=(adminemail===email && adminuser===adminname) ? true: false;
     if (req.method==="POST" && check)
     {
-        console.log(body,typeof(postId))
+        console.log("ADMIN-DE-UPDATE",body)
          if(deleteThis && loaded)
         {
-           
+        //    console.log("DELETED")
             try {
                 
                 const getDeleted= await prisma.post.delete({
@@ -31,9 +31,10 @@ export default async function handle(
                 });
                 
                 res.status(200).json(getDeleted);
-                prisma.$disconnect()
             } catch (error) {
                 res.status(500).json({message:"server error on delete"})
+            }finally{
+                await prisma.$disconnect()
             }
         }
         else if(!deleteThis && published && loaded)
@@ -50,10 +51,15 @@ export default async function handle(
                 
                 });
                 res.status(200).json(getUpdate);
-                prisma.$disconnect()
+                
             } catch (error) {
                 res.status(500).json({message:"server error on update"})
+            }finally{
+                await prisma.$disconnect()
             }
+        }else{
+            await prisma.$disconnect()
+            res.status(400).json({message:"nothing happened"})
         }
         
         

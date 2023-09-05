@@ -14,14 +14,14 @@ type mainDeleteType={
 
 
 const DeleteUpdate = ({post}:mainDeleteType) => {
-    const {users,setUsers}=React.useContext(GeneralContext);
+    const {allUsers,setAllUsers}=React.useContext(GeneralContext);
     const [deleteThis,setDeleteThis]=React.useState<boolean>(false);
     const [publish,setPublish]=React.useState<boolean>(false);
     const [ msg,setMsg]=React.useState<msgType>({loaded:false,msg:""});
 
     const handleDelete= async (e:React.FormEvent<HTMLFormElement>,post:PostDataType)=>{
         e.preventDefault();
-        const csrfToken = await getCsrfToken()
+        const csrfToken= await getCsrfToken();
         if(post){
             const del: deleteType={
                 loaded:true,
@@ -37,22 +37,22 @@ const DeleteUpdate = ({post}:mainDeleteType) => {
                     headers:{
                         "Accept":"application/json",
                         "Content-Type":"application/json",
-                        "X-CSRF-TOKEN":`${csrfToken}`
+                        "X-CSRF-Token":`${csrfToken}`
+                        
                     },
                     body:JSON.stringify(del)
                 }
                 const res= await fetch("/api/posts/admin-del-update",options);
                 if(!res.ok){
                     if(!(res.status ===500)){
-                    const body:{message:string}= await res.json()
-                    setMsg({loaded:false,msg:body.message})
+                    setMsg({loaded:false,msg:"not 500 but something"})
                     }else{
                         setMsg({loaded:false,msg:" server error"})
                     }
                 }
-                const body: PostDataType= await res.json();
+                const body: PostDataType= await res.json() as PostDataType;
                 if(deleteThis){
-                    let user: userType=users.filter(user=>(user.id ===body.userId))[0]
+                    let user: userType=allUsers.filter(user=>(user.id ===body.userId))[0]
                     let remainingPosts:PostDataType[]=user.posts.filter(post=>(post.id !==body.id));
                     let remainingAns:answerType[]=user.answers.filter(ans=>(ans.postId !==body.id))
                     let combinedUser:userType={
@@ -63,8 +63,8 @@ const DeleteUpdate = ({post}:mainDeleteType) => {
                         posts:remainingPosts,
                         answers:remainingAns
                     }
-                    let rmveUsers:userType[]=users.filter(user=>(user.id !==body.userId))
-                    setUsers([...rmveUsers,combinedUser])
+                    let rmveUsers:userType[]=allUsers.filter(user=>(user.id !==body.userId))
+                    setAllUsers([...rmveUsers,combinedUser])
                 }
                 setMsg({loaded:true,msg:`${body.title} was ${del.deleteThis ? "deleted" : " updated"}`});
         }

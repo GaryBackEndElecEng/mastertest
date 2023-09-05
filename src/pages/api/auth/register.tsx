@@ -1,13 +1,14 @@
 import {NextApiRequest,NextApiResponse} from "next";
 import prisma from "@_prisma/client";
+// import {csrf} from "@/csrf";
 import type {userType} from "@component/context/type";
 import {genHash,compToHash} from "@component/context/ultils";
 
-export default async function handler(req:NextApiRequest,res:NextApiResponse){
+async function handler(req:NextApiRequest,res:NextApiResponse){
     if(req.method==="POST"){
         const getBody=req.body;
         const {name,email,password}=getBody;
-        console.log(getBody)
+        
         try {
             const isUser= await prisma.user.upsert({
                 where:{
@@ -32,3 +33,5 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse){
         }
     }
 }
+// export default csrf(handler)
+export default handler

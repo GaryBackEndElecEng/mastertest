@@ -41,7 +41,7 @@ const CreateNewUser = ({setSignin,msg,setMsg,setIsNewUser,isSignin}:mainNewUserT
         throw new Error(" did not register. email and password must be unique")
       }
       const body:userType = await res.json();
-      const tempData:userAccountType = { loaded: true, data: {id:body.id, name: body.name, email: body.email,status:"unauthenticated" } }
+      const tempData:userAccountType = { loaded: true, data: {id:body.id, name: body.name, email: body.email,image:body.image,status:"unauthenticated" } }
       localStorage.setItem("account", JSON.stringify(tempData));
       setAccount(tempData);
       setMsg({ loaded: true, msg: "thank for registering" })
@@ -98,7 +98,7 @@ const CreateNewUser = ({setSignin,msg,setMsg,setIsNewUser,isSignin}:mainNewUserT
           <button className={`m-auto px-4 py-1 border border-blue-600 shadow shadow-blue-600 px-4 py-1 ${isComplete ? "font-bold":"font-normal"}  `} onClick={(e) => handleSubmit(e)}>register</button>
           <button className="m-auto px-4 py-1 shadow shadow-blue-600 px-4 py-1" onClick={(e) => handleSignin(e)}>sign in</button>
         </div>
-        {(msg && msg.msg && account.data) ?
+        {(msg && msg.msg && account && account.data) ?
           <div className="flex flex-col justify-center items-center">
             <div className="text-center text-xl my-3 px-3">{msg.msg}
             </div>

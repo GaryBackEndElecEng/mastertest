@@ -4,7 +4,6 @@ import { ReactSVG } from 'react-svg';
 import StylesSvg from "./country.module.css";
 import Image from 'next/image';
 import { Blob } from 'buffer';
-import {decode as base64_decode, encode as base64_encode} from 'js-base64';
 import {middleware} from '@/components/middleware/middleware';
 
 type SVGType = {

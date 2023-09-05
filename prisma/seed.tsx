@@ -14,7 +14,7 @@ export async function hashKey(pswd:string){
 const prisma = new PrismaClient();
 
 async function main(){
-    const pswd= await hashKey("JamieIs12")
+    const pswd= await hashKey(adminpassword as string)
     const user = await prisma.user.upsert({
         where:{email:adminemail},
         update:{
@@ -23,7 +23,7 @@ async function main(){
         },
         create:{
             email:"masterconnect919@gmail.com",
-            name:"gary Wallace",
+            name:adminuser as string,
             password:pswd
         },
         include:{

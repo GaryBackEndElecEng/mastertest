@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import styles from "./header.module.css";
-import {ThemeProvider} from 'next-themes';
+// import {ThemeProvider} from 'next-themes';
 import ColorBtn from './ColorBtn';
 
 
@@ -11,7 +11,7 @@ const Header = () => {
     const headerImage:string=`${URL}/bg_navada.png`;
     
   return (
-    <ThemeProvider attribute="class">
+    // <ThemeProvider attribute="class">
     <main 
     className={styles.masterHeader}
     style={{backgroundImage:`url(${headerImage})`,zIndex:"0",position:"relative"}}
@@ -31,7 +31,7 @@ const Header = () => {
        </div>
        
     </main>
-    </ThemeProvider>
+    // </ThemeProvider>
   )
 }
 

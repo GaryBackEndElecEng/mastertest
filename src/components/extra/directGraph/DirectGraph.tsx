@@ -1,6 +1,6 @@
 "use client";
 import React,{MouseEvent} from 'react';
-import {ThemeProvider} from 'next-themes'
+// import {ThemeProvider} from 'next-themes'
 import {Grid,Container} from "@mui/material";
 import { attribute as _,Node,Edge } from 'ts-graphviz';
 import GenGraph from './GenGraph';
@@ -46,7 +46,7 @@ const handleonMouseOut=(e:MouseEvent<HTMLDivElement> | undefined)=>{
   setAddExplain(false);
 }
   return (
-    <ThemeProvider attribute="class">
+    // <ThemeProvider attribute="class">
     <Container maxWidth="xl" className="bg-white text-black dark:bg-black dark:text-white ">
       <div className="flex flex-col justify-center items-center">
       <h3 className="text-center text-5xl mx-auto container my-3 mt-4 pt-2">make your own flow chart</h3>
@@ -85,7 +85,7 @@ const handleonMouseOut=(e:MouseEvent<HTMLDivElement> | undefined)=>{
             }
         </Grid>
     </Container>
-    </ThemeProvider>
+    // </ThemeProvider>
   )
 }
 

@@ -1,9 +1,8 @@
 
 import type {NextApiRequest,NextApiResponse} from 'next';
 import prisma from "@_prisma/client";
-import type {DataType,userType} from "@component/context/type";
-import {getServerSession} from "next-auth";
-import authOptions from "@component/context/options";
+import type {DataType,userType,PostDataType,answerType} from "@component/context/type";
+
 
 type messageType={
   message:string
@@ -21,7 +20,7 @@ type messageType={
   
 }
 
-export default async function handle(req:NextApiRequest, res:NextApiResponse<any>) 
+export default async function handle(req:NextApiRequest, res:NextApiResponse) 
 {
   const {postId,userId}=req.query;
   const getPostId= convert(postId);
@@ -65,40 +64,7 @@ export default async function handle(req:NextApiRequest, res:NextApiResponse<any
     }
   }
   
-  if(req.method==="PUT")
-  {
-    
-    try {
-      const getBody:{id:number,title:string,content:string,userId:number,published:boolean}= await req.body;
-      // console.log(getBody)
-      //pull userId from teh session ( next.auth)
-      const isuser=await prisma.user.findUnique({
-        where:{
-          id:getBody.userId,
-        }
-      });
-      if(isuser){
-         await prisma.post.update({
-          where: {
-            id:getBody.id
-          },
-          data: {
-            ...req.body
-          }
-        });
-      }
-      prisma.$disconnect()
-      const getAll = await prisma.post.findMany({
-        where:{
-          userId:getBody.userId
-        }
-      })
-      res.status(200).json(getAll);
-      prisma.$disconnect()
-    } catch (error) {
-      res.status(404).json({message:"did not find your post"})
-    }
-  }
+  
 
   
 }

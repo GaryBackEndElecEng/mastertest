@@ -4,7 +4,27 @@ export type userType={
     name?:string,
     email:string,
     password:string,
+    image?:string,
     posts:PostDataType[],
+    answers:answerType[]
+}
+export type userInfoType={
+    id:number,
+    name:string,
+    email:string,
+    image?:string,
+    password?:string
+}
+export type showType={
+  loaded:boolean,
+  id:number | null
+}
+export type imgUserType={
+    id:number,
+    name?:string,
+    email:string,
+    password:string,
+    posts:imgPostDataType[],
     answers:answerType[]
 }
 export type registerType={
@@ -13,12 +33,16 @@ export type registerType={
     email:string,
     password:string,
 }
+export type testPosts={
+  posts:PostDataType[],
+  answers:answerType[]
+}
 export type DataType ={
     id: number,
     title: string ,
     content: string ,
     answers:answerType[],
-    published?: boolean,
+    published: boolean,
     date?:Date,
     userId: number
   }[]
@@ -26,6 +50,17 @@ export type PostDataType ={
     id: number,
     title: string ,
     content: string,
+    date?: Date,
+    answers:answerType[],
+    published: boolean,
+    userId: number
+    
+  }
+export type imgPostDataType ={
+    id: number,
+    title: string ,
+    content: string,
+    img:string,
     date?: Date,
     answers:answerType[],
     published?: boolean,
@@ -39,6 +74,11 @@ export type loginType={
 export type adminType={
     email:string,
     name?:string
+}
+export type adminDeleteUserType={
+    userId:number,
+    email:string,
+    name:string
 }
 export type loginTypedata={
     data:{email:string,
@@ -62,15 +102,21 @@ export type userAccountType={
       id:number,
     name:string | undefined,
     email:string | undefined,
+    image:string | undefined,
     status: "loading" | "authenticated" | "unauthenticated"
     } | null
   }
   export type answerType={
-    id?:number,
+    id:number,
     answer:string,
     userId:number,
     postId:number,
     date?: Date
+  }
+  export type answerType_2={
+    answer:string,
+    userId:number,
+    postId:number,
   }
   export type ansResponse={
     title:string,

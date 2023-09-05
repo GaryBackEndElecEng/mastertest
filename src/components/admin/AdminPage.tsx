@@ -3,26 +3,24 @@ import React from 'react';
 import MainAdmin from "@component/admin/MainAdmin";
 import {getServerSession} from "next-auth";
 import {useSession} from "next-auth/react";
-import authOptions from "@context/options";
 import {redirect} from "next/navigation";
-import {getCsrfToken} from "next-auth/react";
+// import {getCsrfToken} from "next-auth/react";
 import type {userType,msgType,adminType} from "@component/context/type";
 import {GeneralContext} from "@component/context/GeneralContextProvider";
 
 const AdminPage = () => {
     const {data:session,status}= useSession();
-    const {users,setUsers}=React.useContext(GeneralContext);
+    const {allUsers,setAllUsers}=React.useContext(GeneralContext);
     const adminemail=process.env.NEXT_PUBLIC_adminemail;
     const adminUser=process.env.NEXT_PUBLIC_adminuser;
     const [check,setCheck]=React.useState<boolean>(true);
     const [msg,setMsg]=React.useState<msgType>({loaded:false,msg:""});
     const [data,setdata]=React.useState<userType[]>([]);
     const [adminData,setAdminData]=React.useState<adminType>({name:"",email:""});
-    const [getToken,setGetToken]=React.useState<string | undefined>("");
+    
     
     React.useMemo( async()=>{
-        const csrfToken = await getCsrfToken()
-        setGetToken(csrfToken);
+        
         if(session && session.user && session.user.email && session.user.name){
             const getCheck:boolean=((adminemail===session.user.email) && (adminUser===session.user.name)) ? true:false
             setCheck(getCheck)
@@ -42,7 +40,6 @@ const AdminPage = () => {
                 headers:{
                     "Accept":"application/json",
                     "Content-Type":"application/json",
-                    "X-CSRF-TOKEN":`${getToken}`
                 },
                 body:JSON.stringify(adminData)
             }
@@ -54,12 +51,12 @@ const AdminPage = () => {
                 }
                 const body: userType[]= await res.json();
                 let tempBody:userType[]=body.filter(user=>(user.email !==adminemail))
-                setUsers(tempBody);
+                setAllUsers(tempBody);
         }
-        if(check && adminData && getToken && adminemail){
+        if(check && adminData &&  adminemail){
             getUsers();
         }
-    },[check,adminData,getToken,setUsers,adminemail]);
+    },[check,adminData,setAllUsers,adminemail]);
 
 
 

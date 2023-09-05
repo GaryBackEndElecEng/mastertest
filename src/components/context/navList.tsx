@@ -34,7 +34,7 @@ const directGraph = `${masterImage}/directGraph3.png`;
      {id:10,icon:<InfoIcon sx={{color:"red",ml:1,mr:1,fontSize:"130%"}}/>, name: "translate", image: translate ,link:"/ultils/translate",desc:[{para:"This provides a 40-line line translation to any desired language."}] },
      {id:11,icon:<InfoIcon sx={{color:"red",ml:1,mr:1,fontSize:"130%"}}/>, name: "country detail", image: countries ,link:"/ultils/countries",desc:[{para:"This provides all world country's general information from populations to telephone prefixes."}] },
      {id:12,icon:<InfoIcon sx={{color:"red",ml:1,mr:1,fontSize:"130%"}}/>, name: "techtool", image: techtool ,link:"/ultils/techtool",desc:[{para:"This allows you to verify emails,DNS lookups and domain verification."}] },
-     {id:13,icon:<InfoIcon sx={{color:"red",ml:1,mr:1,fontSize:"130%"}}/>, name: "scraper", image: scrape ,link:"/ultils/scraper",desc:[{para:"This allows you to Scrape a site freely to find what you need."}] },
+     
      {id:14,icon:<ExploreIcon sx={{color:"red",ml:1,mr:1,fontSize:"130%"}}/>, name: "Comments", image: post ,link:"/posts",desc:[{para:" see posts and comments. let us know what you need or drop a comment."},{para:" We check our posts every day and follow through with requests. so let us know and thanks for being with us."}],},
    
 ]
